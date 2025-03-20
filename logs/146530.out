@@ -1,0 +1,31 @@
+[nproc_per_node: 2]
+[nnodes: 1]
+[node_rank: 0]
+[master_addr: 127.0.0.1]
+[master_port: 12348]
+W&B offline. Running your script from this directory will only write metadata locally. Use wandb disabled to completely turn off W&B.
+[tf32] [precis] torch.get_float32_matmul_precision(): high
+[tf32] [ conv ] torch.backends.cudnn.allow_tf32: True
+[tf32] [matmul] torch.backends.cuda.matmul.allow_tf32: True
+[tf32] [precis] torch.get_float32_matmul_precision(): high
+[tf32] [ conv ] torch.backends.cudnn.allow_tf32: True
+[tf32] [matmul] torch.backends.cuda.matmul.allow_tf32: True
+[lrk=0, rk=0]
+[lrk=1, rk=1]
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 120)=> self.dynamic_resolution_across_gpus: 1
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 121)=> self.enable_dynamic_length_prompt: 1
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 122)=> self.buffer_size: 30000
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 149)=> ../RepControlNet/data/canny_laion/infinity_10k/splits/1.000_000010000.jsonl has sufficient examples (10000), proportion: 100.0%, > global workers (16)! Preserve h_div_w_template: 1.000
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 160)=> [data preprocess] split_meta_files
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 185)=> [data preprocess] split_meta_files done
+[03-15 15:44:54] (/dataset_t2i_iterable.py, line 131)=> num_replicas: 2, rank: 0, dataloader_workers: 8, seed:1742024694, samples_div_gpus_workers_batchsize_2batches: 19
+[03-15 15:44:54] (gannh9/Infinity/train.py, line 305)=> args.batch_size=32, vbs=48
+[03-15 15:44:54] (gannh9/Infinity/train.py, line 309)=> len(dataloader): 152, len(dataset): 152, total_samples: 9728
+[03-15 15:44:54] (gannh9/Infinity/train.py, line 310)=> [dataloader] gbs=64, lbs=32, iters_train=152, type(train_set)=T2IIterableDataset
+[03-15 15:44:54] (gannh9/Infinity/train.py, line  74)=> train_h_div_w_list=['1.000']
+[03-15 15:44:54] (gannh9/Infinity/train.py, line  78)=> Load vae form weights/infinity_vae_d32_rdn_short.pth
+[03-15 15:44:55] (y/infinity/utils/load.py, line  73)=> [create gpt_wo_ddp] constructor kw={'pretrained': False, 'global_pool': '', 'text_channels': 2048, 'text_maxlen': 512, 'norm_eps': 1e-06, 'rms_norm': False, 'shared_aln': True, 'head_aln': True, 'cond_drop_rate': 0.1, 'rand_uncond': False, 'drop_rate': 0.0, 'cross_attn_layer_scale': -1, 'nm0': False, 'tau': 1, 'cos_attn': True, 'swiglu': False, 'raw_scale_schedule': None, 'head_depth': 1, 'top_p': 0.0, 'top_k': 0.0, 'customized_flash_attn': False, 'fused_mlp': False, 'fused_norm': False, 'checkpointing': 'full-block', 'pad_to_multiplier': 128, 'use_flex_attn': True, 'batch_size': 32, 'add_lvl_embeding_only_first_block': 1, 'use_bit_label': 1, 'rope2d_each_sa_layer': 1, 'rope2d_normalized_by_hw': 2, 'pn': '0.06M', 'train_h_div_w_list': ['1.000'], 'always_training_scales': 100, 'apply_spatial_patchify': 0, 'use_image_adapter': 1}
+
+[03-15 15:44:55] (y/infinity/utils/load.py, line  77)=> model_str='infinity_2bc8'
+[03-15 15:44:55] (inity/models/infinity.py, line 148)=> self.codebook_dim: 32, self.add_lvl_embeding_only_first_block: 1,             self.use_bit_label: 1, self.rope2d_each_sa_layer: 1, self.rope2d_normalized_by_hw: 2
+[03-15 15:44:55] (inity/models/infinity.py, line 322)=> ====== apply flex attn hdivw: 1.000 scales: 7 ======

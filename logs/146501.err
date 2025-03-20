@@ -1,0 +1,774 @@
++ SINGLE=0
++ ARNOLD_WORKER_NUM=1
++ ARNOLD_ID=0
++ BATCH_SIZE=32
+++ nvidia-smi --query-gpu=index --format=csv,noheader
+++ wc -l
++ NUM_GPUS=1
++ exp_name=version1_trangnvt2_bs32_gpu1
++ nproc_per_node=
++ '[' '!' -z 0 ']'
++ '[' 0 '!=' 0 ']'
++ MASTER_NODE_ID=0
++ nnodes=1
++ node_rank=0
++ master_addr=METIS_WORKER_0_HOST
++ master_addr=
++ master_port=METIS_WORKER_0_PORT
++ master_port=
++ ports=(`echo $master_port | tr ',' ' '`)
+++ echo
+++ tr , ' '
++ master_port=
++ master_addr=127.0.0.1
++ master_port=12347
++ nproc_per_node=1
++ echo '[nproc_per_node: 1]'
++ echo '[nnodes: 1]'
++ echo '[node_rank: 0]'
++ echo '[master_addr: 127.0.0.1]'
++ echo '[master_port: 12347]'
++ export OMP_NUM_THREADS=8
++ OMP_NUM_THREADS=8
++ export NCCL_IB_DISABLE=0
++ NCCL_IB_DISABLE=0
++ export NCCL_IB_GID_INDEX=3
++ NCCL_IB_GID_INDEX=3
++ BED=checkpoints
++ LOCAL_OUT=local_output
++ mkdir -p checkpoints
++ mkdir -p local_output
++ export COMPILE_GAN=0
++ COMPILE_GAN=0
++ export USE_TIMELINE_SDK=1
++ USE_TIMELINE_SDK=1
++ export CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ export CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ wandb offline
++ bed_path=checkpoints/version1_trangnvt2_bs32_gpu1/
++ data_path=../RepControlNet/data/canny_laion/infinity_10k/splits
++ video_data_path=
++ local_out_path=local_output/version1_trangnvt2_bs32_gpu1
++ torchrun --nproc_per_node=1 --nnodes=1 --node_rank=0 --master_addr=127.0.0.1 --master_port=12347 train.py --ep=100 --opt=adamw --cum=3 --sche=lin0 --fp16=2 --ada=0.9_0.97 --tini=-1 --tclip=5 --flash=0 --alng=5e-06 --saln=1 --cos=1 --enable_checkpointing=full-block --local_out_path local_output/version1_trangnvt2_bs32_gpu1 --task_type=t2i --bed=checkpoints/version1_trangnvt2_bs32_gpu1/ --data_path=../RepControlNet/data/canny_laion/infinity_10k/splits --video_data_path= --exp_name=version1_trangnvt2_bs32_gpu1 --tblr=6e-5 --pn 0.06M --model=2bc8 --lbs 32 --workers=8 --short_cap_prob 0.5 --online_t5=1 --use_streaming_dataset 1 --iterable_data_buffersize 30000 --Ct5=2048 --t5_path=google/flan-t5-xl --vae_type 32 --vae_ckpt=weights/infinity_vae_d32_rdn_short.pth --wp 0.00000001 --wpe=1 --dynamic_resolution_across_gpus 1 --enable_dynamic_length_prompt 1 --reweight_loss_by_scale 1 --add_lvl_embeding_only_first_block 1 --rope2d_each_sa_layer 1 --rope2d_normalized_by_hw 2 --use_fsdp_model_ema 0 --always_training_scales 100 --use_bit_label 1 --zero=2 --save_model_iters_freq 100 --log_freq=50 --checkpoint_type=torch --prefetch_factor=16 --noise_apply_strength 0.3 --noise_apply_layers 13 --apply_spatial_patchify 0 --use_flex_attn=True --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --tlr 9e-5
+[W315 03:58:28.674188644 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[rank0]:[W315 03:58:29.039941913 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/Infinity/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1442.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:176: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.pretrained_path, map_location='cpu')
+tokenizer_config.json:   0%|          | 0.00/2.54k [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 2.54k/2.54k [00:00<00:00, 30.6MB/s]
+spiece.model:   0%|          | 0.00/792k [00:00<?, ?B/s]spiece.model: 100%|##########| 792k/792k [00:00<00:00, 2.35MB/s]spiece.model: 100%|##########| 792k/792k [00:00<00:00, 2.35MB/s]
+tokenizer.json:   0%|          | 0.00/2.42M [00:00<?, ?B/s]tokenizer.json: 100%|##########| 2.42M/2.42M [00:01<00:00, 1.52MB/s]tokenizer.json: 100%|##########| 2.42M/2.42M [00:01<00:00, 1.52MB/s]
+special_tokens_map.json:   0%|          | 0.00/2.20k [00:00<?, ?B/s]special_tokens_map.json: 100%|##########| 2.20k/2.20k [00:00<00:00, 31.9MB/s]
+config.json:   0%|          | 0.00/1.44k [00:00<?, ?B/s]config.json: 100%|##########| 1.44k/1.44k [00:00<00:00, 21.2MB/s]
+model.safetensors.index.json:   0%|          | 0.00/53.0k [00:00<?, ?B/s]model.safetensors.index.json: 100%|##########| 53.0k/53.0k [00:00<00:00, 2.51MB/s]
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]
+model-00001-of-00002.safetensors:   0%|          | 0.00/9.45G [00:00<?, ?B/s][A
+model-00001-of-00002.safetensors:   0%|          | 10.5M/9.45G [00:04<1:07:19, 2.34MB/s][A
+model-00001-of-00002.safetensors:   0%|          | 21.0M/9.45G [00:09<1:07:31, 2.33MB/s][A
+model-00001-of-00002.safetensors:   0%|          | 31.5M/9.45G [00:13<1:07:24, 2.33MB/s][A
+model-00001-of-00002.safetensors:   0%|          | 41.9M/9.45G [00:18<1:07:38, 2.32MB/s][A
+model-00001-of-00002.safetensors:   1%|          | 52.4M/9.45G [00:22<1:07:28, 2.32MB/s][A
+model-00001-of-00002.safetensors:   1%|          | 62.9M/9.45G [00:27<1:07:06, 2.33MB/s][A
+model-00001-of-00002.safetensors:   1%|          | 73.4M/9.45G [00:31<1:07:05, 2.33MB/s][A
+model-00001-of-00002.safetensors:   1%|          | 83.9M/9.45G [00:36<1:06:59, 2.33MB/s][A
+model-00001-of-00002.safetensors:   1%|          | 94.4M/9.45G [00:40<1:07:49, 2.30MB/s][A
+model-00001-of-00002.safetensors:   1%|1         | 105M/9.45G [00:45<1:07:03, 2.32MB/s] [A
+model-00001-of-00002.safetensors:   1%|1         | 115M/9.45G [00:49<1:06:48, 2.33MB/s][A
+model-00001-of-00002.safetensors:   1%|1         | 126M/9.45G [00:54<1:06:43, 2.33MB/s][A
+model-00001-of-00002.safetensors:   1%|1         | 136M/9.45G [00:58<1:06:40, 2.33MB/s][A
+model-00001-of-00002.safetensors:   2%|1         | 147M/9.45G [01:03<1:07:03, 2.31MB/s][A
+model-00001-of-00002.safetensors:   2%|1         | 157M/9.45G [01:07<1:06:51, 2.32MB/s][A
+model-00001-of-00002.safetensors:   2%|1         | 168M/9.45G [01:12<1:06:37, 2.32MB/s][A
+model-00001-of-00002.safetensors:   2%|1         | 178M/9.45G [01:16<1:06:28, 2.32MB/s][A
+model-00001-of-00002.safetensors:   2%|1         | 189M/9.45G [01:21<1:06:17, 2.33MB/s][A
+model-00001-of-00002.safetensors:   2%|2         | 199M/9.45G [01:25<1:06:10, 2.33MB/s][A
+model-00001-of-00002.safetensors:   2%|2         | 210M/9.45G [01:30<1:06:21, 2.32MB/s][A
+model-00001-of-00002.safetensors:   2%|2         | 220M/9.45G [01:33<1:02:08, 2.48MB/s][A
+model-00001-of-00002.safetensors:   3%|2         | 241M/9.45G [01:34<33:54, 4.53MB/s]  [A
+model-00001-of-00002.safetensors:   3%|2         | 262M/9.45G [01:34<20:50, 7.35MB/s][A
+model-00001-of-00002.safetensors:   3%|2         | 283M/9.45G [01:34<14:09, 10.8MB/s][A
+model-00001-of-00002.safetensors:   3%|3         | 294M/9.45G [01:34<11:52, 12.8MB/s][A
+model-00001-of-00002.safetensors:   3%|3         | 304M/9.45G [01:34<10:05, 15.1MB/s][A
+model-00001-of-00002.safetensors:   3%|3         | 315M/9.45G [01:35<08:37, 17.7MB/s][A
+model-00001-of-00002.safetensors:   3%|3         | 325M/9.45G [01:35<07:27, 20.4MB/s][A
+model-00001-of-00002.safetensors:   4%|3         | 336M/9.45G [01:35<06:15, 24.2MB/s][A
+model-00001-of-00002.safetensors:   4%|3         | 346M/9.45G [01:35<04:58, 30.5MB/s][A
+model-00001-of-00002.safetensors:   4%|3         | 367M/9.45G [01:36<03:20, 45.4MB/s][A
+model-00001-of-00002.safetensors:   4%|4         | 388M/9.45G [01:36<02:33, 59.0MB/s][A
+model-00001-of-00002.safetensors:   4%|4         | 409M/9.45G [01:36<02:07, 70.8MB/s][A
+model-00001-of-00002.safetensors:   5%|4         | 430M/9.45G [01:36<01:50, 81.8MB/s][A
+model-00001-of-00002.safetensors:   5%|4         | 451M/9.45G [01:36<01:36, 93.0MB/s][A
+model-00001-of-00002.safetensors:   5%|4         | 472M/9.45G [01:37<01:39, 90.6MB/s][A
+model-00001-of-00002.safetensors:   5%|5         | 482M/9.45G [01:37<01:42, 87.7MB/s][A
+model-00001-of-00002.safetensors:   5%|5         | 493M/9.45G [01:37<01:46, 84.2MB/s][A
+model-00001-of-00002.safetensors:   5%|5         | 503M/9.45G [01:37<01:50, 80.6MB/s][A
+model-00001-of-00002.safetensors:   5%|5         | 514M/9.45G [01:37<01:51, 80.5MB/s][A
+model-00001-of-00002.safetensors:   6%|5         | 535M/9.45G [01:37<01:43, 85.8MB/s][A
+model-00001-of-00002.safetensors:   6%|5         | 545M/9.45G [01:37<01:43, 85.7MB/s][A
+model-00001-of-00002.safetensors:   6%|5         | 566M/9.45G [01:38<01:28, 100MB/s] [A
+model-00001-of-00002.safetensors:   6%|6         | 587M/9.45G [01:38<01:21, 109MB/s][A
+model-00001-of-00002.safetensors:   6%|6         | 608M/9.45G [01:38<01:17, 114MB/s][A
+model-00001-of-00002.safetensors:   7%|6         | 629M/9.45G [01:38<01:13, 120MB/s][A
+model-00001-of-00002.safetensors:   7%|6         | 650M/9.45G [01:38<01:11, 123MB/s][A
+model-00001-of-00002.safetensors:   7%|7         | 671M/9.45G [01:38<01:10, 125MB/s][A
+model-00001-of-00002.safetensors:   7%|7         | 692M/9.45G [01:39<01:09, 127MB/s][A
+model-00001-of-00002.safetensors:   8%|7         | 713M/9.45G [01:39<01:08, 128MB/s][A
+model-00001-of-00002.safetensors:   8%|7         | 734M/9.45G [01:39<01:07, 128MB/s][A
+model-00001-of-00002.safetensors:   8%|7         | 755M/9.45G [01:39<01:07, 129MB/s][A
+model-00001-of-00002.safetensors:   8%|8         | 776M/9.45G [01:39<01:07, 129MB/s][A
+model-00001-of-00002.safetensors:   8%|8         | 797M/9.45G [01:39<01:06, 130MB/s][A
+model-00001-of-00002.safetensors:   9%|8         | 818M/9.45G [01:40<01:06, 130MB/s][A
+model-00001-of-00002.safetensors:   9%|8         | 839M/9.45G [01:40<01:06, 130MB/s][A
+model-00001-of-00002.safetensors:   9%|9         | 860M/9.45G [01:40<01:06, 130MB/s][A
+model-00001-of-00002.safetensors:   9%|9         | 881M/9.45G [01:40<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  10%|9         | 902M/9.45G [01:40<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  10%|9         | 923M/9.45G [01:40<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  10%|9         | 944M/9.45G [01:40<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  10%|#         | 965M/9.45G [01:41<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  10%|#         | 986M/9.45G [01:41<01:05, 130MB/s][A
+model-00001-of-00002.safetensors:  11%|#         | 1.01G/9.45G [01:41<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  11%|#         | 1.03G/9.45G [01:41<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  11%|#1        | 1.05G/9.45G [01:41<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  11%|#1        | 1.07G/9.45G [01:41<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  12%|#1        | 1.09G/9.45G [01:42<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  12%|#1        | 1.11G/9.45G [01:42<01:04, 130MB/s][A
+model-00001-of-00002.safetensors:  12%|#1        | 1.13G/9.45G [01:42<01:05, 127MB/s][A
+model-00001-of-00002.safetensors:  12%|#2        | 1.15G/9.45G [01:42<01:03, 131MB/s][A
+model-00001-of-00002.safetensors:  12%|#2        | 1.17G/9.45G [01:42<01:03, 131MB/s][A
+model-00001-of-00002.safetensors:  13%|#2        | 1.20G/9.45G [01:42<01:03, 130MB/s][A
+model-00001-of-00002.safetensors:  13%|#2        | 1.22G/9.45G [01:43<01:03, 130MB/s][A
+model-00001-of-00002.safetensors:  13%|#3        | 1.24G/9.45G [01:43<01:03, 130MB/s][A
+model-00001-of-00002.safetensors:  13%|#3        | 1.26G/9.45G [01:43<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  14%|#3        | 1.28G/9.45G [01:43<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  14%|#3        | 1.30G/9.45G [01:43<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  14%|#3        | 1.32G/9.45G [01:43<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  14%|#4        | 1.34G/9.45G [01:44<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  14%|#4        | 1.36G/9.45G [01:44<01:02, 130MB/s][A
+model-00001-of-00002.safetensors:  15%|#4        | 1.38G/9.45G [01:44<01:25, 93.9MB/s][A
+model-00001-of-00002.safetensors:  15%|#4        | 1.41G/9.45G [01:44<01:17, 104MB/s] [A
+model-00001-of-00002.safetensors:  15%|#5        | 1.43G/9.45G [01:44<01:12, 111MB/s][A
+model-00001-of-00002.safetensors:  15%|#5        | 1.45G/9.45G [01:45<01:09, 116MB/s][A
+model-00001-of-00002.safetensors:  16%|#5        | 1.47G/9.45G [01:45<01:06, 120MB/s][A
+model-00001-of-00002.safetensors:  16%|#5        | 1.49G/9.45G [01:45<01:04, 123MB/s][A
+model-00001-of-00002.safetensors:  16%|#5        | 1.51G/9.45G [01:45<01:03, 125MB/s][A
+model-00001-of-00002.safetensors:  16%|#6        | 1.53G/9.45G [01:45<01:02, 126MB/s][A
+model-00001-of-00002.safetensors:  16%|#6        | 1.55G/9.45G [01:45<01:02, 127MB/s][A
+model-00001-of-00002.safetensors:  17%|#6        | 1.57G/9.45G [01:46<01:01, 128MB/s][A
+model-00001-of-00002.safetensors:  17%|#6        | 1.59G/9.45G [01:46<01:01, 129MB/s][A
+model-00001-of-00002.safetensors:  17%|#7        | 1.61G/9.45G [01:46<01:00, 129MB/s][A
+model-00001-of-00002.safetensors:  17%|#7        | 1.64G/9.45G [01:46<01:00, 129MB/s][A
+model-00001-of-00002.safetensors:  18%|#7        | 1.66G/9.45G [01:46<01:00, 129MB/s][A
+model-00001-of-00002.safetensors:  18%|#7        | 1.68G/9.45G [01:46<01:00, 128MB/s][A
+model-00001-of-00002.safetensors:  18%|#7        | 1.70G/9.45G [01:47<01:00, 129MB/s][A
+model-00001-of-00002.safetensors:  18%|#8        | 1.72G/9.45G [01:47<01:00, 129MB/s][A
+model-00001-of-00002.safetensors:  18%|#8        | 1.74G/9.45G [01:47<01:00, 128MB/s][A
+model-00001-of-00002.safetensors:  19%|#8        | 1.76G/9.45G [01:47<01:00, 128MB/s][A
+model-00001-of-00002.safetensors:  19%|#8        | 1.78G/9.45G [01:47<00:59, 130MB/s][A
+model-00001-of-00002.safetensors:  19%|#9        | 1.80G/9.45G [01:47<00:58, 130MB/s][A
+model-00001-of-00002.safetensors:  19%|#9        | 1.82G/9.45G [01:47<00:59, 129MB/s][A
+model-00001-of-00002.safetensors:  20%|#9        | 1.85G/9.45G [01:48<00:58, 130MB/s][A
+model-00001-of-00002.safetensors:  20%|#9        | 1.87G/9.45G [01:48<00:58, 130MB/s][A
+model-00001-of-00002.safetensors:  20%|#9        | 1.89G/9.45G [01:48<00:58, 130MB/s][A
+model-00001-of-00002.safetensors:  20%|##        | 1.91G/9.45G [01:48<00:58, 130MB/s][A
+model-00001-of-00002.safetensors:  20%|##        | 1.93G/9.45G [01:48<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  21%|##        | 1.95G/9.45G [01:48<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  21%|##        | 1.97G/9.45G [01:49<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  21%|##1       | 1.99G/9.45G [01:49<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  21%|##1       | 2.01G/9.45G [01:49<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  22%|##1       | 2.03G/9.45G [01:49<00:57, 130MB/s][A
+model-00001-of-00002.safetensors:  22%|##1       | 2.06G/9.45G [01:49<00:57, 129MB/s][A
+model-00001-of-00002.safetensors:  22%|##1       | 2.08G/9.45G [01:49<00:56, 130MB/s][A
+model-00001-of-00002.safetensors:  22%|##2       | 2.10G/9.45G [01:50<00:56, 130MB/s][A
+model-00001-of-00002.safetensors:  22%|##2       | 2.12G/9.45G [01:50<00:56, 130MB/s][A
+model-00001-of-00002.safetensors:  23%|##2       | 2.14G/9.45G [01:50<00:56, 130MB/s][A
+model-00001-of-00002.safetensors:  23%|##2       | 2.16G/9.45G [01:50<00:56, 130MB/s][A
+model-00001-of-00002.safetensors:  23%|##3       | 2.18G/9.45G [01:50<00:55, 130MB/s][A
+model-00001-of-00002.safetensors:  23%|##3       | 2.20G/9.45G [01:50<00:55, 130MB/s][A
+model-00001-of-00002.safetensors:  24%|##3       | 2.22G/9.45G [01:51<00:55, 130MB/s][A
+model-00001-of-00002.safetensors:  24%|##3       | 2.24G/9.45G [01:51<00:55, 130MB/s][A
+model-00001-of-00002.safetensors:  24%|##3       | 2.26G/9.45G [01:51<00:55, 130MB/s][A
+model-00001-of-00002.safetensors:  24%|##4       | 2.29G/9.45G [01:51<01:02, 115MB/s][A
+model-00001-of-00002.safetensors:  24%|##4       | 2.31G/9.45G [01:51<01:08, 104MB/s][A
+model-00001-of-00002.safetensors:  25%|##4       | 2.33G/9.45G [01:52<01:10, 100MB/s][A
+model-00001-of-00002.safetensors:  25%|##4       | 2.35G/9.45G [01:52<01:11, 99.5MB/s][A
+model-00001-of-00002.safetensors:  25%|##5       | 2.37G/9.45G [01:52<01:15, 93.9MB/s][A
+model-00001-of-00002.safetensors:  25%|##5       | 2.39G/9.45G [01:52<01:16, 92.5MB/s][A
+model-00001-of-00002.safetensors:  26%|##5       | 2.41G/9.45G [01:53<01:17, 90.8MB/s][A
+model-00001-of-00002.safetensors:  26%|##5       | 2.43G/9.45G [01:53<01:15, 92.7MB/s][A
+model-00001-of-00002.safetensors:  26%|##5       | 2.45G/9.45G [01:53<01:18, 89.5MB/s][A
+model-00001-of-00002.safetensors:  26%|##6       | 2.47G/9.45G [01:53<01:18, 88.9MB/s][A
+model-00001-of-00002.safetensors:  26%|##6       | 2.50G/9.45G [01:53<01:06, 104MB/s] [A
+model-00001-of-00002.safetensors:  27%|##6       | 2.52G/9.45G [01:54<01:14, 92.6MB/s][A
+model-00001-of-00002.safetensors:  27%|##6       | 2.53G/9.45G [01:54<01:22, 83.4MB/s][A
+model-00001-of-00002.safetensors:  27%|##6       | 2.55G/9.45G [01:54<01:18, 88.3MB/s][A
+model-00001-of-00002.safetensors:  27%|##7       | 2.57G/9.45G [01:54<01:06, 104MB/s] [A
+model-00001-of-00002.safetensors:  27%|##7       | 2.59G/9.45G [01:54<01:10, 97.1MB/s][A
+model-00001-of-00002.safetensors:  28%|##7       | 2.60G/9.45G [01:55<01:19, 85.9MB/s][A
+model-00001-of-00002.safetensors:  28%|##7       | 2.62G/9.45G [01:55<01:06, 103MB/s] [A
+model-00001-of-00002.safetensors:  28%|##7       | 2.64G/9.45G [01:55<01:01, 111MB/s][A
+model-00001-of-00002.safetensors:  28%|##8       | 2.66G/9.45G [01:55<00:58, 116MB/s][A
+model-00001-of-00002.safetensors:  28%|##8       | 2.68G/9.45G [01:55<00:56, 120MB/s][A
+model-00001-of-00002.safetensors:  29%|##8       | 2.71G/9.45G [01:55<00:54, 123MB/s][A
+model-00001-of-00002.safetensors:  29%|##8       | 2.73G/9.45G [01:56<00:53, 125MB/s][A
+model-00001-of-00002.safetensors:  29%|##9       | 2.75G/9.45G [01:56<00:52, 127MB/s][A
+model-00001-of-00002.safetensors:  29%|##9       | 2.77G/9.45G [01:56<00:52, 128MB/s][A
+model-00001-of-00002.safetensors:  30%|##9       | 2.79G/9.45G [01:56<00:51, 128MB/s][A
+model-00001-of-00002.safetensors:  30%|##9       | 2.81G/9.45G [01:56<00:51, 129MB/s][A
+model-00001-of-00002.safetensors:  30%|##9       | 2.83G/9.45G [01:57<01:10, 93.9MB/s][A
+model-00001-of-00002.safetensors:  30%|###       | 2.85G/9.45G [01:57<01:03, 104MB/s] [A
+model-00001-of-00002.safetensors:  30%|###       | 2.87G/9.45G [01:57<00:59, 110MB/s][A
+model-00001-of-00002.safetensors:  31%|###       | 2.89G/9.45G [01:57<00:56, 116MB/s][A
+model-00001-of-00002.safetensors:  31%|###       | 2.92G/9.45G [01:57<00:54, 119MB/s][A
+model-00001-of-00002.safetensors:  31%|###1      | 2.94G/9.45G [01:57<00:53, 123MB/s][A
+model-00001-of-00002.safetensors:  31%|###1      | 2.96G/9.45G [01:57<00:52, 124MB/s][A
+model-00001-of-00002.safetensors:  32%|###1      | 2.98G/9.45G [01:58<00:51, 126MB/s][A
+model-00001-of-00002.safetensors:  32%|###1      | 3.00G/9.45G [01:58<00:50, 127MB/s][A
+model-00001-of-00002.safetensors:  32%|###1      | 3.02G/9.45G [01:58<00:49, 129MB/s][A
+model-00001-of-00002.safetensors:  32%|###2      | 3.04G/9.45G [01:58<00:49, 129MB/s][A
+model-00001-of-00002.safetensors:  32%|###2      | 3.06G/9.45G [01:58<00:49, 129MB/s][A
+model-00001-of-00002.safetensors:  33%|###2      | 3.08G/9.45G [01:58<00:49, 129MB/s][A
+model-00001-of-00002.safetensors:  33%|###2      | 3.10G/9.45G [01:59<00:48, 130MB/s][A
+model-00001-of-00002.safetensors:  33%|###3      | 3.12G/9.45G [01:59<00:48, 130MB/s][A
+model-00001-of-00002.safetensors:  33%|###3      | 3.15G/9.45G [01:59<00:48, 130MB/s][A
+model-00001-of-00002.safetensors:  34%|###3      | 3.17G/9.45G [01:59<00:48, 130MB/s][A
+model-00001-of-00002.safetensors:  34%|###3      | 3.19G/9.45G [01:59<00:48, 130MB/s][A
+model-00001-of-00002.safetensors:  34%|###3      | 3.21G/9.45G [01:59<00:47, 130MB/s][A
+model-00001-of-00002.safetensors:  34%|###4      | 3.23G/9.45G [02:00<00:48, 129MB/s][A
+model-00001-of-00002.safetensors:  34%|###4      | 3.25G/9.45G [02:00<00:47, 130MB/s][A
+model-00001-of-00002.safetensors:  35%|###4      | 3.27G/9.45G [02:00<00:47, 130MB/s][A
+model-00001-of-00002.safetensors:  35%|###4      | 3.29G/9.45G [02:00<00:47, 130MB/s][A
+model-00001-of-00002.safetensors:  35%|###5      | 3.31G/9.45G [02:00<00:47, 129MB/s][A
+model-00001-of-00002.safetensors:  35%|###5      | 3.33G/9.45G [02:00<00:46, 130MB/s][A
+model-00001-of-00002.safetensors:  36%|###5      | 3.36G/9.45G [02:01<00:46, 130MB/s][A
+model-00001-of-00002.safetensors:  36%|###5      | 3.38G/9.45G [02:01<00:46, 130MB/s][A
+model-00001-of-00002.safetensors:  36%|###5      | 3.40G/9.45G [02:01<00:46, 130MB/s][A
+model-00001-of-00002.safetensors:  36%|###6      | 3.42G/9.45G [02:01<00:46, 130MB/s][A
+model-00001-of-00002.safetensors:  36%|###6      | 3.44G/9.45G [02:01<00:47, 126MB/s][A
+model-00001-of-00002.safetensors:  37%|###6      | 3.46G/9.45G [02:01<00:45, 132MB/s][A
+model-00001-of-00002.safetensors:  37%|###6      | 3.48G/9.45G [02:02<00:45, 131MB/s][A
+model-00001-of-00002.safetensors:  37%|###7      | 3.50G/9.45G [02:02<00:45, 131MB/s][A
+model-00001-of-00002.safetensors:  37%|###7      | 3.52G/9.45G [02:02<00:45, 130MB/s][A
+model-00001-of-00002.safetensors:  38%|###7      | 3.54G/9.45G [02:02<00:45, 131MB/s][A
+model-00001-of-00002.safetensors:  38%|###7      | 3.57G/9.45G [02:02<00:45, 129MB/s][A
+model-00001-of-00002.safetensors:  38%|###7      | 3.59G/9.45G [02:02<00:44, 131MB/s][A
+model-00001-of-00002.safetensors:  38%|###8      | 3.61G/9.45G [02:02<00:45, 129MB/s][A
+model-00001-of-00002.safetensors:  38%|###8      | 3.63G/9.45G [02:03<00:45, 128MB/s][A
+model-00001-of-00002.safetensors:  39%|###8      | 3.65G/9.45G [02:03<00:44, 130MB/s][A
+model-00001-of-00002.safetensors:  39%|###8      | 3.67G/9.45G [02:03<00:43, 132MB/s][A
+model-00001-of-00002.safetensors:  39%|###9      | 3.69G/9.45G [02:03<00:43, 131MB/s][A
+model-00001-of-00002.safetensors:  39%|###9      | 3.71G/9.45G [02:03<00:43, 131MB/s][A
+model-00001-of-00002.safetensors:  40%|###9      | 3.73G/9.45G [02:03<00:43, 131MB/s][A
+model-00001-of-00002.safetensors:  40%|###9      | 3.75G/9.45G [02:04<00:43, 130MB/s][A
+model-00001-of-00002.safetensors:  40%|###9      | 3.77G/9.45G [02:04<00:43, 130MB/s][A
+model-00001-of-00002.safetensors:  40%|####      | 3.80G/9.45G [02:04<00:43, 130MB/s][A
+model-00001-of-00002.safetensors:  40%|####      | 3.82G/9.45G [02:04<00:44, 127MB/s][A
+model-00001-of-00002.safetensors:  41%|####      | 3.84G/9.45G [02:04<00:42, 131MB/s][A
+model-00001-of-00002.safetensors:  41%|####      | 3.86G/9.45G [02:04<00:42, 131MB/s][A
+model-00001-of-00002.safetensors:  41%|####1     | 3.88G/9.45G [02:05<00:42, 131MB/s][A
+model-00001-of-00002.safetensors:  41%|####1     | 3.90G/9.45G [02:05<00:42, 130MB/s][A
+model-00001-of-00002.safetensors:  42%|####1     | 3.92G/9.45G [02:05<00:42, 130MB/s][A
+model-00001-of-00002.safetensors:  42%|####1     | 3.94G/9.45G [02:05<00:42, 130MB/s][A
+model-00001-of-00002.safetensors:  42%|####1     | 3.96G/9.45G [02:05<00:42, 130MB/s][A
+model-00001-of-00002.safetensors:  42%|####2     | 3.98G/9.45G [02:05<00:42, 130MB/s][A
+model-00001-of-00002.safetensors:  42%|####2     | 4.01G/9.45G [02:06<00:41, 130MB/s][A
+model-00001-of-00002.safetensors:  43%|####2     | 4.03G/9.45G [02:06<00:41, 130MB/s][A
+model-00001-of-00002.safetensors:  43%|####2     | 4.05G/9.45G [02:06<00:41, 130MB/s][A
+model-00001-of-00002.safetensors:  43%|####3     | 4.07G/9.45G [02:06<00:41, 130MB/s][A
+model-00001-of-00002.safetensors:  43%|####3     | 4.09G/9.45G [02:06<00:41, 129MB/s][A
+model-00001-of-00002.safetensors:  43%|####3     | 4.11G/9.45G [02:06<00:40, 131MB/s][A
+model-00001-of-00002.safetensors:  44%|####3     | 4.13G/9.45G [02:07<00:40, 130MB/s][A
+model-00001-of-00002.safetensors:  44%|####3     | 4.15G/9.45G [02:07<00:40, 130MB/s][A
+model-00001-of-00002.safetensors:  44%|####4     | 4.17G/9.45G [02:07<00:40, 130MB/s][A
+model-00001-of-00002.safetensors:  44%|####4     | 4.19G/9.45G [02:07<00:41, 126MB/s][A
+model-00001-of-00002.safetensors:  45%|####4     | 4.22G/9.45G [02:07<00:40, 129MB/s][A
+model-00001-of-00002.safetensors:  45%|####4     | 4.24G/9.45G [02:07<00:40, 130MB/s][A
+model-00001-of-00002.safetensors:  45%|####5     | 4.26G/9.45G [02:07<00:40, 130MB/s][A
+model-00001-of-00002.safetensors:  45%|####5     | 4.28G/9.45G [02:08<00:39, 130MB/s][A
+model-00001-of-00002.safetensors:  45%|####5     | 4.30G/9.45G [02:08<00:39, 130MB/s][A
+model-00001-of-00002.safetensors:  46%|####5     | 4.32G/9.45G [02:08<00:39, 130MB/s][A
+model-00001-of-00002.safetensors:  46%|####5     | 4.34G/9.45G [02:08<00:39, 130MB/s][A
+model-00001-of-00002.safetensors:  46%|####6     | 4.36G/9.45G [02:08<00:39, 130MB/s][A
+model-00001-of-00002.safetensors:  46%|####6     | 4.38G/9.45G [02:08<00:39, 129MB/s][A
+model-00001-of-00002.safetensors:  47%|####6     | 4.40G/9.45G [02:09<00:38, 130MB/s][A
+model-00001-of-00002.safetensors:  47%|####6     | 4.42G/9.45G [02:09<00:38, 130MB/s][A
+model-00001-of-00002.safetensors:  47%|####7     | 4.45G/9.45G [02:09<00:38, 130MB/s][A
+model-00001-of-00002.safetensors:  47%|####7     | 4.47G/9.45G [02:09<00:38, 130MB/s][A
+model-00001-of-00002.safetensors:  47%|####7     | 4.49G/9.45G [02:09<00:38, 129MB/s][A
+model-00001-of-00002.safetensors:  48%|####7     | 4.51G/9.45G [02:09<00:38, 130MB/s][A
+model-00001-of-00002.safetensors:  48%|####7     | 4.53G/9.45G [02:10<00:37, 130MB/s][A
+model-00001-of-00002.safetensors:  48%|####8     | 4.55G/9.45G [02:10<00:37, 130MB/s][A
+model-00001-of-00002.safetensors:  48%|####8     | 4.57G/9.45G [02:10<00:38, 127MB/s][A
+model-00001-of-00002.safetensors:  49%|####8     | 4.59G/9.45G [02:10<00:37, 130MB/s][A
+model-00001-of-00002.safetensors:  49%|####8     | 4.61G/9.45G [02:10<00:37, 130MB/s][A
+model-00001-of-00002.safetensors:  49%|####9     | 4.63G/9.45G [02:10<00:37, 130MB/s][A
+model-00001-of-00002.safetensors:  49%|####9     | 4.66G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  49%|####9     | 4.68G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  50%|####9     | 4.70G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  50%|####9     | 4.72G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  50%|#####     | 4.74G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  50%|#####     | 4.76G/9.45G [02:11<00:36, 130MB/s][A
+model-00001-of-00002.safetensors:  51%|#####     | 4.78G/9.45G [02:12<00:36, 129MB/s][A
+model-00001-of-00002.safetensors:  51%|#####     | 4.80G/9.45G [02:12<00:36, 128MB/s][A
+model-00001-of-00002.safetensors:  51%|#####1    | 4.82G/9.45G [02:12<00:35, 130MB/s][A
+model-00001-of-00002.safetensors:  51%|#####1    | 4.84G/9.45G [02:12<00:35, 130MB/s][A
+model-00001-of-00002.safetensors:  51%|#####1    | 4.87G/9.45G [02:12<00:35, 130MB/s][A
+model-00001-of-00002.safetensors:  52%|#####1    | 4.89G/9.45G [02:12<00:35, 130MB/s][A
+model-00001-of-00002.safetensors:  52%|#####1    | 4.91G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  52%|#####2    | 4.93G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  52%|#####2    | 4.95G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  53%|#####2    | 4.97G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  53%|#####2    | 4.99G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  53%|#####3    | 5.01G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  53%|#####3    | 5.03G/9.45G [02:13<00:34, 130MB/s][A
+model-00001-of-00002.safetensors:  53%|#####3    | 5.05G/9.45G [02:14<00:33, 130MB/s][A
+model-00001-of-00002.safetensors:  54%|#####3    | 5.08G/9.45G [02:14<00:33, 130MB/s][A
+model-00001-of-00002.safetensors:  54%|#####3    | 5.10G/9.45G [02:14<00:46, 94.2MB/s][A
+model-00001-of-00002.safetensors:  54%|#####4    | 5.12G/9.45G [02:14<00:41, 103MB/s] [A
+model-00001-of-00002.safetensors:  54%|#####4    | 5.14G/9.45G [02:14<00:39, 110MB/s][A
+model-00001-of-00002.safetensors:  55%|#####4    | 5.16G/9.45G [02:15<00:37, 115MB/s][A
+model-00001-of-00002.safetensors:  55%|#####4    | 5.18G/9.45G [02:15<00:36, 118MB/s][A
+model-00001-of-00002.safetensors:  55%|#####5    | 5.20G/9.45G [02:15<00:34, 122MB/s][A
+model-00001-of-00002.safetensors:  55%|#####5    | 5.22G/9.45G [02:15<00:34, 124MB/s][A
+model-00001-of-00002.safetensors:  55%|#####5    | 5.24G/9.45G [02:15<00:33, 126MB/s][A
+model-00001-of-00002.safetensors:  56%|#####5    | 5.26G/9.45G [02:15<00:32, 127MB/s][A
+model-00001-of-00002.safetensors:  56%|#####5    | 5.28G/9.45G [02:16<00:35, 118MB/s][A
+model-00001-of-00002.safetensors:  56%|#####6    | 5.31G/9.45G [02:16<00:41, 99.2MB/s][A
+model-00001-of-00002.safetensors:  56%|#####6    | 5.33G/9.45G [02:16<00:42, 97.9MB/s][A
+model-00001-of-00002.safetensors:  57%|#####6    | 5.35G/9.45G [02:16<00:42, 97.2MB/s][A
+model-00001-of-00002.safetensors:  57%|#####6    | 5.37G/9.45G [02:17<00:42, 96.4MB/s][A
+model-00001-of-00002.safetensors:  57%|#####6    | 5.38G/9.45G [02:17<00:45, 89.2MB/s][A
+model-00001-of-00002.safetensors:  57%|#####7    | 5.40G/9.45G [02:17<00:42, 94.9MB/s][A
+model-00001-of-00002.safetensors:  57%|#####7    | 5.42G/9.45G [02:17<00:41, 97.4MB/s][A
+model-00001-of-00002.safetensors:  58%|#####7    | 5.44G/9.45G [02:17<00:42, 93.3MB/s][A
+model-00001-of-00002.safetensors:  58%|#####7    | 5.46G/9.45G [02:18<00:41, 96.9MB/s][A
+model-00001-of-00002.safetensors:  58%|#####8    | 5.48G/9.45G [02:18<00:36, 110MB/s] [A
+model-00001-of-00002.safetensors:  58%|#####8    | 5.51G/9.45G [02:18<00:41, 94.6MB/s][A
+model-00001-of-00002.safetensors:  58%|#####8    | 5.53G/9.45G [02:18<00:40, 97.2MB/s][A
+model-00001-of-00002.safetensors:  59%|#####8    | 5.55G/9.45G [02:18<00:39, 99.3MB/s][A
+model-00001-of-00002.safetensors:  59%|#####8    | 5.57G/9.45G [02:19<00:35, 109MB/s] [A
+model-00001-of-00002.safetensors:  59%|#####9    | 5.59G/9.45G [02:19<00:33, 115MB/s][A
+model-00001-of-00002.safetensors:  59%|#####9    | 5.61G/9.45G [02:19<00:32, 118MB/s][A
+model-00001-of-00002.safetensors:  60%|#####9    | 5.63G/9.45G [02:19<00:31, 122MB/s][A
+model-00001-of-00002.safetensors:  60%|#####9    | 5.65G/9.45G [02:19<00:30, 124MB/s][A
+model-00001-of-00002.safetensors:  60%|######    | 5.67G/9.45G [02:19<00:29, 126MB/s][A
+model-00001-of-00002.safetensors:  60%|######    | 5.69G/9.45G [02:20<00:29, 127MB/s][A
+model-00001-of-00002.safetensors:  60%|######    | 5.71G/9.45G [02:20<00:29, 128MB/s][A
+model-00001-of-00002.safetensors:  61%|######    | 5.74G/9.45G [02:20<00:28, 129MB/s][A
+model-00001-of-00002.safetensors:  61%|######    | 5.76G/9.45G [02:20<00:28, 129MB/s][A
+model-00001-of-00002.safetensors:  61%|######1   | 5.78G/9.45G [02:20<00:28, 129MB/s][A
+model-00001-of-00002.safetensors:  61%|######1   | 5.80G/9.45G [02:20<00:28, 130MB/s][A
+model-00001-of-00002.safetensors:  62%|######1   | 5.82G/9.45G [02:21<00:28, 130MB/s][A
+model-00001-of-00002.safetensors:  62%|######1   | 5.84G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  62%|######2   | 5.86G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  62%|######2   | 5.88G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  62%|######2   | 5.90G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  63%|######2   | 5.92G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  63%|######2   | 5.95G/9.45G [02:21<00:27, 130MB/s][A
+model-00001-of-00002.safetensors:  63%|######3   | 5.97G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  63%|######3   | 5.99G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  64%|######3   | 6.01G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  64%|######3   | 6.03G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  64%|######4   | 6.05G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  64%|######4   | 6.07G/9.45G [02:22<00:26, 130MB/s][A
+model-00001-of-00002.safetensors:  64%|######4   | 6.09G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  65%|######4   | 6.11G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  65%|######4   | 6.13G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  65%|######5   | 6.16G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  65%|######5   | 6.18G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  66%|######5   | 6.20G/9.45G [02:23<00:25, 130MB/s][A
+model-00001-of-00002.safetensors:  66%|######5   | 6.22G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  66%|######6   | 6.24G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  66%|######6   | 6.26G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  66%|######6   | 6.28G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  67%|######6   | 6.30G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  67%|######6   | 6.32G/9.45G [02:24<00:24, 130MB/s][A
+model-00001-of-00002.safetensors:  67%|######7   | 6.34G/9.45G [02:25<00:23, 130MB/s][A
+model-00001-of-00002.safetensors:  67%|######7   | 6.36G/9.45G [02:25<00:32, 94.5MB/s][A
+model-00001-of-00002.safetensors:  68%|######7   | 6.39G/9.45G [02:25<00:29, 103MB/s] [A
+model-00001-of-00002.safetensors:  68%|######7   | 6.41G/9.45G [02:25<00:27, 110MB/s][A
+model-00001-of-00002.safetensors:  68%|######8   | 6.43G/9.45G [02:25<00:26, 115MB/s][A
+model-00001-of-00002.safetensors:  68%|######8   | 6.45G/9.45G [02:26<00:25, 119MB/s][A
+model-00001-of-00002.safetensors:  68%|######8   | 6.47G/9.45G [02:26<00:24, 122MB/s][A
+model-00001-of-00002.safetensors:  69%|######8   | 6.49G/9.45G [02:26<00:23, 125MB/s][A
+model-00001-of-00002.safetensors:  69%|######8   | 6.51G/9.45G [02:26<00:23, 126MB/s][A
+model-00001-of-00002.safetensors:  69%|######9   | 6.53G/9.45G [02:26<00:22, 127MB/s][A
+model-00001-of-00002.safetensors:  69%|######9   | 6.55G/9.45G [02:26<00:22, 128MB/s][A
+model-00001-of-00002.safetensors:  70%|######9   | 6.57G/9.45G [02:27<00:22, 129MB/s][A
+model-00001-of-00002.safetensors:  70%|######9   | 6.60G/9.45G [02:27<00:22, 129MB/s][A
+model-00001-of-00002.safetensors:  70%|#######   | 6.62G/9.45G [02:27<00:21, 129MB/s][A
+model-00001-of-00002.safetensors:  70%|#######   | 6.64G/9.45G [02:27<00:21, 130MB/s][A
+model-00001-of-00002.safetensors:  70%|#######   | 6.66G/9.45G [02:27<00:21, 130MB/s][A
+model-00001-of-00002.safetensors:  71%|#######   | 6.68G/9.45G [02:27<00:21, 129MB/s][A
+model-00001-of-00002.safetensors:  71%|#######   | 6.70G/9.45G [02:28<00:21, 130MB/s][A
+model-00001-of-00002.safetensors:  71%|#######1  | 6.72G/9.45G [02:28<00:21, 130MB/s][A
+model-00001-of-00002.safetensors:  71%|#######1  | 6.74G/9.45G [02:28<00:20, 130MB/s][A
+model-00001-of-00002.safetensors:  72%|#######1  | 6.76G/9.45G [02:28<00:20, 129MB/s][A
+model-00001-of-00002.safetensors:  72%|#######1  | 6.78G/9.45G [02:28<00:20, 130MB/s][A
+model-00001-of-00002.safetensors:  72%|#######2  | 6.81G/9.45G [02:28<00:20, 130MB/s][A
+model-00001-of-00002.safetensors:  72%|#######2  | 6.83G/9.45G [02:28<00:20, 130MB/s][A
+model-00001-of-00002.safetensors:  72%|#######2  | 6.85G/9.45G [02:29<00:20, 130MB/s][A
+model-00001-of-00002.safetensors:  73%|#######2  | 6.87G/9.45G [02:29<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  73%|#######2  | 6.89G/9.45G [02:29<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  73%|#######3  | 6.91G/9.45G [02:29<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  73%|#######3  | 6.93G/9.45G [02:29<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  74%|#######3  | 6.95G/9.45G [02:29<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  74%|#######3  | 6.97G/9.45G [02:30<00:19, 130MB/s][A
+model-00001-of-00002.safetensors:  74%|#######4  | 6.99G/9.45G [02:30<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  74%|#######4  | 7.01G/9.45G [02:30<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  74%|#######4  | 7.04G/9.45G [02:30<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  75%|#######4  | 7.06G/9.45G [02:30<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  75%|#######4  | 7.08G/9.45G [02:30<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  75%|#######5  | 7.10G/9.45G [02:31<00:18, 130MB/s][A
+model-00001-of-00002.safetensors:  75%|#######5  | 7.12G/9.45G [02:31<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  76%|#######5  | 7.14G/9.45G [02:31<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  76%|#######5  | 7.16G/9.45G [02:31<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  76%|#######6  | 7.18G/9.45G [02:31<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  76%|#######6  | 7.20G/9.45G [02:31<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  76%|#######6  | 7.22G/9.45G [02:32<00:17, 130MB/s][A
+model-00001-of-00002.safetensors:  77%|#######6  | 7.25G/9.45G [02:32<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  77%|#######6  | 7.27G/9.45G [02:32<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  77%|#######7  | 7.29G/9.45G [02:32<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  77%|#######7  | 7.31G/9.45G [02:32<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  78%|#######7  | 7.33G/9.45G [02:32<00:16, 129MB/s][A
+model-00001-of-00002.safetensors:  78%|#######7  | 7.35G/9.45G [02:33<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  78%|#######8  | 7.37G/9.45G [02:33<00:16, 130MB/s][A
+model-00001-of-00002.safetensors:  78%|#######8  | 7.39G/9.45G [02:33<00:15, 130MB/s][A
+model-00001-of-00002.safetensors:  78%|#######8  | 7.41G/9.45G [02:33<00:15, 130MB/s][A
+model-00001-of-00002.safetensors:  79%|#######8  | 7.43G/9.45G [02:33<00:15, 130MB/s][A
+model-00001-of-00002.safetensors:  79%|#######8  | 7.46G/9.45G [02:33<00:15, 129MB/s][A
+model-00001-of-00002.safetensors:  79%|#######9  | 7.48G/9.45G [02:33<00:15, 130MB/s][A
+model-00001-of-00002.safetensors:  79%|#######9  | 7.50G/9.45G [02:34<00:15, 130MB/s][A
+model-00001-of-00002.safetensors:  80%|#######9  | 7.52G/9.45G [02:34<00:14, 129MB/s][A
+model-00001-of-00002.safetensors:  80%|#######9  | 7.54G/9.45G [02:34<00:14, 129MB/s][A
+model-00001-of-00002.safetensors:  80%|########  | 7.56G/9.45G [02:34<00:14, 131MB/s][A
+model-00001-of-00002.safetensors:  80%|########  | 7.58G/9.45G [02:34<00:14, 130MB/s][A
+model-00001-of-00002.safetensors:  80%|########  | 7.60G/9.45G [02:34<00:15, 119MB/s][A
+model-00001-of-00002.safetensors:  81%|########  | 7.62G/9.45G [02:35<00:14, 122MB/s][A
+model-00001-of-00002.safetensors:  81%|########  | 7.64G/9.45G [02:35<00:14, 125MB/s][A
+model-00001-of-00002.safetensors:  81%|########1 | 7.67G/9.45G [02:35<00:14, 126MB/s][A
+model-00001-of-00002.safetensors:  81%|########1 | 7.69G/9.45G [02:35<00:18, 93.7MB/s][A
+model-00001-of-00002.safetensors:  82%|########1 | 7.71G/9.45G [02:36<00:17, 102MB/s] [A
+model-00001-of-00002.safetensors:  82%|########1 | 7.73G/9.45G [02:36<00:15, 109MB/s][A
+model-00001-of-00002.safetensors:  82%|########2 | 7.75G/9.45G [02:36<00:14, 115MB/s][A
+model-00001-of-00002.safetensors:  82%|########2 | 7.77G/9.45G [02:36<00:14, 119MB/s][A
+model-00001-of-00002.safetensors:  82%|########2 | 7.79G/9.45G [02:36<00:13, 122MB/s][A
+model-00001-of-00002.safetensors:  83%|########2 | 7.81G/9.45G [02:36<00:13, 124MB/s][A
+model-00001-of-00002.safetensors:  83%|########2 | 7.83G/9.45G [02:36<00:12, 126MB/s][A
+model-00001-of-00002.safetensors:  83%|########3 | 7.85G/9.45G [02:37<00:12, 127MB/s][A
+model-00001-of-00002.safetensors:  83%|########3 | 7.87G/9.45G [02:37<00:12, 128MB/s][A
+model-00001-of-00002.safetensors:  84%|########3 | 7.90G/9.45G [02:37<00:12, 129MB/s][A
+model-00001-of-00002.safetensors:  84%|########3 | 7.92G/9.45G [02:37<00:11, 129MB/s][A
+model-00001-of-00002.safetensors:  84%|########4 | 7.94G/9.45G [02:37<00:11, 129MB/s][A
+model-00001-of-00002.safetensors:  84%|########4 | 7.96G/9.45G [02:37<00:11, 130MB/s][A
+model-00001-of-00002.safetensors:  84%|########4 | 7.98G/9.45G [02:38<00:11, 129MB/s][A
+model-00001-of-00002.safetensors:  85%|########4 | 8.00G/9.45G [02:38<00:11, 130MB/s][A
+model-00001-of-00002.safetensors:  85%|########4 | 8.02G/9.45G [02:38<00:11, 130MB/s][A
+model-00001-of-00002.safetensors:  85%|########5 | 8.04G/9.45G [02:38<00:10, 130MB/s][A
+model-00001-of-00002.safetensors:  85%|########5 | 8.06G/9.45G [02:38<00:10, 130MB/s][A
+model-00001-of-00002.safetensors:  86%|########5 | 8.08G/9.45G [02:38<00:10, 130MB/s][A
+model-00001-of-00002.safetensors:  86%|########5 | 8.11G/9.45G [02:39<00:10, 129MB/s][A
+model-00001-of-00002.safetensors:  86%|########5 | 8.13G/9.45G [02:39<00:10, 130MB/s][A
+model-00001-of-00002.safetensors:  86%|########6 | 8.15G/9.45G [02:39<00:10, 130MB/s][A
+model-00001-of-00002.safetensors:  86%|########6 | 8.17G/9.45G [02:39<00:09, 130MB/s][A
+model-00001-of-00002.safetensors:  87%|########6 | 8.19G/9.45G [02:39<00:09, 130MB/s][A
+model-00001-of-00002.safetensors:  87%|########6 | 8.21G/9.45G [02:39<00:10, 117MB/s][A
+model-00001-of-00002.safetensors:  87%|########7 | 8.23G/9.45G [02:40<00:09, 125MB/s][A
+model-00001-of-00002.safetensors:  87%|########7 | 8.25G/9.45G [02:40<00:11, 103MB/s][A
+model-00001-of-00002.safetensors:  88%|########7 | 8.27G/9.45G [02:40<00:11, 104MB/s][A
+model-00001-of-00002.safetensors:  88%|########7 | 8.29G/9.45G [02:40<00:11, 104MB/s][A
+model-00001-of-00002.safetensors:  88%|########7 | 8.32G/9.45G [02:40<00:10, 106MB/s][A
+model-00001-of-00002.safetensors:  88%|########8 | 8.34G/9.45G [02:41<00:10, 104MB/s][A
+model-00001-of-00002.safetensors:  88%|########8 | 8.36G/9.45G [02:41<00:10, 99.9MB/s][A
+model-00001-of-00002.safetensors:  89%|########8 | 8.38G/9.45G [02:41<00:11, 96.3MB/s][A
+model-00001-of-00002.safetensors:  89%|########8 | 8.40G/9.45G [02:41<00:11, 95.1MB/s][A
+model-00001-of-00002.safetensors:  89%|########9 | 8.42G/9.45G [02:42<00:10, 95.4MB/s][A
+model-00001-of-00002.safetensors:  89%|########9 | 8.44G/9.45G [02:42<00:10, 94.6MB/s][A
+model-00001-of-00002.safetensors:  90%|########9 | 8.46G/9.45G [02:42<00:10, 94.1MB/s][A
+model-00001-of-00002.safetensors:  90%|########9 | 8.48G/9.45G [02:42<00:10, 93.0MB/s][A
+model-00001-of-00002.safetensors:  90%|########9 | 8.50G/9.45G [02:42<00:10, 91.2MB/s][A
+model-00001-of-00002.safetensors:  90%|######### | 8.52G/9.45G [02:43<00:08, 106MB/s] [A
+model-00001-of-00002.safetensors:  90%|######### | 8.55G/9.45G [02:43<00:08, 112MB/s][A
+model-00001-of-00002.safetensors:  91%|######### | 8.57G/9.45G [02:43<00:07, 117MB/s][A
+model-00001-of-00002.safetensors:  91%|######### | 8.59G/9.45G [02:43<00:07, 121MB/s][A
+model-00001-of-00002.safetensors:  91%|#########1| 8.61G/9.45G [02:43<00:06, 123MB/s][A
+model-00001-of-00002.safetensors:  91%|#########1| 8.63G/9.45G [02:43<00:06, 125MB/s][A
+model-00001-of-00002.safetensors:  92%|#########1| 8.65G/9.45G [02:44<00:06, 127MB/s][A
+model-00001-of-00002.safetensors:  92%|#########1| 8.67G/9.45G [02:44<00:06, 128MB/s][A
+model-00001-of-00002.safetensors:  92%|#########1| 8.69G/9.45G [02:44<00:05, 128MB/s][A
+model-00001-of-00002.safetensors:  92%|#########2| 8.71G/9.45G [02:44<00:05, 129MB/s][A
+model-00001-of-00002.safetensors:  92%|#########2| 8.73G/9.45G [02:44<00:05, 129MB/s][A
+model-00001-of-00002.safetensors:  93%|#########2| 8.76G/9.45G [02:44<00:05, 129MB/s][A
+model-00001-of-00002.safetensors:  93%|#########2| 8.78G/9.45G [02:45<00:05, 130MB/s][A
+model-00001-of-00002.safetensors:  93%|#########3| 8.80G/9.45G [02:45<00:05, 129MB/s][A
+model-00001-of-00002.safetensors:  93%|#########3| 8.82G/9.45G [02:45<00:04, 130MB/s][A
+model-00001-of-00002.safetensors:  94%|#########3| 8.84G/9.45G [02:45<00:04, 130MB/s][A
+model-00001-of-00002.safetensors:  94%|#########3| 8.86G/9.45G [02:45<00:04, 130MB/s][A
+model-00001-of-00002.safetensors:  94%|#########3| 8.88G/9.45G [02:45<00:04, 130MB/s][A
+model-00001-of-00002.safetensors:  94%|#########4| 8.90G/9.45G [02:46<00:05, 94.7MB/s][A
+model-00001-of-00002.safetensors:  94%|#########4| 8.92G/9.45G [02:46<00:05, 103MB/s] [A
+model-00001-of-00002.safetensors:  95%|#########4| 8.94G/9.45G [02:46<00:04, 110MB/s][A
+model-00001-of-00002.safetensors:  95%|#########4| 8.97G/9.45G [02:46<00:04, 115MB/s][A
+model-00001-of-00002.safetensors:  95%|#########5| 8.99G/9.45G [02:46<00:03, 119MB/s][A
+model-00001-of-00002.safetensors:  95%|#########5| 9.01G/9.45G [02:47<00:03, 122MB/s][A
+model-00001-of-00002.safetensors:  96%|#########5| 9.03G/9.45G [02:47<00:03, 124MB/s][A
+model-00001-of-00002.safetensors:  96%|#########5| 9.05G/9.45G [02:47<00:03, 126MB/s][A
+model-00001-of-00002.safetensors:  96%|#########5| 9.07G/9.45G [02:47<00:02, 127MB/s][A
+model-00001-of-00002.safetensors:  96%|#########6| 9.09G/9.45G [02:47<00:02, 128MB/s][A
+model-00001-of-00002.safetensors:  96%|#########6| 9.11G/9.45G [02:47<00:02, 128MB/s][A
+model-00001-of-00002.safetensors:  97%|#########6| 9.13G/9.45G [02:47<00:02, 129MB/s][A
+model-00001-of-00002.safetensors:  97%|#########6| 9.15G/9.45G [02:48<00:02, 129MB/s][A
+model-00001-of-00002.safetensors:  97%|#########7| 9.18G/9.45G [02:48<00:02, 130MB/s][A
+model-00001-of-00002.safetensors:  97%|#########7| 9.20G/9.45G [02:48<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  98%|#########7| 9.22G/9.45G [02:48<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  98%|#########7| 9.24G/9.45G [02:48<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  98%|#########7| 9.26G/9.45G [02:48<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  98%|#########8| 9.28G/9.45G [02:49<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  98%|#########8| 9.30G/9.45G [02:49<00:01, 130MB/s][A
+model-00001-of-00002.safetensors:  99%|#########8| 9.32G/9.45G [02:49<00:00, 130MB/s][A
+model-00001-of-00002.safetensors:  99%|#########8| 9.34G/9.45G [02:49<00:00, 130MB/s][A
+model-00001-of-00002.safetensors:  99%|#########9| 9.36G/9.45G [02:49<00:00, 130MB/s][A
+model-00001-of-00002.safetensors:  99%|#########9| 9.38G/9.45G [02:49<00:00, 130MB/s][A
+model-00001-of-00002.safetensors: 100%|#########9| 9.41G/9.45G [02:50<00:00, 130MB/s][A
+model-00001-of-00002.safetensors: 100%|#########9| 9.43G/9.45G [02:50<00:00, 130MB/s][A
+model-00001-of-00002.safetensors: 100%|#########9| 9.45G/9.45G [02:50<00:00, 130MB/s][Amodel-00001-of-00002.safetensors: 100%|##########| 9.45G/9.45G [02:50<00:00, 55.4MB/s]
+Downloading shards:  50%|#####     | 1/2 [02:50<02:50, 170.72s/it]
+model-00002-of-00002.safetensors:   0%|          | 0.00/1.95G [00:00<?, ?B/s][A
+model-00002-of-00002.safetensors:   1%|1         | 21.0M/1.95G [00:00<00:14, 134MB/s][A
+model-00002-of-00002.safetensors:   2%|2         | 41.9M/1.95G [00:00<00:14, 133MB/s][A
+model-00002-of-00002.safetensors:   3%|3         | 62.9M/1.95G [00:00<00:14, 132MB/s][A
+model-00002-of-00002.safetensors:   4%|4         | 83.9M/1.95G [00:00<00:14, 131MB/s][A
+model-00002-of-00002.safetensors:   5%|5         | 105M/1.95G [00:00<00:14, 131MB/s] [A
+model-00002-of-00002.safetensors:   6%|6         | 126M/1.95G [00:00<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:   8%|7         | 147M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:   9%|8         | 168M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:  10%|9         | 189M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:  11%|#         | 210M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:  12%|#1        | 231M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:  13%|#2        | 252M/1.95G [00:01<00:13, 130MB/s][A
+model-00002-of-00002.safetensors:  14%|#3        | 273M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  15%|#5        | 294M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  16%|#6        | 315M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  17%|#7        | 336M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  18%|#8        | 357M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  19%|#9        | 377M/1.95G [00:02<00:12, 130MB/s][A
+model-00002-of-00002.safetensors:  20%|##        | 398M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  22%|##1       | 419M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  23%|##2       | 440M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  24%|##3       | 461M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  25%|##4       | 482M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  26%|##5       | 503M/1.95G [00:03<00:11, 130MB/s][A
+model-00002-of-00002.safetensors:  27%|##6       | 524M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  28%|##7       | 545M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  29%|##9       | 566M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  30%|###       | 587M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  31%|###1      | 608M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  32%|###2      | 629M/1.95G [00:04<00:10, 130MB/s][A
+model-00002-of-00002.safetensors:  33%|###3      | 650M/1.95G [00:04<00:09, 130MB/s][A
+model-00002-of-00002.safetensors:  34%|###4      | 671M/1.95G [00:05<00:09, 130MB/s][A
+model-00002-of-00002.safetensors:  35%|###5      | 692M/1.95G [00:05<00:09, 130MB/s][A
+model-00002-of-00002.safetensors:  37%|###6      | 713M/1.95G [00:05<00:09, 127MB/s][A
+model-00002-of-00002.safetensors:  38%|###7      | 734M/1.95G [00:05<00:09, 130MB/s][A
+model-00002-of-00002.safetensors:  39%|###8      | 755M/1.95G [00:05<00:09, 131MB/s][A
+model-00002-of-00002.safetensors:  40%|###9      | 776M/1.95G [00:05<00:08, 131MB/s][A
+model-00002-of-00002.safetensors:  41%|####      | 797M/1.95G [00:06<00:08, 130MB/s][A
+model-00002-of-00002.safetensors:  42%|####1     | 818M/1.95G [00:06<00:08, 130MB/s][A
+model-00002-of-00002.safetensors:  43%|####3     | 839M/1.95G [00:06<00:11, 94.1MB/s][A
+model-00002-of-00002.safetensors:  44%|####4     | 860M/1.95G [00:06<00:10, 104MB/s] [A
+model-00002-of-00002.safetensors:  45%|####5     | 881M/1.95G [00:06<00:09, 111MB/s][A
+model-00002-of-00002.safetensors:  46%|####6     | 902M/1.95G [00:07<00:09, 116MB/s][A
+model-00002-of-00002.safetensors:  47%|####7     | 923M/1.95G [00:07<00:08, 120MB/s][A
+model-00002-of-00002.safetensors:  48%|####8     | 944M/1.95G [00:07<00:08, 123MB/s][A
+model-00002-of-00002.safetensors:  49%|####9     | 965M/1.95G [00:07<00:07, 125MB/s][A
+model-00002-of-00002.safetensors:  51%|#####     | 986M/1.95G [00:07<00:07, 126MB/s][A
+model-00002-of-00002.safetensors:  52%|#####1    | 1.01G/1.95G [00:07<00:07, 127MB/s][A
+model-00002-of-00002.safetensors:  53%|#####2    | 1.03G/1.95G [00:08<00:07, 128MB/s][A
+model-00002-of-00002.safetensors:  54%|#####3    | 1.05G/1.95G [00:08<00:06, 129MB/s][A
+model-00002-of-00002.safetensors:  55%|#####4    | 1.07G/1.95G [00:08<00:06, 129MB/s][A
+model-00002-of-00002.safetensors:  56%|#####5    | 1.09G/1.95G [00:08<00:06, 129MB/s][A
+model-00002-of-00002.safetensors:  57%|#####7    | 1.11G/1.95G [00:08<00:06, 130MB/s][A
+model-00002-of-00002.safetensors:  58%|#####8    | 1.13G/1.95G [00:08<00:06, 130MB/s][A
+model-00002-of-00002.safetensors:  59%|#####9    | 1.15G/1.95G [00:09<00:06, 130MB/s][A
+model-00002-of-00002.safetensors:  60%|######    | 1.17G/1.95G [00:09<00:05, 130MB/s][A
+model-00002-of-00002.safetensors:  61%|######1   | 1.20G/1.95G [00:09<00:05, 130MB/s][A
+model-00002-of-00002.safetensors:  62%|######2   | 1.22G/1.95G [00:09<00:05, 130MB/s][A
+model-00002-of-00002.safetensors:  63%|######3   | 1.24G/1.95G [00:09<00:05, 130MB/s][A
+model-00002-of-00002.safetensors:  65%|######4   | 1.26G/1.95G [00:09<00:05, 130MB/s][Amodel-00002-of-00002.safetensors:  65%|######5   | 1.27G/1.95G [00:09<00:05, 127MB/s]
+Downloading shards:  50%|#####     | 1/2 [03:01<03:01, 181.09s/it]
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 754, in _error_catcher
+    yield
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 900, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> urllib3.exceptions.IncompleteRead: IncompleteRead(1272512547 bytes read, 676965125 more expected)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> 
+The above exception was the direct cause of the following exception:
+
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 1066, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 983, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 878, in _raw_read
+    with self._error_catcher():
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 778, in _error_catcher
+    raise ProtocolError(arg, e) from e
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(1272512547 bytes read, 676965125 more expected)', IncompleteRead(1272512547 bytes read, 676965125 more expected))
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> 
+During handling of the above exception, another exception occurred:
+
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+    main()
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+    main_train(args)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 316, in main_train
+    ret = build_everything_from_args(args, saver)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 85, in build_everything_from_args
+    text_tokenizer, text_encoder, vae_local, gpt_uncompiled, gpt_wo_ddp, gpt_ddp, gpt_wo_ddp_ema, gpt_ddp_ema, gpt_optim = build_model_optimizer(args, vae_ckpt)
+                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 278, in build_model_optimizer
+    text_encoder: T5EncoderModel = T5EncoderModel.from_pretrained(args.t5_path, torch_dtype=torch.float16)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/modeling_utils.py", line 262, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4022, in from_pretrained
+    resolved_archive_file, sharded_metadata = get_checkpoint_shard_files(
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/utils/hub.py", line 1037, in get_checkpoint_shard_files
+    cached_filename = cached_file(
+                      ^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1011, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1547, in _download_to_tmp_and_move
+    http_get(
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 454, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+[03-15 05:01:59] (/python3.11/traceback.py, line1022)=> requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(1272512547 bytes read, 676965125 more expected)', IncompleteRead(1272512547 bytes read, 676965125 more expected))
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 754, in _error_catcher
+[rank0]:     yield
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 900, in _raw_read
+[rank0]:     raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+[rank0]: urllib3.exceptions.IncompleteRead: IncompleteRead(1272512547 bytes read, 676965125 more expected)
+
+[rank0]: The above exception was the direct cause of the following exception:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/requests/models.py", line 820, in generate
+[rank0]:     yield from self.raw.stream(chunk_size, decode_content=True)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 1066, in stream
+[rank0]:     data = self.read(amt=amt, decode_content=decode_content)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 983, in read
+[rank0]:     data = self._raw_read(amt)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 878, in _raw_read
+[rank0]:     with self._error_catcher():
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/contextlib.py", line 158, in __exit__
+[rank0]:     self.gen.throw(typ, value, traceback)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/urllib3/response.py", line 778, in _error_catcher
+[rank0]:     raise ProtocolError(arg, e) from e
+[rank0]: urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(1272512547 bytes read, 676965125 more expected)', IncompleteRead(1272512547 bytes read, 676965125 more expected))
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 630, in <module>
+[rank0]:     raise _e
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+[rank0]:     main()
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+[rank0]:     main_train(args)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 316, in main_train
+[rank0]:     ret = build_everything_from_args(args, saver)
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 85, in build_everything_from_args
+[rank0]:     text_tokenizer, text_encoder, vae_local, gpt_uncompiled, gpt_wo_ddp, gpt_ddp, gpt_wo_ddp_ema, gpt_ddp_ema, gpt_optim = build_model_optimizer(args, vae_ckpt)
+[rank0]:                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 278, in build_model_optimizer
+[rank0]:     text_encoder: T5EncoderModel = T5EncoderModel.from_pretrained(args.t5_path, torch_dtype=torch.float16)
+[rank0]:                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/modeling_utils.py", line 262, in _wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4022, in from_pretrained
+[rank0]:     resolved_archive_file, sharded_metadata = get_checkpoint_shard_files(
+[rank0]:                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/utils/hub.py", line 1037, in get_checkpoint_shard_files
+[rank0]:     cached_filename = cached_file(
+[rank0]:                       ^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/transformers/utils/hub.py", line 342, in cached_file
+[rank0]:     resolved_file = hf_hub_download(
+[rank0]:                     ^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+[rank0]:     return _hf_hub_download_to_cache_dir(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1011, in _hf_hub_download_to_cache_dir
+[rank0]:     _download_to_tmp_and_move(
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1547, in _download_to_tmp_and_move
+[rank0]:     http_get(
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 454, in http_get
+[rank0]:     for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/requests/models.py", line 822, in generate
+[rank0]:     raise ChunkedEncodingError(e)
+[rank0]: requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(1272512547 bytes read, 676965125 more expected)', IncompleteRead(1272512547 bytes read, 676965125 more expected))
+E0315 04:02:02.016000 2747406 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 2747527) of binary: /lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/python
+Traceback (most recent call last):
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-03-15_04:02:02
+  host      : sdc2-hpc-dgx-a100-013
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2747527)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

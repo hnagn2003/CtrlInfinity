@@ -1,0 +1,200 @@
++ SINGLE=0
++ ARNOLD_WORKER_NUM=1
++ ARNOLD_ID=0
++ BATCH_SIZE=32
+++ nvidia-smi --query-gpu=index --format=csv,noheader
+++ wc -l
++ NUM_GPUS=2
++ exp_name=version1_trangnvt2_bs32_gpu2
++ nproc_per_node=
++ '[' '!' -z 0 ']'
++ '[' 0 '!=' 0 ']'
++ MASTER_NODE_ID=0
++ nnodes=1
++ node_rank=0
++ master_addr=METIS_WORKER_0_HOST
++ master_addr=
++ master_port=METIS_WORKER_0_PORT
++ master_port=
++ ports=(`echo $master_port | tr ',' ' '`)
+++ echo
+++ tr , ' '
++ master_port=
++ master_addr=127.0.0.1
++ master_port=12348
++ nproc_per_node=2
++ echo '[nproc_per_node: 2]'
++ echo '[nnodes: 1]'
++ echo '[node_rank: 0]'
++ echo '[master_addr: 127.0.0.1]'
++ echo '[master_port: 12348]'
++ export OMP_NUM_THREADS=8
++ OMP_NUM_THREADS=8
++ export NCCL_IB_DISABLE=0
++ NCCL_IB_DISABLE=0
++ export NCCL_IB_GID_INDEX=3
++ NCCL_IB_GID_INDEX=3
++ BED=checkpoints
++ LOCAL_OUT=local_output
++ mkdir -p checkpoints
++ mkdir -p local_output
++ export COMPILE_GAN=0
++ COMPILE_GAN=0
++ export USE_TIMELINE_SDK=1
++ USE_TIMELINE_SDK=1
++ export CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ export CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ wandb offline
++ bed_path=checkpoints/version1_trangnvt2_bs32_gpu2/
++ data_path=../RepControlNet/data/canny_laion/infinity_10k/splits
++ video_data_path=
++ local_out_path=local_output/version1_trangnvt2_bs32_gpu2
++ torchrun --nproc_per_node=2 --nnodes=1 --node_rank=0 --master_addr=127.0.0.1 --master_port=12348 train.py --ep=100 --opt=adamw --cum=3 --sche=lin0 --fp16=2 --ada=0.9_0.97 --tini=-1 --tclip=5 --flash=0 --alng=5e-06 --saln=1 --cos=1 --enable_checkpointing=full-block --local_out_path local_output/version1_trangnvt2_bs32_gpu2 --task_type=t2i --bed=checkpoints/version1_trangnvt2_bs32_gpu2/ --data_path=../RepControlNet/data/canny_laion/infinity_10k/splits --video_data_path= --exp_name=version1_trangnvt2_bs32_gpu2 --tblr=1.2e-4 --pn 0.06M --model=2bc8 --lbs 32 --workers=8 --short_cap_prob 0.5 --online_t5=1 --use_streaming_dataset 1 --iterable_data_buffersize 30000 --Ct5=2048 --t5_path=google/flan-t5-xl --vae_type 32 --vae_ckpt=weights/infinity_vae_d32_rdn_short.pth --wp 0.00000001 --wpe=1 --dynamic_resolution_across_gpus 1 --enable_dynamic_length_prompt 1 --reweight_loss_by_scale 1 --add_lvl_embeding_only_first_block 1 --rope2d_each_sa_layer 1 --rope2d_normalized_by_hw 2 --use_fsdp_model_ema 0 --always_training_scales 100 --use_bit_label 1 --zero=2 --save_model_iters_freq 100 --log_freq=50 --checkpoint_type=torch --prefetch_factor=16 --noise_apply_strength 0.3 --noise_apply_layers 13 --apply_spatial_patchify 0 --use_flex_attn=True --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --tlr 1.8e-4
+[W315 04:19:15.391254733 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[W315 04:19:16.199296375 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[rank1]:[W315 04:19:16.229074091 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[rank0]:[W315 04:19:16.229078500 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory is not writable! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1460.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory is not writable! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1460.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:176: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.pretrained_path, map_location='cpu')
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:176: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.pretrained_path, map_location='cpu')
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|#####     | 1/2 [00:30<00:30, 30.56s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:31<00:31, 31.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 13.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.88s/it]
+Loading checkpoint shards: 100%|##########| 2/2 [00:30<00:00, 12.70s/it]Loading checkpoint shards: 100%|##########| 2/2 [00:30<00:00, 15.38s/it]
+/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib is not a writable directory
+/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-2y85deha because there was an issue with the default path (/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib created a temporary cache directory at /tmp/matplotlib-lmgveoji because there was an issue with the default path (/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[34m[1mwandb[0m: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+2025/03/15 04:20:19 ERROR failed to get logger path error="error opening log file: open /lustre/scratch/client/movian/research/users/ngannh9/.cache/wandb/logs/core-debug-20250315_042019.log: permission denied"
+2025/03/15 04:20:19 INFO Will exit if parent process dies. ppid=2774872
+2025/03/15 04:20:19 INFO server is running addr=127.0.0.1:13249
+2025/03/15 04:20:19 INFO connection: ManageConnectionData: new connection created id=127.0.0.1:54956
+2025/03/15 04:20:19 INFO handleInformInit: received streamId=1fs4e1qt id=127.0.0.1:54956
+2025/03/15 04:20:19 INFO handleInformInit: stream started streamId=1fs4e1qt id=127.0.0.1:54956
+[34m[1mwandb[0m: Tracking run with wandb version 0.19.8
+[34m[1mwandb[0m: W&B syncing is set to [1m`offline`[0m in this directory.  
+[34m[1mwandb[0m: Run [1m`wandb online`[0m or set [1mWANDB_MODE=online[0m to enable cloud syncing.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic.py:503: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+[03-16 04:21:32] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-16 04:21:32] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+    step_cnt += int(stepping)
+    ^^^^^^
+[03-16 04:21:32] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+    # [logging]
+[03-16 04:21:32] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 466, in main_train
+    if ld_val is None or isinstance(ld_val, int):    # args.nodata or args.nova
+                              ^^^^^^^^^^
+[03-16 04:21:32] (/python3.11/traceback.py, line1022)=> UnboundLocalError: cannot access local variable 'visualizer' where it is not associated with a value
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 630, in <module>
+    with maybe_record_function('in_training'):
+    ^^^^^^^^
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+    step_cnt += int(stepping)
+    ^^^^^^
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+    # [logging]
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 466, in main_train
+    if ld_val is None or isinstance(ld_val, int):    # args.nodata or args.nova
+                              ^^^^^^^^^^
+[03-16 04:21:33] (/python3.11/traceback.py, line1022)=> UnboundLocalError: cannot access local variable 'visualizer' where it is not associated with a value
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 630, in <module>
+[rank0]:     with maybe_record_function('in_training'):
+[rank0]: ^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+[rank0]:     step_cnt += int(stepping)
+[rank0]: ^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+[rank0]:     # [logging]
+[rank0]: ^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 466, in main_train
+[rank0]:     if ld_val is None or isinstance(ld_val, int):    # args.nodata or args.nova
+[rank0]:                               ^^^^^^^^^^
+[rank0]: UnboundLocalError: cannot access local variable 'visualizer' where it is not associated with a value
+2025/03/16 03:21:33 INFO handleInformTeardown: server teardown initiated id=127.0.0.1:54956
+2025/03/16 03:21:33 INFO server is shutting down
+2025/03/16 03:21:33 INFO connection: closing id=127.0.0.1:54956
+2025/03/16 03:21:33 INFO connection: closed successfully id=127.0.0.1:54956
+2025/03/16 03:21:33 INFO handleInformTeardown: server shutdown complete id=127.0.0.1:54956
+2025/03/16 03:21:33 INFO connection: ManageConnectionData: connection closed id=127.0.0.1:54956
+2025/03/16 03:21:33 INFO server is closed
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 630, in <module>
+[rank1]:     with maybe_record_function('in_training'):
+[rank1]: ^^^^^^^^
+[rank1]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 618, in <module>
+[rank1]:     step_cnt += int(stepping)
+[rank1]: ^^
+[rank1]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 601, in main
+[rank1]:     # [logging]
+[rank1]: ^^^^^^^^
+[rank1]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 466, in main_train
+[rank1]:     if ld_val is None or isinstance(ld_val, int):    # args.nodata or args.nova
+[rank1]:                               ^^^^^^^^^^
+[rank1]: UnboundLocalError: cannot access local variable 'visualizer' where it is not associated with a value
+E0316 03:21:38.346000 2774806 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 2774872) of binary: /lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/python
+Traceback (most recent call last):
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-03-16_03:21:38
+  host      : sdc2-hpc-dgx-a100-013
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 2774873)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-03-16_03:21:38
+  host      : sdc2-hpc-dgx-a100-013
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2774872)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
++ _attn=True
++ --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --tlr 1.8e-4
+scripts/trainc.sh: line 129: --pad=128: command not found

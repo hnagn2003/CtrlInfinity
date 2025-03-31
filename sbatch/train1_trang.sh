@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-#SBATCH --job-name=icml # create a short name for your job
+#SBATCH --job-name=ctrlar # create a short name for your job
 #SBATCH --output=logs/%A.out # create a output file
 #SBATCH --error=logs/%A.err # create a error file
 #SBATCH --partition=movianr # choose partition
@@ -20,7 +20,6 @@ conda deactivate
 conda activate /lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn
 # CUDA_VISIBLE_DEVICES=0,1,2,3 bash distill_controlnet.sh
 cd /lustre/scratch/client/movian/research/users/ngannh9/Infinity
-export XDG_CACHE_HOME=/lustre/scratch/client/movian/research/users/ngannh9/Infinity/.cache
 # bash train.sh
 
 scripts/trainc.sh

@@ -1,12 +1,12 @@
 import cv2
-import json
+from tqdm import tqdm
 import os
 from PIL import Image
-save_folder = "data/infinity_toy_data/condition_canny"
-image_folder = "data/infinity_toy_data/images"
+save_folder = "../RepControlNet/data/Infinity10k/condition_canny"
+image_folder = "../RepControlNet/data/Infinity10k/train"
 os.makedirs(save_folder, exist_ok=True)
 new_data_to_dump = []
-for file in os.listdir(image_folder):
+for file in tqdm(os.listdir(image_folder), total=len(os.listdir(image_folder))):
     image_name = file.split('/')[-1]
     image_path = os.path.join(image_folder, file)
     image = cv2.imread(image_path)

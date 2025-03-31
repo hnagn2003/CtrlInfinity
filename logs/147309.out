@@ -1,0 +1,1567 @@
+[nproc_per_node: 2]
+[nnodes: 1]
+[node_rank: 0]
+[master_addr: 127.0.0.1]
+[master_port: 12345]
+W&B disabled.
+ >>>>>>>>>>>>>>>> using version 4
+ >>>>>>>>>>>>>>>> using version 4
+[tf32] [precis] torch.get_float32_matmul_precision(): high
+[tf32] [ conv ] torch.backends.cudnn.allow_tf32: True
+[tf32] [matmul] torch.backends.cuda.matmul.allow_tf32: True
+[tf32] [precis] torch.get_float32_matmul_precision(): high
+[tf32] [ conv ] torch.backends.cudnn.allow_tf32: True
+[tf32] [matmul] torch.backends.cuda.matmul.allow_tf32: True
+[lrk=0, rk=0]
+[lrk=1, rk=1]
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^docker0,lo
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO Bootstrap : Using bond0:10.100.132.130<0>
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+sdc2-hpc-dgx-a100-010:1632386:1632386 [0] NCCL INFO cudaDriverVersion 12040
+NCCL version 2.21.5+cuda12.4
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO cudaDriverVersion 12040
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^docker0,lo
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO Bootstrap : Using bond0:10.100.132.130<0>
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+sdc2-hpc-dgx-a100-010:1632387:1632387 [1] NCCL INFO NET/Plugin: Using internal network plugin.
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^docker0,lo
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ^docker0,lo
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/IB [2]mlx5_2:1/IB [3]mlx5_3:1/IB [4]mlx5_4:1/IB [5]mlx5_5:1/RoCE [6]mlx5_6:1/IB [7]mlx5_7:1/IB [8]mlx5_8:1/IB [9]mlx5_9:1/IB [10]mlx5_10:1/IB [11]mlx5_11:1/RoCE [RO]; OOB bond0:10.100.132.130<0>
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Using non-device net plugin version 0
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Using network IB
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/IB [2]mlx5_2:1/IB [3]mlx5_3:1/IB [4]mlx5_4:1/IB [5]mlx5_5:1/RoCE [6]mlx5_6:1/IB [7]mlx5_7:1/IB [8]mlx5_8:1/IB [9]mlx5_9:1/IB [10]mlx5_10:1/IB [11]mlx5_11:1/RoCE [RO]; OOB bond0:10.100.132.130<0>
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Using non-device net plugin version 0
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Using network IB
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO ncclCommInitRank comm 0xecbc430 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId f000 commId 0xd659cb232bcb1472 - Init START
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO ncclCommInitRank comm 0x2c45c110 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 7000 commId 0xd659cb232bcb1472 - Init START
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO comm 0x2c45c110 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO comm 0xecbc430 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 00/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 01/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 02/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 03/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] -1/-1/-1->1->0 [3] -1/-1/-1->1->0 [4] -1/-1/-1->1->0 [5] -1/-1/-1->1->0 [6] 0/-1/-1->1->-1 [7] 0/-1/-1->1->-1 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] -1/-1/-1->1->0 [13] -1/-1/-1->1->0 [14] -1/-1/-1->1->0 [15] -1/-1/-1->1->0 [16] -1/-1/-1->1->0 [17] -1/-1/-1->1->0 [18] 0/-1/-1->1->-1 [19] 0/-1/-1->1->-1 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 04/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO P2P Chunksize set to 524288
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 05/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 06/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 07/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 08/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 09/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 10/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 11/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 12/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 13/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 14/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 15/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 16/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 17/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 18/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 19/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 20/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 21/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 22/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 23/24 :    0   1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 1/-1/-1->0->-1 [6] -1/-1/-1->0->1 [7] -1/-1/-1->0->1 [8] -1/-1/-1->0->1 [9] -1/-1/-1->0->1 [10] -1/-1/-1->0->1 [11] -1/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 1/-1/-1->0->-1 [17] 1/-1/-1->0->-1 [18] -1/-1/-1->0->1 [19] -1/-1/-1->0->1 [20] -1/-1/-1->0->1 [21] -1/-1/-1->0->1 [22] -1/-1/-1->0->1 [23] -1/-1/-1->0->1
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO P2P Chunksize set to 524288
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 04/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 06/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 07/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 16/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 16/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 17/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 17/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 18/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 19/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 20/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 21/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 22/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Channel 23/0 : 1[1] -> 0[0] via P2P/CUMEM/read
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Connected all rings
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Connected all rings
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO Connected all trees
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO Connected all trees
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO TUNER/Plugin: Plugin load returned 11 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+sdc2-hpc-dgx-a100-010:1632386:1632517 [0] NCCL INFO ncclCommInitRank comm 0x2c45c110 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 7000 commId 0xd659cb232bcb1472 - Init COMPLETE
+sdc2-hpc-dgx-a100-010:1632387:1632518 [1] NCCL INFO ncclCommInitRank comm 0xecbc430 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId f000 commId 0xd659cb232bcb1472 - Init COMPLETE
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 120)=> self.dynamic_resolution_across_gpus: 1
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 121)=> self.enable_dynamic_length_prompt: 1
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 122)=> self.buffer_size: 30000
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 149)=> ../RepControlNet/data/canny_laion/infinity_10k/splits/1.000_000010000.jsonl has sufficient examples (10000), proportion: 100.0%, > global workers (4)! Preserve h_div_w_template: 1.000
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 160)=> [data preprocess] split_meta_files
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 185)=> [data preprocess] split_meta_files done
+[03-23 06:39:55] (/dataset_t2i_iterable.py, line 131)=> num_replicas: 2, rank: 0, dataloader_workers: 2, seed:710, samples_div_gpus_workers_batchsize_2batches: 156
+[03-23 06:39:55] (gannh9/Infinity/train.py, line 350)=> args.batch_size=16, vbs=24
+[03-23 06:39:55] (gannh9/Infinity/train.py, line 354)=> len(dataloader): 312, len(dataset): 312, total_samples: 9984
+[03-23 06:39:55] (gannh9/Infinity/train.py, line 355)=> [dataloader] gbs=32, lbs=16, iters_train=312, type(train_set)=T2IIterableDataset
+[03-23 06:39:55] (gannh9/Infinity/train.py, line  82)=> train_h_div_w_list=['1.000']
+[03-23 06:39:55] (gannh9/Infinity/train.py, line  86)=> Load vae form weights/infinity_vae_d32_reg.pth
+[03-23 06:39:56] (gannh9/Infinity/train.py, line 159)=>  >>>>>>>>>>>>>>>> using infinity design version 4 <<<<<<<<<<<<<<<<<<
+[03-23 06:39:58] (y/infinity/utils/load.py, line  72)=> [create gpt_wo_ddp] constructor kw={'pretrained': False, 'global_pool': '', 'text_channels': 2048, 'text_maxlen': 512, 'norm_eps': 1e-06, 'rms_norm': False, 'shared_aln': True, 'head_aln': True, 'cond_drop_rate': 0.1, 'rand_uncond': False, 'drop_rate': 0.0, 'cross_attn_layer_scale': -1, 'nm0': False, 'tau': 1, 'cos_attn': True, 'swiglu': False, 'raw_scale_schedule': None, 'head_depth': 1, 'top_p': 0.0, 'top_k': 0.0, 'customized_flash_attn': False, 'fused_mlp': False, 'fused_norm': False, 'checkpointing': 'full-block', 'pad_to_multiplier': 128, 'use_flex_attn': True, 'batch_size': 16, 'add_lvl_embeding_only_first_block': 1, 'use_bit_label': 1, 'rope2d_each_sa_layer': 1, 'rope2d_normalized_by_hw': 2, 'pn': '0.06M', 'train_h_div_w_list': ['1.000'], 'always_training_scales': 100, 'apply_spatial_patchify': 0, 'use_image_adapter': 1}
+
+[03-23 06:39:58] (y/infinity/utils/load.py, line  76)=> model_str='infinity_2bc8'
+[03-23 06:39:58] (nity/models/infinity4.py, line 161)=> self.codebook_dim: 32, self.add_lvl_embeding_only_first_block: 1,             self.use_bit_label: 1, self.rope2d_each_sa_layer: 1, self.rope2d_normalized_by_hw: 2
+[03-23 06:39:58] (nity/models/infinity4.py, line 336)=> ====== apply flex attn hdivw: 1.000 scales: 7 ======
+[03-23 06:40:05] (nity/models/infinity4.py, line 303)=> self.num_blocks_in_a_chunk=4, depth=32, block_chunks=8
+[03-23 06:40:05] (nity/models/infinity4.py, line 311)=> 
+[constructor]  ==== customized_flash_attn=False (using_flash=0/32), fused_mlp=False (fused_mlp=0/32) ==== 
+    [Infinity config ] embed_dim=2048, num_heads=16, depth=32, mlp_ratio=4, swiglu=False num_blocks_in_a_chunk=4
+    [drop ratios] drop_rate=0.0, drop_path_rate=0.1 (tensor([0.0000, 0.0032, 0.0065, 0.0097, 0.0129, 0.0161, 0.0194, 0.0226, 0.0258,
+        0.0290, 0.0323, 0.0355, 0.0387, 0.0419, 0.0452, 0.0484, 0.0516, 0.0548,
+        0.0581, 0.0613, 0.0645, 0.0677, 0.0710, 0.0742, 0.0774, 0.0806, 0.0839,
+        0.0871, 0.0903, 0.0935, 0.0968, 0.1000]))
+
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> cfg_uncond: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> pos_start: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.mat_q: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.mat_q_adapter: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_sos.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_ca.0.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_ca.0.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_ca.2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> text_proj_for_ca.2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> lvl_embed.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> word_embed.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> word_embed.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> shared_ada_lin.1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> shared_ada_lin.1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> head_nm.ada_lin.1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> head_nm.ada_lin.1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> head.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> head.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.0.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.1.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.2.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.3.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.4.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.5.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.6.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.0.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.1.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.2.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ada_gss: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.scale_mul_1H11: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.q_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.mat_qkv.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.sa.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.v_bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.mat_q.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.mat_q.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.mat_q_adapter.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.mat_q_adapter.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.mat_kv.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.proj.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca.proj.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ffn.fc1.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ffn.fc1.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ffn.fc2.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ffn.fc2.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca_norm.weight: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> block_chunks.7.module.3.ca_norm.bias: False
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_gate: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.0.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.0.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.1.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.1.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.2.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.2.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.3.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.3.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.4.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.4.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.5.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.5.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.6.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.6.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.7.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.7.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.8.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.8.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.9.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.9.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.10.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.10.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.11.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.11.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.12.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.12.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.13.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.13.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.14.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.14.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.15.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.15.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.16.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.16.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.17.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.17.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.18.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.18.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.19.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.19.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.20.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.20.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.21.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.21.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.22.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.22.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.23.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.23.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.24.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.24.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.25.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.25.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.26.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.26.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.27.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.27.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.28.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.28.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.29.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.29.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.30.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.30.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.31.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.adapter_query.31.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.image_norm.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.image_norm.bias: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.image_proj.weight: True
+[03-23 06:40:07] (y/infinity/utils/load.py, line  98)=> image_adapter.image_proj.bias: True
+[03-23 06:40:07] (ity/models/init_param.py, line  15)=> [init_weights] Infinity with std=0.02
+[03-23 06:40:08] (gannh9/Infinity/train.py, line 179)=> args.rush_resume='weights/infinity_2b_reg.pth'
+[03-23 06:40:15] (gannh9/Infinity/train.py, line 226)=> [PT] GPT model = Infinity(
+  drop_path_rate=0.1
+  (norm0_cond): Identity()
+  (text_norm): FastRMSNorm(C=2048, eps=1e-06, elementwise_affine=True)
+  (text_proj_for_sos): TextAttentivePool(
+    (ca): CrossAttention(
+      Cq=2048, Ckv=2048, cos_attn=False
+      (mat_kv): Linear(in_features=2048, out_features=4096, bias=False)
+      (proj): Linear(in_features=2048, out_features=2048, bias=True)
+      (proj_drop): Identity()
+    )
+  )
+  (text_proj_for_ca): Sequential(
+    (0): Linear(in_features=2048, out_features=2048, bias=True)
+    (1): GELU(approximate='tanh')
+    (2): Linear(in_features=2048, out_features=2048, bias=True)
+  )
+  (lvl_embed): Embedding(15, 2048)
+  (norm0_ve): Identity()
+  (word_embed): Linear(in_features=32, out_features=2048, bias=True)
+  (shared_ada_lin): Sequential(
+    (0): SiLU()
+    (1): SharedAdaLin(in_features=2048, out_features=12288, bias=True)
+  )
+  (head_nm): AdaLNBeforeHead(
+    (ln_wo_grad): LayerNorm((2048,), eps=1e-06, elementwise_affine=False)
+    (ada_lin): Sequential(
+      (0): SiLU()
+      (1): Linear(in_features=2048, out_features=4096, bias=True)
+    )
+  )
+  (head): Linear(in_features=2048, out_features=64, bias=True)
+  (block_chunks): ModuleList(
+    (0): MultipleLayers(
+      (module): ModuleList(
+        (0): CrossAttnBlock(
+          shared_aln=True, fused_norm=False, ca_gamma=1
+          (drop_path): Identity()
+          (sa): SelfAttention(
+            using_flash=False, tau=1, cos_attn=True
+            (mat_qkv): Linear(in_features=2048, out_features=6144, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ca): CrossAttention(
+            Cq=2048, Ckv=2048, cos_attn=False
+            (mat_q): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_q_adapter): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_kv): Linear(in_features=2048, out_features=4096, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ffn): FFN(
+            fused_mlp=False
+            (fc1): Linear(in_features=2048, out_features=8192, bias=True)
+            (act): GELU(approximate='tanh')
+            (fc2): Linear(in_features=8192, out_features=2048, bias=True)
+            (drop): Identity()
+          )
+          (ln_wo_grad): LayerNorm((2048,), eps=1e-06, elementwise_affine=False)
+          (ca_norm): LayerNorm((2048,), eps=1e-06, elementwise_affine=True)
+        )
+        (1-3): 3 x CrossAttnBlock(
+          shared_aln=True, fused_norm=False, ca_gamma=1
+          (drop_path): DropPath(...)
+          (sa): SelfAttention(
+            using_flash=False, tau=1, cos_attn=True
+            (mat_qkv): Linear(in_features=2048, out_features=6144, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ca): CrossAttention(
+            Cq=2048, Ckv=2048, cos_attn=False
+            (mat_q): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_q_adapter): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_kv): Linear(in_features=2048, out_features=4096, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ffn): FFN(
+            fused_mlp=False
+            (fc1): Linear(in_features=2048, out_features=8192, bias=True)
+            (act): GELU(approximate='tanh')
+            (fc2): Linear(in_features=8192, out_features=2048, bias=True)
+            (drop): Identity()
+          )
+          (ln_wo_grad): LayerNorm((2048,), eps=1e-06, elementwise_affine=False)
+          (ca_norm): LayerNorm((2048,), eps=1e-06, elementwise_affine=True)
+        )
+      )
+    )
+    (1-7): 7 x MultipleLayers(
+      (module): ModuleList(
+        (0-3): 4 x CrossAttnBlock(
+          shared_aln=True, fused_norm=False, ca_gamma=1
+          (drop_path): DropPath(...)
+          (sa): SelfAttention(
+            using_flash=False, tau=1, cos_attn=True
+            (mat_qkv): Linear(in_features=2048, out_features=6144, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ca): CrossAttention(
+            Cq=2048, Ckv=2048, cos_attn=False
+            (mat_q): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_q_adapter): Linear(in_features=2048, out_features=2048, bias=True)
+            (mat_kv): Linear(in_features=2048, out_features=4096, bias=False)
+            (proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (proj_drop): Identity()
+          )
+          (ffn): FFN(
+            fused_mlp=False
+            (fc1): Linear(in_features=2048, out_features=8192, bias=True)
+            (act): GELU(approximate='tanh')
+            (fc2): Linear(in_features=8192, out_features=2048, bias=True)
+            (drop): Identity()
+          )
+          (ln_wo_grad): LayerNorm((2048,), eps=1e-06, elementwise_affine=False)
+          (ca_norm): LayerNorm((2048,), eps=1e-06, elementwise_affine=True)
+        )
+      )
+    )
+  )
+  (image_adapter): ImageInstructionAdapter(
+    (adapter_query): ModuleList(
+      (0-31): 32 x Linear(in_features=2048, out_features=2048, bias=True)
+    )
+    (image_norm): LayerNorm((2048,), eps=1e-05, elementwise_affine=True)
+    (image_proj): Linear(in_features=2048, out_features=2048, bias=True)
+  )
+)
+
+
+[03-23 06:40:15] (gannh9/Infinity/train.py, line 228)=> [PT][#para] VAE=110.12, VAE.quant=0.00
+[03-23 06:40:15] (gannh9/Infinity/train.py, line 231)=> [PT][#para] GPT=2477.34
+
+
+[03-23 06:40:15] (gannh9/Infinity/train.py, line 259)=> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      FSDP INIT with args.zero=2 sharding_strategy=<ShardingStrategy.SHARD_GRAD_OP: 2> auto_wrap_policy=<torch.distributed.fsdp.wrap.ModuleWrapPolicy object at 0x7f874645cb50>({<class 'infinity.models.infinity4.MultipleLayers'>})      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[03-23 06:40:16] (nity/utils/lr_control.py, line  71)=> [get_param_groups][lr decay] with_lr_scale=False, lr_scale=0.0
+[03-23 06:40:16] (nity/utils/lr_control.py, line 111)=> [get_param_groups] param_groups = 
+{ 'D': { 'lr_sc': '[no scale]',
+         'params': "('text_proj_for_sos.ca.mat_kv.weight, block_chunks.0.module.0.ca.mat_q.weight, block_chunks.0.module.0.ca.mat_q_adapter.weight, block_chunks.0.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.0.module.1.ca.mat_q.weight, block_chunks.0.module.1.ca.mat_q_adapter.weight, block_chunks.0.module.1.ca.mat_kv.weight, block_chunks.0.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.0.module.2.ca.mat_q_adapter.weight, block_chunks.0.module.2.ca.mat_kv.weight, block_chunks.0.module.3.ca.mat_q.weight, block_chunks.0.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.0.module.3.ca.mat_kv.weight, block_chunks.1.module.0.ca.mat_q.weight, block_chunks.1.module.0.ca.mat_q_adapter.weight, block_chunks.1.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.1.module.1.ca.mat_q.weight, block_chunks.1.module.1.ca.mat_q_adapter.weight, block_chunks.1.module.1.ca.mat_kv.weight, block_chunks.1.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.1.module.2.ca.mat_q_adapter.weight, block_chunks.1.module.2.ca.mat_kv.weight, block_chunks.1.module.3.ca.mat_q.weight, block_chunks.1.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.1.module.3.ca.mat_kv.weight, block_chunks.2.module.0.ca.mat_q.weight, block_chunks.2.module.0.ca.mat_q_adapter.weight, block_chunks.2.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.2.module.1.ca.mat_q.weight, block_chunks.2.module.1.ca.mat_q_adapter.weight, block_chunks.2.module.1.ca.mat_kv.weight, block_chunks.2.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.2.module.2.ca.mat_q_adapter.weight, block_chunks.2.module.2.ca.mat_kv.weight, block_chunks.2.module.3.ca.mat_q.weight, block_chunks.2.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.2.module.3.ca.mat_kv.weight, block_chunks.3.module.0.ca.mat_q.weight, block_chunks.3.module.0.ca.mat_q_adapter.weight, block_chunks.3.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.3.module.1.ca.mat_q.weight, block_chunks.3.module.1.ca.mat_q_adapter.weight, block_chunks.3.module.1.ca.mat_kv.weight, block_chunks.3.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.3.module.2.ca.mat_q_adapter.weight, block_chunks.3.module.2.ca.mat_kv.weight, block_chunks.3.module.3.ca.mat_q.weight, block_chunks.3.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.3.module.3.ca.mat_kv.weight, block_chunks.4.module.0.ca.mat_q.weight, block_chunks.4.module.0.ca.mat_q_adapter.weight, block_chunks.4.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.4.module.1.ca.mat_q.weight, block_chunks.4.module.1.ca.mat_q_adapter.weight, block_chunks.4.module.1.ca.mat_kv.weight, block_chunks.4.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.4.module.2.ca.mat_q_adapter.weight, block_chunks.4.module.2.ca.mat_kv.weight, block_chunks.4.module.3.ca.mat_q.weight, block_chunks.4.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.4.module.3.ca.mat_kv.weight, block_chunks.5.module.0.ca.mat_q.weight, block_chunks.5.module.0.ca.mat_q_adapter.weight, block_chunks.5.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.5.module.1.ca.mat_q.weight, block_chunks.5.module.1.ca.mat_q_adapter.weight, block_chunks.5.module.1.ca.mat_kv.weight, block_chunks.5.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.5.module.2.ca.mat_q_adapter.weight, block_chunks.5.module.2.ca.mat_kv.weight, block_chunks.5.module.3.ca.mat_q.weight, block_chunks.5.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.5.module.3.ca.mat_kv.weight, block_chunks.6.module.0.ca.mat_q.weight, block_chunks.6.module.0.ca.mat_q_adapter.weight, block_chunks.6.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.6.module.1.ca.mat_q.weight, block_chunks.6.module.1.ca.mat_q_adapter.weight, block_chunks.6.module.1.ca.mat_kv.weight, block_chunks.6.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.6.module.2.ca.mat_q_adapter.weight, block_chunks.6.module.2.ca.mat_kv.weight, block_chunks.6.module.3.ca.mat_q.weight, block_chunks.6.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.6.module.3.ca.mat_kv.weight, block_chunks.7.module.0.ca.mat_q.weight, block_chunks.7.module.0.ca.mat_q_adapter.weight, block_chunks.7.module.0.ca.mat_kv.weight, '\n"
+                   " 'block_chunks.7.module.1.ca.mat_q.weight, block_chunks.7.module.1.ca.mat_q_adapter.weight, block_chunks.7.module.1.ca.mat_kv.weight, block_chunks.7.module.2.ca.mat_q.weight, '\n"
+                   " 'block_chunks.7.module.2.ca.mat_q_adapter.weight, block_chunks.7.module.2.ca.mat_kv.weight, block_chunks.7.module.3.ca.mat_q.weight, block_chunks.7.module.3.ca.mat_q_adapter.weight, '\n"
+                   " 'block_chunks.7.module.3.ca.mat_kv.weight, image_adapter.adapter_gate, image_adapter.adapter_query.0.weight, image_adapter.adapter_query.1.weight, image_adapter.adapter_query.2.weight, '\n"
+                   " 'image_adapter.adapter_query.3.weight, image_adapter.adapter_query.4.weight, image_adapter.adapter_query.5.weight, image_adapter.adapter_query.6.weight, image_adapter.adapter_query.7.weight, '\n"
+                   " 'image_adapter.adapter_query.8.weight, image_adapter.adapter_query.9.weight, image_adapter.adapter_query.10.weight, image_adapter.adapter_query.11.weight, image_adapter.adapter_query.12.weight, '\n"
+                   " 'image_adapter.adapter_query.13.weight, image_adapter.adapter_query.14.weight, image_adapter.adapter_query.15.weight, image_adapter.adapter_query.16.weight, image_adapter.adapter_query.17.weight, '\n"
+                   " 'image_adapter.adapter_query.18.weight, image_adapter.adapter_query.19.weight, image_adapter.adapter_query.20.weight, image_adapter.adapter_query.21.weight, image_adapter.adapter_query.22.weight, '\n"
+                   " 'image_adapter.adapter_query.23.weight, image_adapter.adapter_query.24.weight, image_adapter.adapter_query.25.weight, image_adapter.adapter_query.26.weight, image_adapter.adapter_query.27.weight, '\n"
+                   " 'image_adapter.adapter_query.28.weight, image_adapter.adapter_query.29.weight, image_adapter.adapter_query.30.weight, image_adapter.adapter_query.31.weight, image_adapter.image_proj.weight')",
+         'wd_sc': 1.0},
+  'ND': { 'lr_sc': '[no scale]',
+          'params': "('text_proj_for_sos.ca.mat_q, text_proj_for_sos.ca.mat_q_adapter, block_chunks.0.module.0.ca.mat_q.bias, block_chunks.0.module.0.ca.mat_q_adapter.bias, block_chunks.0.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.0.module.1.ca.mat_q_adapter.bias, block_chunks.0.module.2.ca.mat_q.bias, block_chunks.0.module.2.ca.mat_q_adapter.bias, block_chunks.0.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.0.module.3.ca.mat_q_adapter.bias, block_chunks.1.module.0.ca.mat_q.bias, block_chunks.1.module.0.ca.mat_q_adapter.bias, block_chunks.1.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.1.module.1.ca.mat_q_adapter.bias, block_chunks.1.module.2.ca.mat_q.bias, block_chunks.1.module.2.ca.mat_q_adapter.bias, block_chunks.1.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.1.module.3.ca.mat_q_adapter.bias, block_chunks.2.module.0.ca.mat_q.bias, block_chunks.2.module.0.ca.mat_q_adapter.bias, block_chunks.2.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.2.module.1.ca.mat_q_adapter.bias, block_chunks.2.module.2.ca.mat_q.bias, block_chunks.2.module.2.ca.mat_q_adapter.bias, block_chunks.2.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.2.module.3.ca.mat_q_adapter.bias, block_chunks.3.module.0.ca.mat_q.bias, block_chunks.3.module.0.ca.mat_q_adapter.bias, block_chunks.3.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.3.module.1.ca.mat_q_adapter.bias, block_chunks.3.module.2.ca.mat_q.bias, block_chunks.3.module.2.ca.mat_q_adapter.bias, block_chunks.3.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.3.module.3.ca.mat_q_adapter.bias, block_chunks.4.module.0.ca.mat_q.bias, block_chunks.4.module.0.ca.mat_q_adapter.bias, block_chunks.4.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.4.module.1.ca.mat_q_adapter.bias, block_chunks.4.module.2.ca.mat_q.bias, block_chunks.4.module.2.ca.mat_q_adapter.bias, block_chunks.4.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.4.module.3.ca.mat_q_adapter.bias, block_chunks.5.module.0.ca.mat_q.bias, block_chunks.5.module.0.ca.mat_q_adapter.bias, block_chunks.5.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.5.module.1.ca.mat_q_adapter.bias, block_chunks.5.module.2.ca.mat_q.bias, block_chunks.5.module.2.ca.mat_q_adapter.bias, block_chunks.5.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.5.module.3.ca.mat_q_adapter.bias, block_chunks.6.module.0.ca.mat_q.bias, block_chunks.6.module.0.ca.mat_q_adapter.bias, block_chunks.6.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.6.module.1.ca.mat_q_adapter.bias, block_chunks.6.module.2.ca.mat_q.bias, block_chunks.6.module.2.ca.mat_q_adapter.bias, block_chunks.6.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.6.module.3.ca.mat_q_adapter.bias, block_chunks.7.module.0.ca.mat_q.bias, block_chunks.7.module.0.ca.mat_q_adapter.bias, block_chunks.7.module.1.ca.mat_q.bias, '\n"
+                    " 'block_chunks.7.module.1.ca.mat_q_adapter.bias, block_chunks.7.module.2.ca.mat_q.bias, block_chunks.7.module.2.ca.mat_q_adapter.bias, block_chunks.7.module.3.ca.mat_q.bias, '\n"
+                    " 'block_chunks.7.module.3.ca.mat_q_adapter.bias, image_adapter.adapter_query.0.bias, image_adapter.adapter_query.1.bias, image_adapter.adapter_query.2.bias, image_adapter.adapter_query.3.bias, '\n"
+                    " 'image_adapter.adapter_query.4.bias, image_adapter.adapter_query.5.bias, image_adapter.adapter_query.6.bias, image_adapter.adapter_query.7.bias, image_adapter.adapter_query.8.bias, '\n"
+                    " 'image_adapter.adapter_query.9.bias, image_adapter.adapter_query.10.bias, image_adapter.adapter_query.11.bias, image_adapter.adapter_query.12.bias, image_adapter.adapter_query.13.bias, '\n"
+                    " 'image_adapter.adapter_query.14.bias, image_adapter.adapter_query.15.bias, image_adapter.adapter_query.16.bias, image_adapter.adapter_query.17.bias, image_adapter.adapter_query.18.bias, '\n"
+                    " 'image_adapter.adapter_query.19.bias, image_adapter.adapter_query.20.bias, image_adapter.adapter_query.21.bias, image_adapter.adapter_query.22.bias, image_adapter.adapter_query.23.bias, '\n"
+                    " 'image_adapter.adapter_query.24.bias, image_adapter.adapter_query.25.bias, image_adapter.adapter_query.26.bias, image_adapter.adapter_query.27.bias, image_adapter.adapter_query.28.bias, '\n"
+                    " 'image_adapter.adapter_query.29.bias, image_adapter.adapter_query.30.bias, image_adapter.adapter_query.31.bias, image_adapter.image_norm.weight, image_adapter.image_norm.bias, '\n"
+                    " 'image_adapter.image_proj.bias')",
+          'wd_sc': 0.0}}
+
+[03-23 06:40:16] (nity/utils/lr_control.py, line 116)=> [get_param_groups][rank0] type(model).__name__='FullyShardedDataParallel' count=232, numel=318218208
+[03-23 06:40:16] (nity/utils/lr_control.py, line 117)=> 
+[03-23 06:40:16] (gannh9/Infinity/train.py, line 316)=> [vgpt] optim=functools.partial(<class 'torch.optim.adamw.AdamW'>, betas=(0.9, 0.97), fused=True), opt_kw={'lr': 7.5e-05, 'weight_decay': 0}
+
+[03-23 06:40:16] (nity/utils/lr_control.py, line 116)=> [get_param_groups][rank1] type(model).__name__='FullyShardedDataParallel' count=232, numel=365662240
+[03-23 06:40:16] (gannh9/Infinity/train.py, line 321)=> Loading T5 from google/flan-t5-xl...
+[03-23 06:40:52] (nh9/Infinity/trainer4.py, line  63)=> self.reweight_loss_by_scale: 1
+[03-23 06:40:52] (gannh9/Infinity/train.py, line 122)=> global bs=32, local bs=16
+[03-23 06:40:52] (gannh9/Infinity/train.py, line 123)=> initial args:
+{
+  local_out_path      : local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora
+  data_path           : ../RepControlNet/data/canny_laion/infinity_10k/splits
+  bed                 : checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/
+  vae_ckpt            : weights/infinity_vae_d32_reg.pth
+  exp_name            : version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora
+  ds                  : oi
+  model               : infinity_2bc8
+  short_cap_prob      : 0.5
+  project_name        : Infinity
+  tf32                : True
+  auto_resume         : False
+  rush_resume         : weights/infinity_2b_reg.pth
+  nowd                : 1
+  enable_hybrid_shard : False
+  inner_shard_degree  : 1
+  zero                : 2
+  buck                : chunk
+  fsdp_orig           : True
+  enable_checkpointing: full-block
+  pad_to_multiplier   : 128
+  log_every_iter      : False
+  checkpoint_type     : torch
+  seed                : 710
+  rand                : True
+  task_id             : 123
+  trial_id            : 123
+  robust_run_id       : 0
+  ckpt_trials         : [']', '[']
+  real_trial_id       : [
+  chunk_nodes         : 0
+  is_master_node      : None
+  log_txt_path        : local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt
+  t5_path             : google/flan-t5-xl
+  online_t5           : True
+  sdpa_mem            : True
+  tfast               : 0
+  model_alias         : 2bc8
+  rms                 : False
+  aln                 : 0.001
+  alng                : 5e-06
+  saln                : True
+  haln                : True
+  nm0                 : False
+  tau                 : 1
+  cos                 : True
+  swi                 : False
+  dp                  : -1
+  drop                : 0.0
+  hd                  : 0
+  ca_gamma            : -1
+  diva                : 1
+  hd0                 : 0.02
+  dec                 : 1
+  cum                 : 3
+  rwe                 : False
+  tp                  : 0.0
+  tk                  : 0.0
+  tini                : 0.01275775907699572
+  cfg                 : 0.1
+  rand_uncond         : False
+  ema                 : 0.9999
+  tema                : 0
+  fp16                : 2
+  fuse                : False
+  fused_norm          : False
+  flash               : False
+  xen                 : False
+  use_flex_attn       : True
+  stable              : False
+  gblr                : 0.0001
+  dblr                : 0.0001
+  tblr                : 0.0006
+  glr                 : 1.25e-05
+  dlr                 : 1.25e-05
+  tlr                 : 7.5e-05
+  gwd                 : 0.005
+  dwd                 : 0.0005
+  twd                 : 0.005
+  gwde                : 0.005
+  dwde                : 0.0005
+  twde                : 0.005
+  ls                  : 0.0
+  lz                  : 0.0
+  eq                  : 0
+  ep                  : 10000
+  wp                  : 1e-08
+  wp0                 : 0.005
+  wpe                 : 1.0
+  sche                : lin0
+  log_freq            : 100
+  gclip               : 6.0
+  dclip               : 6.0
+  tclip               : 5.0
+  cdec                : False
+  opt                 : adamw
+  ada                 : 0.9_0.97
+  dada                : 0.9_0.97
+  oeps                : 0
+  afuse               : True
+  pn                  : 0.06M
+  scale_schedule      : None
+  patch_size          : None
+  resos               : None
+  data_load_reso      : None
+  workers             : 2
+  lbs                 : 16
+  bs                  : 32
+  batch_size          : 16
+  glb_batch_size      : 32
+  ac                  : 1
+  r_accu              : 1.0
+  norm_eps            : 1e-06
+  tlen                : 512
+  Ct5                 : 2048
+  use_bit_label       : 1
+  bitloss_type        : mean
+  dynamic_resolution_across_gpus: 1
+  enable_dynamic_length_prompt: 1
+  use_streaming_dataset: 1
+  iterable_data_buffersize: 30000
+  save_model_iters_freq: 1000
+  noise_apply_layers  : 13
+  noise_apply_strength: 0.3
+  noise_apply_requant : 1
+  rope2d_each_sa_layer: 1
+  rope2d_normalized_by_hw: 2
+  use_fsdp_model_ema  : 0
+  add_lvl_embeding_only_first_block: 1
+  reweight_loss_by_scale: 1
+  always_training_scales: 100
+  vae_type            : 32
+  fake_vae_input      : False
+  model_init_device   : cuda
+  prefetch_factor     : 16
+  apply_spatial_patchify: 0
+  debug_bsc           : 0
+  task_type           : t2i
+  use_image_adapter   : 1
+  image_folder        : ../RepControlNet/data/canny_laion/infinity_10k/images
+  condition_folder    : ../RepControlNet/data/canny_laion/infinity_10k/condition_canny
+  pretrained_path     : weights/infinity_2b_reg.pth
+  adapter_pretrained_path: abc
+  branch              : main
+  commit_id           : 
+  commit_msg          : 
+  cmd                 : --tini=-1 --tclip=5 --flash=0 --alng=5e-06 --saln=1 --cos=1 --enable_checkpointing=full-block --local_out_path local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora --task_type=t2i --bed=checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ --data_path=../RepControlNet/data/canny_laion/infinity_10k/splits --video_data_path= version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora --pn 0.06M --model=2bc8 --lbs 16 --workers=2 --short_cap_prob 0.5 --online_t5=1 --use_streaming_dataset 1 --iterable_data_buffersize 30000 --Ct5=2048 --t5_path=google/flan-t5-xl --vae_type 32 --vae_ckpt=weights/infinity_vae_d32_reg.pth --wp 0.00000001 --wpe=1 --dynamic_resolution_across_gpus 1 --enable_dynamic_length_prompt 1 --reweight_loss_by_scale 1 --add_lvl_embeding_only_first_block 1 --rope2d_each_sa_layer 1 --rope2d_normalized_by_hw 2 --use_fsdp_model_ema 0 --always_training_scales 100 --use_bit_label 1 --zero=2 --save_model_iters_freq 1000 --log_freq=100 --checkpoint_type=torch --prefetch_factor=16 --noise_apply_strength 0.3 --noise_apply_layers 13 --apply_spatial_patchify 0 --use_flex_attn=True --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --adapter_pretrained_path abc --tblr=0.0006 --validation False --eval_vae_path weights/vae32reg.pth --eval_vae_config weights/vae32reg.json --auto_resume False --rush_resume weights/infinity_2b_reg.pth --fused_norm False --ep 10000 --seed 710
+  tag                 : UK
+  acc_all             : None
+  acc_real            : None
+  acc_fake            : None
+  last_Lnll           : None
+  last_L1             : None
+  last_Ld             : None
+  last_wei_g          : None
+  grad_boom           : None
+  diff                : None
+  diffs               : 
+  diffs_ema           : None
+  ca_performance      : 
+  cur_phase           : 
+  cur_it              : 
+  cur_ep              : 
+  remain_time         : 
+  finish_time         : 
+  iter_speed          : None
+  img_per_day         : None
+  max_nvidia_smi      : 0
+  max_memory_allocated: None
+  max_memory_reserved : None
+  num_alloc_retries   : None
+  MFU                 : None
+  HFU                 : None
+  dbg_modified        : False
+  dbg_ks              : False
+  dbg_ks_last         : None
+  validation          : False
+  eval_vae_path       : weights/vae32reg.pth
+  eval_vae_config     : weights/vae32reg.json
+  dbg                 : False
+  ks                  : False
+  nodata              : False
+  nodata_tlen         : 320
+  nova                : False
+  prof                : 0
+  prof_freq           : 50
+  tos_profiler_file_prefix: vgpt_default/
+  profall             : 0
+  v_seed              : 0
+  g_seed              : 0
+}
+
+[03-23 06:40:52] (gannh9/Infinity/train.py, line 133)=> start_it=0, iters_train=312
+[03-23 06:40:59] (gannh9/Infinity/train.py, line 446)=> [PT info]  from ep0 it0, acc_str: [no acc str], diffs: ,    =======>  bed: checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/  <=======
+
+[03-23 06:41:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   0/10000]:  [  0/312]  eta: 1:21:50  tlr: 7.5e-05  tnm: 0.68 (0.68)  Lm: 0.742 (0.742)  Lt: 0.756 (0.756)  Accm: 56.14 (56.14)  Acct: 53.77 (53.77)  T: 15.740s  dataT: 317.5ms
+[03-23 06:44:48] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   0/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.04 (0.36)  Lm: 0.629 (0.685)  Lt: 0.654 (0.705)  Accm: 63.97 (60.05)  Acct: 61.20 (57.48)  T: 2.243s  dataT: 0.1ms
+[03-23 06:48:21] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   0/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.26)  Lm: 0.620 (0.663)  Lt: 0.644 (0.684)  Accm: 64.72 (61.61)  Acct: 62.26 (59.07)  T: 2.250s  dataT: 0.1ms
+[03-23 06:51:54] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   0/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.21)  Lm: 0.618 (0.652)  Lt: 0.634 (0.672)  Accm: 64.82 (62.41)  Acct: 63.10 (60.08)  T: 2.251s  dataT: 0.1ms
+[03-23 06:52:17] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   0/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.17)  Lm: 0.609 (0.643)  Lt: 0.612 (0.660)  Accm: 66.15 (63.16)  Acct: 66.10 (61.28)  T: 2.251s  dataT: 0.1ms
+[03-23 06:52:17] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   0/10000]   Cost of this ep:      0:11:18   (2.173 s / it)
+[03-23 06:52:17] (gannh9/Infinity/train.py, line 528)=>   [*] [ep0]  Lmean: 0.643 (0.643), Ltail 0.660 (0.660),  Acc m-t: 63.16 61.28,  Remain: 80 days, 12:03:25,  Finish: 2025-06-11 17:55
+[03-23 06:52:20] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   1/10000]:  [  0/312]  eta: 0:12:43  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.613 (0.613)  Lt: 0.615 (0.615)  Accm: 65.65 (65.65)  Acct: 65.52 (65.52)  T: 2.447s  dataT: 302.2ms
+[03-23 06:55:53] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   1/10000]:  [100/312]  eta: 0:07:33  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.602 (0.607)  Lt: 0.610 (0.612)  Accm: 66.34 (65.99)  Acct: 65.73 (65.62)  T: 2.258s  dataT: 0.1ms
+[03-23 06:59:26] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   1/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.616 (0.610)  Lt: 0.624 (0.616)  Accm: 65.20 (65.73)  Acct: 64.46 (65.23)  T: 2.251s  dataT: 0.1ms
+[03-23 07:02:59] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   1/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.595 (0.607)  Lt: 0.600 (0.612)  Accm: 67.34 (66.13)  Acct: 66.97 (65.67)  T: 2.248s  dataT: 0.1ms
+[03-23 07:03:23] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   1/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.590 (0.603)  Lt: 0.595 (0.609)  Accm: 67.68 (66.44)  Acct: 67.27 (65.99)  T: 2.250s  dataT: 0.1ms
+[03-23 07:03:23] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   1/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 07:03:23] (gannh9/Infinity/train.py, line 528)=>   [*] [ep1]  Lmean: 0.603 (0.603), Ltail 0.609 (0.609),  Acc m-t: 66.44 65.99,  Remain: 80 days, 13:11:58,  Finish: 2025-06-11 19:15
+[03-23 07:03:26] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   2/10000]:  [  0/312]  eta: 0:12:37  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.602 (0.602)  Lt: 0.615 (0.615)  Accm: 66.50 (66.50)  Acct: 65.35 (65.35)  T: 2.426s  dataT: 263.2ms
+[03-23 07:06:59] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   2/10000]:  [100/312]  eta: 0:07:33  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.599 (0.601)  Lt: 0.602 (0.609)  Accm: 66.92 (66.71)  Acct: 66.69 (66.02)  T: 2.246s  dataT: 0.1ms
+[03-23 07:10:32] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   2/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.593 (0.598)  Lt: 0.600 (0.606)  Accm: 67.40 (66.94)  Acct: 66.88 (66.31)  T: 2.246s  dataT: 0.1ms
+[03-23 07:14:05] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   2/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.597 (0.598)  Lt: 0.602 (0.605)  Accm: 67.17 (67.00)  Acct: 66.62 (66.38)  T: 2.254s  dataT: 0.1ms
+[03-23 07:14:29] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   2/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.579 (0.594)  Lt: 0.585 (0.601)  Accm: 68.79 (67.36)  Acct: 68.46 (66.80)  T: 2.256s  dataT: 0.1ms
+[03-23 07:14:29] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   2/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 07:14:29] (gannh9/Infinity/train.py, line 528)=>   [*] [ep2]  Lmean: 0.594 (0.594), Ltail 0.601 (0.601),  Acc m-t: 67.36 66.80,  Remain: 80 days, 14:43:30,  Finish: 2025-06-11 20:57
+[03-23 07:14:32] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   3/10000]:  [  0/312]  eta: 0:12:28  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.600 (0.600)  Lt: 0.604 (0.604)  Accm: 66.74 (66.74)  Acct: 66.44 (66.44)  T: 2.400s  dataT: 250.4ms
+[03-23 07:16:54] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter001K-ep3-iter64-last.pth
+[03-23 07:16:54] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 07:16:54] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 07:16:54] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter001K-ep3-iter64-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter001K-ep3-iter64-last.pth
+[03-23 07:16:54] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 07:16:54] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 07:16:54] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 07:16:54] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.76s
+[03-23 07:18:22] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   3/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.595 (0.598)  Lt: 0.604 (0.604)  Accm: 67.23 (66.99)  Acct: 66.40 (66.42)  T: 2.256s  dataT: 0.1ms
+[03-23 07:21:55] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   3/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.595 (0.597)  Lt: 0.591 (0.600)  Accm: 67.29 (67.09)  Acct: 67.76 (66.87)  T: 2.258s  dataT: 0.1ms
+[03-23 07:25:28] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   3/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.587 (0.594)  Lt: 0.594 (0.598)  Accm: 67.95 (67.30)  Acct: 67.45 (67.01)  T: 2.249s  dataT: 0.1ms
+[03-23 07:25:51] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   3/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.605 (0.596)  Lt: 0.614 (0.601)  Accm: 66.30 (67.10)  Acct: 65.56 (66.72)  T: 2.235s  dataT: 0.1ms
+[03-23 07:25:51] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   3/10000]   Cost of this ep:      0:11:22   (2.187 s / it)
+[03-23 07:25:52] (gannh9/Infinity/train.py, line 528)=>   [*] [ep3]  Lmean: 0.594 (0.596), Ltail 0.601 (0.601),  Acc m-t: 67.36 66.80,  Remain: 80 days, 13:41:43,  Finish: 2025-06-11 20:07
+[03-23 07:25:54] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   4/10000]:  [  0/312]  eta: 0:12:33  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.581 (0.581)  Lt: 0.585 (0.585)  Accm: 68.63 (68.63)  Acct: 68.44 (68.44)  T: 2.414s  dataT: 265.7ms
+[03-23 07:29:27] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   4/10000]:  [100/312]  eta: 0:07:33  tlr: 7.5e-05  tnm: 0.05 (0.04)  Lm: 0.602 (0.591)  Lt: 0.606 (0.595)  Accm: 66.40 (67.52)  Acct: 66.03 (67.23)  T: 2.255s  dataT: 0.1ms
+[03-23 07:33:01] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   4/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.594 (0.592)  Lt: 0.605 (0.598)  Accm: 67.17 (67.40)  Acct: 66.26 (66.91)  T: 2.261s  dataT: 0.1ms
+[03-23 07:36:34] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   4/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.592 (0.592)  Lt: 0.612 (0.602)  Accm: 67.21 (67.35)  Acct: 65.38 (66.52)  T: 2.241s  dataT: 0.1ms
+[03-23 07:36:58] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   4/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.588 (0.591)  Lt: 0.600 (0.601)  Accm: 67.82 (67.45)  Acct: 66.62 (66.54)  T: 2.241s  dataT: 0.1ms
+[03-23 07:36:58] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   4/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 07:36:58] (gannh9/Infinity/train.py, line 528)=>   [*] [ep4]  Lmean: 0.591 (0.591), Ltail 0.601 (0.601),  Acc m-t: 67.45 66.80,  Remain: 80 days, 11:48:11,  Finish: 2025-06-11 18:25
+[03-23 07:37:00] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   5/10000]:  [  0/312]  eta: 0:12:38  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.592 (0.592)  Lt: 0.596 (0.596)  Accm: 67.63 (67.63)  Acct: 67.43 (67.43)  T: 2.431s  dataT: 286.6ms
+[03-23 07:40:34] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   5/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.583 (0.587)  Lt: 0.594 (0.595)  Accm: 68.26 (67.94)  Acct: 67.32 (67.38)  T: 2.255s  dataT: 0.1ms
+[03-23 07:44:07] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   5/10000]:  [200/312]  eta: 0:03:58  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.591 (0.589)  Lt: 0.601 (0.597)  Accm: 67.51 (67.80)  Acct: 66.79 (67.18)  T: 2.253s  dataT: 0.1ms
+[03-23 07:47:40] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   5/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.589 (0.589)  Lt: 0.605 (0.599)  Accm: 67.54 (67.73)  Acct: 66.09 (66.91)  T: 2.244s  dataT: 0.1ms
+[03-23 07:48:04] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   5/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.598 (0.591)  Lt: 0.613 (0.602)  Accm: 66.64 (67.51)  Acct: 65.26 (66.58)  T: 2.241s  dataT: 0.1ms
+[03-23 07:48:04] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   5/10000]   Cost of this ep:      0:11:05   (2.133 s / it)
+[03-23 07:48:04] (gannh9/Infinity/train.py, line 528)=>   [*] [ep5]  Lmean: 0.591 (0.591), Ltail 0.601 (0.602),  Acc m-t: 67.51 66.80,  Remain: 80 days, 11:04:41,  Finish: 2025-06-11 17:52
+[03-23 07:48:06] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   6/10000]:  [  0/312]  eta: 0:12:49  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.601 (0.601)  Lt: 0.611 (0.611)  Accm: 66.35 (66.35)  Acct: 65.44 (65.44)  T: 2.466s  dataT: 296.0ms
+[03-23 07:51:39] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   6/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.596 (0.598)  Lt: 0.601 (0.606)  Accm: 67.26 (66.81)  Acct: 66.85 (66.15)  T: 2.257s  dataT: 0.1ms
+[03-23 07:52:46] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter002K-ep6-iter128-last.pth
+[03-23 07:52:46] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 07:52:46] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 07:52:46] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter002K-ep6-iter128-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter002K-ep6-iter128-last.pth
+[03-23 07:52:46] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 07:52:46] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 07:52:46] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 07:52:46] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.57s
+[03-23 07:55:30] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   6/10000]:  [200/312]  eta: 0:03:58  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.599 (0.599)  Lt: 0.600 (0.604)  Accm: 67.00 (66.87)  Acct: 67.04 (66.44)  T: 2.248s  dataT: 0.1ms
+[03-23 07:59:03] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   6/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.590 (0.597)  Lt: 0.603 (0.604)  Accm: 67.70 (67.08)  Acct: 66.54 (66.47)  T: 2.250s  dataT: 0.1ms
+[03-23 07:59:26] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   6/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.592 (0.596)  Lt: 0.604 (0.604)  Accm: 67.33 (67.13)  Acct: 66.35 (66.44)  T: 2.244s  dataT: 0.1ms
+[03-23 07:59:26] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   6/10000]   Cost of this ep:      0:11:22   (2.187 s / it)
+[03-23 07:59:27] (gannh9/Infinity/train.py, line 528)=>   [*] [ep6]  Lmean: 0.591 (0.596), Ltail 0.601 (0.604),  Acc m-t: 67.51 66.80,  Remain: 80 days, 10:33:33,  Finish: 2025-06-11 17:32
+[03-23 07:59:29] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   7/10000]:  [  0/312]  eta: 0:12:34  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.591 (0.591)  Lt: 0.592 (0.592)  Accm: 67.67 (67.67)  Acct: 67.66 (67.66)  T: 2.417s  dataT: 269.5ms
+[03-23 08:03:03] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   7/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.579 (0.585)  Lt: 0.578 (0.585)  Accm: 68.66 (68.16)  Acct: 68.89 (68.28)  T: 2.247s  dataT: 0.1ms
+[03-23 08:06:36] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   7/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.582 (0.584)  Lt: 0.579 (0.583)  Accm: 68.48 (68.27)  Acct: 68.82 (68.46)  T: 2.245s  dataT: 0.1ms
+[03-23 08:10:09] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   7/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.590 (0.585)  Lt: 0.603 (0.588)  Accm: 67.68 (68.12)  Acct: 66.46 (67.96)  T: 2.254s  dataT: 0.1ms
+[03-23 08:10:33] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   7/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.588 (0.586)  Lt: 0.600 (0.590)  Accm: 67.79 (68.06)  Acct: 66.78 (67.72)  T: 2.244s  dataT: 0.1ms
+[03-23 08:10:33] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   7/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 08:10:33] (gannh9/Infinity/train.py, line 528)=>   [*] [ep7]  Lmean: 0.586 (0.586), Ltail 0.590 (0.590),  Acc m-t: 68.06 67.72,  Remain: 80 days, 8:54:09,  Finish: 2025-06-11 16:04
+[03-23 08:10:36] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   8/10000]:  [  0/312]  eta: 0:12:54  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.586 (0.586)  Lt: 0.592 (0.592)  Accm: 68.01 (68.01)  Acct: 67.56 (67.56)  T: 2.483s  dataT: 324.4ms
+[03-23 08:14:09] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   8/10000]:  [100/312]  eta: 0:07:33  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.589 (0.587)  Lt: 0.591 (0.591)  Accm: 67.69 (67.85)  Acct: 67.76 (67.66)  T: 2.260s  dataT: 0.1ms
+[03-23 08:17:42] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   8/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.582 (0.585)  Lt: 0.587 (0.590)  Accm: 68.47 (68.06)  Acct: 68.18 (67.84)  T: 2.254s  dataT: 0.1ms
+[03-23 08:21:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   8/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.602 (0.590)  Lt: 0.611 (0.595)  Accm: 66.61 (67.69)  Acct: 65.88 (67.35)  T: 2.251s  dataT: 0.1ms
+[03-23 08:21:39] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   8/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.592 (0.590)  Lt: 0.603 (0.597)  Accm: 67.36 (67.63)  Acct: 66.41 (67.16)  T: 2.238s  dataT: 0.1ms
+[03-23 08:21:39] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   8/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 08:21:39] (gannh9/Infinity/train.py, line 528)=>   [*] [ep8]  Lmean: 0.586 (0.590), Ltail 0.590 (0.597),  Acc m-t: 68.06 67.72,  Remain: 80 days, 9:59:26,  Finish: 2025-06-11 17:21
+[03-23 08:21:42] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   9/10000]:  [  0/312]  eta: 0:12:46  tlr: 7.5e-05  tnm: 0.04 (0.04)  Lm: 0.580 (0.580)  Lt: 0.587 (0.587)  Accm: 68.61 (68.61)  Acct: 68.02 (68.02)  T: 2.457s  dataT: 299.0ms
+[03-23 08:25:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   9/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.607 (0.594)  Lt: 0.617 (0.602)  Accm: 65.90 (67.25)  Acct: 65.00 (66.51)  T: 2.263s  dataT: 0.1ms
+[03-23 08:28:39] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter003K-ep9-iter192-last.pth
+[03-23 08:28:39] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 08:28:39] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 08:28:39] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 08:28:39] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter003K-ep9-iter192-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter003K-ep9-iter192-last.pth
+[03-23 08:28:39] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 08:28:39] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 08:28:39] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.58s
+[03-23 08:29:07] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   9/10000]:  [200/312]  eta: 0:05:08  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.584 (0.590)  Lt: 0.592 (0.599)  Accm: 68.01 (67.51)  Acct: 67.44 (66.82)  T: 2.252s  dataT: 0.1ms
+[03-23 08:32:40] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   9/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.596 (0.592)  Lt: 0.597 (0.598)  Accm: 67.06 (67.39)  Acct: 67.02 (66.87)  T: 2.253s  dataT: 0.1ms
+[03-23 08:33:03] (y/infinity/utils/misc.py, line 270)=> [Ep]: [   9/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.580 (0.590)  Lt: 0.590 (0.597)  Accm: 68.67 (67.65)  Acct: 67.87 (67.07)  T: 2.250s  dataT: 0.1ms
+[03-23 08:33:03] (y/infinity/utils/misc.py, line 287)=> [Ep]: [   9/10000]   Cost of this ep:      0:11:23   (2.191 s / it)
+[03-23 08:33:03] (gannh9/Infinity/train.py, line 528)=>   [*] [ep9]  Lmean: 0.586 (0.590), Ltail 0.590 (0.597),  Acc m-t: 68.06 67.72,  Remain: 80 days, 11:18:59,  Finish: 2025-06-11 18:52
+[03-23 08:33:06] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  10/10000]:  [  0/312]  eta: 0:12:42  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.594 (0.594)  Lt: 0.599 (0.599)  Accm: 67.24 (67.24)  Acct: 66.97 (66.97)  T: 2.443s  dataT: 289.7ms
+[03-23 08:36:39] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  10/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.584 (0.589)  Lt: 0.587 (0.593)  Accm: 68.13 (67.69)  Acct: 68.13 (67.55)  T: 2.249s  dataT: 0.1ms
+[03-23 08:40:12] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  10/10000]:  [200/312]  eta: 0:03:58  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.596 (0.591)  Lt: 0.607 (0.598)  Accm: 67.05 (67.47)  Acct: 66.04 (67.05)  T: 2.241s  dataT: 0.1ms
+[03-23 08:43:45] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  10/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.589 (0.591)  Lt: 0.597 (0.598)  Accm: 67.92 (67.58)  Acct: 67.21 (67.09)  T: 2.242s  dataT: 0.1ms
+[03-23 08:44:09] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  10/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.593 (0.591)  Lt: 0.611 (0.600)  Accm: 67.16 (67.50)  Acct: 65.60 (66.79)  T: 2.256s  dataT: 0.1ms
+[03-23 08:44:09] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  10/10000]   Cost of this ep:      0:11:05   (2.132 s / it)
+[03-23 08:44:09] (gannh9/Infinity/train.py, line 528)=>   [*] [ep10]  Lmean: 0.586 (0.591), Ltail 0.590 (0.600),  Acc m-t: 68.06 67.72,  Remain: 80 days, 10:16:36,  Finish: 2025-06-11 18:00
+[03-23 08:44:12] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  11/10000]:  [  0/312]  eta: 0:12:44  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.592 (0.592)  Lt: 0.600 (0.600)  Accm: 67.51 (67.51)  Acct: 66.79 (66.79)  T: 2.451s  dataT: 295.2ms
+[03-23 08:47:45] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  11/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.586 (0.589)  Lt: 0.598 (0.599)  Accm: 67.81 (67.66)  Acct: 66.87 (66.83)  T: 2.257s  dataT: 0.1ms
+[03-23 08:51:18] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  11/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.590 (0.589)  Lt: 0.604 (0.601)  Accm: 67.63 (67.65)  Acct: 66.37 (66.68)  T: 2.253s  dataT: 0.1ms
+[03-23 08:54:52] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  11/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.578 (0.586)  Lt: 0.574 (0.594)  Accm: 68.73 (67.92)  Acct: 69.15 (67.30)  T: 2.248s  dataT: 0.1ms
+[03-23 08:55:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  11/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.606 (0.590)  Lt: 0.607 (0.597)  Accm: 65.99 (67.53)  Acct: 66.09 (67.06)  T: 2.240s  dataT: 0.1ms
+[03-23 08:55:15] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  11/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 08:55:15] (gannh9/Infinity/train.py, line 528)=>   [*] [ep11]  Lmean: 0.586 (0.590), Ltail 0.590 (0.597),  Acc m-t: 68.06 67.72,  Remain: 80 days, 8:56:30,  Finish: 2025-06-11 16:51
+[03-23 08:55:18] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  12/10000]:  [  0/312]  eta: 0:12:38  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.583 (0.583)  Lt: 0.596 (0.596)  Accm: 68.13 (68.13)  Acct: 67.13 (67.13)  T: 2.431s  dataT: 286.0ms
+[03-23 08:58:51] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  12/10000]:  [100/312]  eta: 0:07:33  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.565 (0.574)  Lt: 0.565 (0.580)  Accm: 69.72 (68.92)  Acct: 69.86 (68.49)  T: 2.241s  dataT: 0.1ms
+[03-23 09:02:24] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  12/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.585 (0.578)  Lt: 0.590 (0.583)  Accm: 68.19 (68.68)  Acct: 67.80 (68.26)  T: 2.253s  dataT: 0.1ms
+[03-23 09:04:32] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter004K-ep12-iter256-last.pth
+[03-23 09:04:32] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 09:04:32] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 09:04:32] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter004K-ep12-iter256-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter004K-ep12-iter256-last.pth
+[03-23 09:04:32] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 09:04:32] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 09:04:32] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 09:04:32] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.61s
+[03-23 09:06:17] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  12/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.589 (0.581)  Lt: 0.597 (0.587)  Accm: 67.73 (68.44)  Acct: 67.22 (68.00)  T: 2.250s  dataT: 0.1ms
+[03-23 09:06:40] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  12/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.598 (0.584)  Lt: 0.603 (0.590)  Accm: 66.97 (68.15)  Acct: 66.49 (67.70)  T: 2.240s  dataT: 0.1ms
+[03-23 09:06:40] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  12/10000]   Cost of this ep:      0:11:24   (2.194 s / it)
+[03-23 09:06:41] (gannh9/Infinity/train.py, line 528)=>   [*] [ep12]  Lmean: 0.584 (0.584), Ltail 0.590 (0.590),  Acc m-t: 68.15 67.72,  Remain: 80 days, 6:51:50,  Finish: 2025-06-11 14:58
+[03-23 09:06:43] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  13/10000]:  [  0/312]  eta: 0:12:33  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.576 (0.576)  Lt: 0.591 (0.591)  Accm: 68.82 (68.82)  Acct: 67.58 (67.58)  T: 2.414s  dataT: 264.2ms
+[03-23 09:10:16] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  13/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.580 (0.578)  Lt: 0.590 (0.591)  Accm: 68.51 (68.66)  Acct: 67.79 (67.69)  T: 2.256s  dataT: 0.1ms
+[03-23 09:13:50] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  13/10000]:  [200/312]  eta: 0:03:58  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.586 (0.581)  Lt: 0.592 (0.591)  Accm: 67.78 (68.37)  Acct: 67.35 (67.57)  T: 2.246s  dataT: 0.1ms
+[03-23 09:17:23] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  13/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.596 (0.585)  Lt: 0.605 (0.595)  Accm: 67.14 (68.06)  Acct: 66.35 (67.27)  T: 2.245s  dataT: 0.1ms
+[03-23 09:17:46] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  13/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.585 (0.585)  Lt: 0.594 (0.595)  Accm: 68.14 (68.08)  Acct: 67.49 (67.31)  T: 2.250s  dataT: 0.1ms
+[03-23 09:17:46] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  13/10000]   Cost of this ep:      0:11:05   (2.133 s / it)
+[03-23 09:17:47] (gannh9/Infinity/train.py, line 528)=>   [*] [ep13]  Lmean: 0.584 (0.585), Ltail 0.590 (0.595),  Acc m-t: 68.15 67.72,  Remain: 80 days, 11:33:21,  Finish: 2025-06-11 19:51
+[03-23 09:17:49] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  14/10000]:  [  0/312]  eta: 0:12:48  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.576 (0.576)  Lt: 0.583 (0.583)  Accm: 68.76 (68.76)  Acct: 68.31 (68.31)  T: 2.464s  dataT: 311.4ms
+[03-23 09:21:23] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  14/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.594 (0.585)  Lt: 0.602 (0.593)  Accm: 67.18 (67.97)  Acct: 66.58 (67.44)  T: 2.257s  dataT: 0.1ms
+[03-23 09:24:56] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  14/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.16 (0.09)  Lm: 0.567 (0.579)  Lt: 0.576 (0.587)  Accm: 69.46 (68.47)  Acct: 68.83 (67.91)  T: 2.459s  dataT: 0.1ms
+[03-23 09:28:30] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  14/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.08)  Lm: 0.591 (0.582)  Lt: 0.594 (0.589)  Accm: 67.52 (68.23)  Acct: 67.27 (67.75)  T: 2.251s  dataT: 0.1ms
+[03-23 09:28:53] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  14/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.08)  Lm: 0.583 (0.582)  Lt: 0.592 (0.590)  Accm: 68.24 (68.23)  Acct: 67.48 (67.69)  T: 2.233s  dataT: 0.1ms
+[03-23 09:28:53] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  14/10000]   Cost of this ep:      0:11:06   (2.135 s / it)
+[03-23 09:28:53] (gannh9/Infinity/train.py, line 528)=>   [*] [ep14]  Lmean: 0.582 (0.582), Ltail 0.590 (0.590),  Acc m-t: 68.23 67.72,  Remain: 80 days, 9:13:27,  Finish: 2025-06-11 17:42
+[03-23 09:28:56] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  15/10000]:  [  0/312]  eta: 0:12:53  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.579 (0.579)  Lt: 0.587 (0.587)  Accm: 68.56 (68.56)  Acct: 68.02 (68.02)  T: 2.479s  dataT: 315.1ms
+[03-23 09:32:29] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  15/10000]:  [100/312]  eta: 0:07:31  tlr: 7.5e-05  tnm: 0.07 (0.06)  Lm: 0.582 (0.580)  Lt: 0.600 (0.593)  Accm: 68.17 (68.37)  Acct: 66.69 (67.35)  T: 2.237s  dataT: 0.1ms
+[03-23 09:36:02] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  15/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.581 (0.581)  Lt: 0.596 (0.594)  Accm: 68.28 (68.34)  Acct: 67.11 (67.27)  T: 2.252s  dataT: 0.1ms
+[03-23 09:39:35] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  15/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.587 (0.582)  Lt: 0.605 (0.597)  Accm: 67.78 (68.20)  Acct: 66.27 (67.02)  T: 2.241s  dataT: 0.1ms
+[03-23 09:39:59] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  15/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.589 (0.584)  Lt: 0.606 (0.599)  Accm: 67.59 (68.08)  Acct: 66.07 (66.83)  T: 2.239s  dataT: 0.1ms
+[03-23 09:39:59] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  15/10000]   Cost of this ep:      0:11:05   (2.132 s / it)
+[03-23 09:39:59] (gannh9/Infinity/train.py, line 528)=>   [*] [ep15]  Lmean: 0.582 (0.584), Ltail 0.590 (0.599),  Acc m-t: 68.23 67.72,  Remain: 80 days, 8:36:06,  Finish: 2025-06-11 17:16
+[03-23 09:40:02] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  16/10000]:  [  0/312]  eta: 0:12:44  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.590 (0.590)  Lt: 0.612 (0.612)  Accm: 67.45 (67.45)  Acct: 65.52 (65.52)  T: 2.450s  dataT: 304.0ms
+[03-23 09:40:27] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter005K-ep16-iter8-last.pth
+[03-23 09:40:27] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 09:40:27] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 09:40:27] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter005K-ep16-iter8-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter005K-ep16-iter8-last.pth
+[03-23 09:40:27] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 09:40:27] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 09:40:27] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 09:40:27] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.61s
+[03-23 09:43:54] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  16/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.583 (0.586)  Lt: 0.593 (0.603)  Accm: 68.23 (67.84)  Acct: 67.55 (66.54)  T: 2.250s  dataT: 0.1ms
+[03-23 09:47:27] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  16/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.04 (0.05)  Lm: 0.581 (0.585)  Lt: 0.589 (0.598)  Accm: 68.53 (68.07)  Acct: 67.85 (66.98)  T: 2.246s  dataT: 0.1ms
+[03-23 09:51:00] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  16/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.07 (0.06)  Lm: 0.580 (0.583)  Lt: 0.580 (0.594)  Accm: 68.32 (68.13)  Acct: 68.55 (67.37)  T: 2.257s  dataT: 0.1ms
+[03-23 09:51:23] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  16/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.575 (0.582)  Lt: 0.585 (0.592)  Accm: 69.03 (68.31)  Acct: 68.27 (67.55)  T: 2.238s  dataT: 0.1ms
+[03-23 09:51:23] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  16/10000]   Cost of this ep:      0:11:24   (2.193 s / it)
+[03-23 09:51:24] (gannh9/Infinity/train.py, line 528)=>   [*] [ep16]  Lmean: 0.582 (0.582), Ltail 0.590 (0.592),  Acc m-t: 68.31 67.72,  Remain: 80 days, 8:06:34,  Finish: 2025-06-11 16:57
+[03-23 09:51:27] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  17/10000]:  [  0/312]  eta: 0:12:40  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.578 (0.578)  Lt: 0.589 (0.589)  Accm: 68.56 (68.56)  Acct: 67.65 (67.65)  T: 2.437s  dataT: 294.2ms
+[03-23 09:55:00] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  17/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.585 (0.582)  Lt: 0.594 (0.591)  Accm: 68.12 (68.34)  Acct: 67.48 (67.57)  T: 2.251s  dataT: 0.1ms
+[03-23 09:58:33] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  17/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.589 (0.584)  Lt: 0.588 (0.590)  Accm: 67.76 (68.14)  Acct: 67.95 (67.70)  T: 2.247s  dataT: 0.1ms
+[03-23 10:02:07] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  17/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.581 (0.583)  Lt: 0.601 (0.593)  Accm: 68.36 (68.20)  Acct: 66.67 (67.44)  T: 2.249s  dataT: 0.1ms
+[03-23 10:02:30] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  17/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.595 (0.586)  Lt: 0.602 (0.595)  Accm: 67.13 (67.99)  Acct: 66.57 (67.26)  T: 2.244s  dataT: 0.1ms
+[03-23 10:02:30] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  17/10000]   Cost of this ep:      0:11:06   (2.135 s / it)
+[03-23 10:02:30] (gannh9/Infinity/train.py, line 528)=>   [*] [ep17]  Lmean: 0.582 (0.586), Ltail 0.590 (0.595),  Acc m-t: 68.31 67.72,  Remain: 80 days, 8:20:19,  Finish: 2025-06-11 17:22
+[03-23 10:02:33] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  18/10000]:  [  0/312]  eta: 0:12:40  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.581 (0.581)  Lt: 0.592 (0.592)  Accm: 68.48 (68.48)  Acct: 67.62 (67.62)  T: 2.437s  dataT: 282.9ms
+[03-23 10:06:06] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  18/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.577 (0.579)  Lt: 0.589 (0.590)  Accm: 68.78 (68.63)  Acct: 67.86 (67.74)  T: 2.269s  dataT: 0.1ms
+[03-23 10:09:40] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  18/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.567 (0.575)  Lt: 0.567 (0.582)  Accm: 69.81 (69.03)  Acct: 69.97 (68.48)  T: 2.256s  dataT: 0.1ms
+[03-23 10:13:13] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  18/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.589 (0.578)  Lt: 0.606 (0.588)  Accm: 67.70 (68.69)  Acct: 66.13 (67.89)  T: 2.254s  dataT: 0.1ms
+[03-23 10:13:36] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  18/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.574 (0.578)  Lt: 0.581 (0.587)  Accm: 69.04 (68.76)  Acct: 68.72 (68.06)  T: 2.241s  dataT: 0.1ms
+[03-23 10:13:36] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  18/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 10:13:37] (gannh9/Infinity/train.py, line 528)=>   [*] [ep18]  Lmean: 0.578 (0.578), Ltail 0.587 (0.587),  Acc m-t: 68.76 68.06,  Remain: 80 days, 9:01:41,  Finish: 2025-06-11 18:15
+[03-23 10:13:39] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  19/10000]:  [  0/312]  eta: 0:12:52  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.580 (0.580)  Lt: 0.583 (0.583)  Accm: 68.41 (68.41)  Acct: 68.36 (68.36)  T: 2.475s  dataT: 320.1ms
+[03-23 10:16:21] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter006K-ep19-iter72-last.pth
+[03-23 10:16:21] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 10:16:21] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 10:16:21] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter006K-ep19-iter72-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter006K-ep19-iter72-last.pth
+[03-23 10:16:21] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 10:16:21] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 10:16:21] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 10:16:21] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.62s
+[03-23 10:17:32] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  19/10000]:  [100/312]  eta: 0:09:48  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.583 (0.582)  Lt: 0.594 (0.589)  Accm: 68.28 (68.35)  Acct: 67.27 (67.81)  T: 2.242s  dataT: 0.1ms
+[03-23 10:21:05] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  19/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.578 (0.580)  Lt: 0.589 (0.589)  Accm: 68.44 (68.38)  Acct: 67.61 (67.75)  T: 2.249s  dataT: 0.1ms
+[03-23 10:24:38] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  19/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.07 (0.06)  Lm: 0.566 (0.577)  Lt: 0.577 (0.586)  Accm: 69.67 (68.70)  Acct: 68.82 (68.02)  T: 2.242s  dataT: 0.1ms
+[03-23 10:25:02] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  19/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.582 (0.578)  Lt: 0.587 (0.586)  Accm: 68.44 (68.65)  Acct: 68.10 (68.03)  T: 2.247s  dataT: 0.1ms
+[03-23 10:25:02] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  19/10000]   Cost of this ep:      0:11:24   (2.194 s / it)
+[03-23 10:25:02] (gannh9/Infinity/train.py, line 528)=>   [*] [ep19]  Lmean: 0.578 (0.578), Ltail 0.586 (0.586),  Acc m-t: 68.76 68.06,  Remain: 80 days, 8:04:04,  Finish: 2025-06-11 17:29
+[03-23 10:25:05] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  20/10000]:  [  0/312]  eta: 0:12:42  tlr: 7.5e-05  tnm: 0.12 (0.12)  Lm: 0.600 (0.600)  Lt: 0.606 (0.606)  Accm: 66.53 (66.53)  Acct: 65.99 (65.99)  T: 2.444s  dataT: 295.5ms
+[03-23 10:28:38] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  20/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.08)  Lm: 0.586 (0.593)  Lt: 0.597 (0.601)  Accm: 67.99 (67.26)  Acct: 67.12 (66.55)  T: 2.262s  dataT: 0.1ms
+[03-23 10:32:11] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  20/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.08)  Lm: 0.569 (0.585)  Lt: 0.582 (0.595)  Accm: 69.28 (67.93)  Acct: 68.30 (67.13)  T: 2.248s  dataT: 0.1ms
+[03-23 10:35:45] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  20/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.05 (0.07)  Lm: 0.574 (0.582)  Lt: 0.596 (0.595)  Accm: 69.08 (68.22)  Acct: 67.31 (67.18)  T: 2.243s  dataT: 0.1ms
+[03-23 10:36:08] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  20/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.07)  Lm: 0.585 (0.583)  Lt: 0.595 (0.595)  Accm: 67.80 (68.14)  Acct: 67.13 (67.17)  T: 2.248s  dataT: 0.1ms
+[03-23 10:36:08] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  20/10000]   Cost of this ep:      0:11:05   (2.134 s / it)
+[03-23 10:36:08] (gannh9/Infinity/train.py, line 528)=>   [*] [ep20]  Lmean: 0.578 (0.583), Ltail 0.586 (0.595),  Acc m-t: 68.76 68.06,  Remain: 80 days, 9:07:16,  Finish: 2025-06-11 18:43
+[03-23 10:36:11] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  21/10000]:  [  0/312]  eta: 0:12:43  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.573 (0.573)  Lt: 0.589 (0.589)  Accm: 69.10 (69.10)  Acct: 67.77 (67.77)  T: 2.446s  dataT: 304.4ms
+[03-23 10:39:45] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  21/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.570 (0.572)  Lt: 0.567 (0.578)  Accm: 69.44 (69.27)  Acct: 69.90 (68.84)  T: 2.253s  dataT: 0.1ms
+[03-23 10:43:18] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  21/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.578 (0.574)  Lt: 0.585 (0.580)  Accm: 68.58 (69.04)  Acct: 67.98 (68.55)  T: 2.252s  dataT: 0.1ms
+[03-23 10:46:51] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  21/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.07 (0.06)  Lm: 0.594 (0.579)  Lt: 0.610 (0.588)  Accm: 67.10 (68.55)  Acct: 65.81 (67.86)  T: 2.249s  dataT: 0.1ms
+[03-23 10:47:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  21/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.564 (0.576)  Lt: 0.559 (0.582)  Accm: 69.94 (68.83)  Acct: 70.39 (68.37)  T: 2.239s  dataT: 0.1ms
+[03-23 10:47:15] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  21/10000]   Cost of this ep:      0:11:06   (2.135 s / it)
+[03-23 10:47:15] (gannh9/Infinity/train.py, line 528)=>   [*] [ep21]  Lmean: 0.576 (0.576), Ltail 0.582 (0.582),  Acc m-t: 68.83 68.37,  Remain: 80 days, 7:56:55,  Finish: 2025-06-11 17:44
+[03-23 10:47:18] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  22/10000]:  [  0/312]  eta: 0:12:35  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.576 (0.576)  Lt: 0.585 (0.585)  Accm: 68.73 (68.73)  Acct: 68.21 (68.21)  T: 2.422s  dataT: 274.3ms
+[03-23 10:50:51] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  22/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.590 (0.583)  Lt: 0.595 (0.590)  Accm: 67.39 (68.06)  Acct: 67.05 (67.63)  T: 2.247s  dataT: 0.1ms
+[03-23 10:52:16] (y/utils/save_and_load.py, line  90)=> [CKPTSaver][rank00] start: also_save_to=None best_save_to=None (next_ep == args.ep)=False auto_save=True  |  see local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter007K-ep22-iter136-last.pth
+[03-23 10:52:16] (y/utils/save_and_load.py, line  91)=> [CKPTSaver][rank00] dbg: args.bed='checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/'
+[03-23 10:52:16] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/log.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//log.txt
+[03-23 10:52:16] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ar-ckpt-giter007K-ep22-iter136-last.pth checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter007K-ep22-iter136-last.pth
+[03-23 10:52:16] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b1_stdout.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b1_stdout.txt
+[03-23 10:52:16] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/validation checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//validation
+[03-23 10:52:16] (y/utils/save_and_load.py, line 100)=> [CKPTSaver] auto_save cmd: cp -r local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/b2_stderr.txt checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//b2_stderr.txt
+[03-23 10:52:16] (y/utils/save_and_load.py, line 112)=> [CKPTSaver][rank00] cost: 2.88s
+[03-23 10:54:43] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  22/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.560 (0.576)  Lt: 0.554 (0.578)  Accm: 70.17 (68.76)  Acct: 70.99 (68.75)  T: 2.244s  dataT: 0.1ms
+[03-23 10:58:16] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  22/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.583 (0.577)  Lt: 0.596 (0.582)  Accm: 68.31 (68.65)  Acct: 67.12 (68.34)  T: 2.249s  dataT: 0.1ms
+[03-23 10:58:39] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  22/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.05)  Lm: 0.571 (0.576)  Lt: 0.572 (0.580)  Accm: 69.29 (68.77)  Acct: 69.27 (68.53)  T: 2.247s  dataT: 0.1ms
+[03-23 10:58:39] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  22/10000]   Cost of this ep:      0:11:23   (2.192 s / it)
+[03-23 10:58:40] (gannh9/Infinity/train.py, line 528)=>   [*] [ep22]  Lmean: 0.576 (0.576), Ltail 0.580 (0.580),  Acc m-t: 68.83 68.53,  Remain: 80 days, 8:30:06,  Finish: 2025-06-11 18:28
+[03-23 10:58:42] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  23/10000]:  [  0/312]  eta: 0:12:39  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.582 (0.582)  Lt: 0.584 (0.584)  Accm: 68.36 (68.36)  Acct: 68.36 (68.36)  T: 2.435s  dataT: 278.0ms
+[03-23 11:02:15] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  23/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.08 (0.06)  Lm: 0.570 (0.576)  Lt: 0.588 (0.586)  Accm: 69.34 (68.85)  Acct: 67.91 (68.14)  T: 2.251s  dataT: 0.1ms
+[03-23 11:05:48] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  23/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.570 (0.574)  Lt: 0.581 (0.584)  Accm: 69.22 (68.98)  Acct: 68.53 (68.27)  T: 2.246s  dataT: 0.1ms
+[03-23 11:09:21] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  23/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.586 (0.577)  Lt: 0.602 (0.589)  Accm: 67.90 (68.71)  Acct: 66.52 (67.83)  T: 2.258s  dataT: 0.1ms
+[03-23 11:09:45] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  23/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.596 (0.581)  Lt: 0.609 (0.593)  Accm: 67.02 (68.37)  Acct: 65.78 (67.42)  T: 2.236s  dataT: 0.1ms
+[03-23 11:09:45] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  23/10000]   Cost of this ep:      0:11:04   (2.131 s / it)
+[03-23 11:09:45] (gannh9/Infinity/train.py, line 528)=>   [*] [ep23]  Lmean: 0.576 (0.581), Ltail 0.580 (0.593),  Acc m-t: 68.83 68.53,  Remain: 80 days, 7:53:15,  Finish: 2025-06-11 18:03
+[03-23 11:09:48] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  24/10000]:  [  0/312]  eta: 0:12:37  tlr: 7.5e-05  tnm: 0.05 (0.05)  Lm: 0.584 (0.584)  Lt: 0.602 (0.602)  Accm: 68.15 (68.15)  Acct: 66.56 (66.56)  T: 2.429s  dataT: 273.7ms
+[03-23 11:13:21] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  24/10000]:  [100/312]  eta: 0:07:32  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.568 (0.576)  Lt: 0.579 (0.591)  Accm: 69.49 (68.82)  Acct: 68.73 (67.64)  T: 2.245s  dataT: 0.1ms
+[03-23 11:16:54] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  24/10000]:  [200/312]  eta: 0:03:59  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.579 (0.577)  Lt: 0.599 (0.594)  Accm: 68.30 (68.65)  Acct: 66.60 (67.30)  T: 2.452s  dataT: 0.1ms
+[03-23 11:20:27] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  24/10000]:  [300/312]  eta: 0:00:25  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.595 (0.582)  Lt: 0.608 (0.597)  Accm: 66.96 (68.23)  Acct: 65.90 (66.95)  T: 2.246s  dataT: 0.1ms
+[03-23 11:20:51] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  24/10000]:  [311/312]  eta: 0:00:02  tlr: 7.5e-05  tnm: 0.05 (0.06)  Lm: 0.577 (0.581)  Lt: 0.578 (0.594)  Accm: 68.90 (68.36)  Acct: 68.91 (67.34)  T: 2.249s  dataT: 0.1ms
+[03-23 11:20:51] (y/infinity/utils/misc.py, line 287)=> [Ep]: [  24/10000]   Cost of this ep:      0:11:05   (2.133 s / it)
+[03-23 11:20:51] (gannh9/Infinity/train.py, line 528)=>   [*] [ep24]  Lmean: 0.576 (0.581), Ltail 0.580 (0.594),  Acc m-t: 68.83 68.53,  Remain: 80 days, 8:20:30,  Finish: 2025-06-11 18:41
+[03-23 11:20:54] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  25/10000]:  [  0/312]  eta: 0:12:40  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.566 (0.566)  Lt: 0.557 (0.557)  Accm: 69.76 (69.76)  Acct: 70.67 (70.67)  T: 2.437s  dataT: 274.6ms
+[03-23 11:24:27] (y/infinity/utils/misc.py, line 270)=> [Ep]: [  25/10000]:  [100/312]  eta: 0:07:31  tlr: 7.5e-05  tnm: 0.06 (0.06)  Lm: 0.578 (0.572)  Lt: 0.597 (0.577)  Accm: 68.68 (69.22)  Acct: 67.06 (68.87)  T: 2.244s  dataT: 0.1ms
+[03-23 11:28:06] (gannh9/Infinity/train.py, line 713)=> [rk 0] RuntimeError
+[03-23 11:28:06] (gannh9/Infinity/train.py, line 718)=> [err]:
+[enforce fail at inline_container.cc:603] . unexpected pos 16828288 vs 16828176
+sdc2-hpc-dgx-a100-010:1632386:1632544 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+sdc2-hpc-dgx-a100-010:1632386:1887319 [0] NCCL INFO comm 0x2c45c110 rank 0 nranks 2 cudaDev 0 busId 7000 - Abort COMPLETE

@@ -44,7 +44,7 @@ class BitwiseSelfCorrection(object):
                 residual = codes_out - cum_var_input
                 if si != len(vae_scale_schedule)-1:
                     residual = F.interpolate(residual, size=vae_scale_schedule[si], mode=self.vae.quantizer.z_interplote_down).contiguous()
-                quantized, _, bit_indices, loss = self.vae.quantizer.lfq(residual) # quantized shape: [B, d_vae, 1, h, w], bit_indices shape: [B,1,h,w,d_vae]
+                quantized, _, bit_indices, loss = self.vae.quantizer.lfq(residual) # quantized shape: [B, d_vae, 1, h, w], bit_indices shape: [B,1,h,w,codebook_dim]
                 gt_all_bit_indices.append(bit_indices)
                 if si < self.noise_apply_layers:
                     noise_apply_strength = np.random.randint(0, 100 * self.noise_apply_strength+1) * 0.01

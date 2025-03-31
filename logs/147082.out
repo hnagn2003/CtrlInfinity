@@ -1,0 +1,24 @@
+[nproc_per_node: 1]
+[nnodes: 1]
+[node_rank: 0]
+[master_addr: 127.0.0.1]
+[master_port: 12345]
+W&B disabled.
+ >>>>>>>>>>>>>>>> using default version
+[tf32] [precis] torch.get_float32_matmul_precision(): high
+[tf32] [ conv ] torch.backends.cudnn.allow_tf32: True
+[tf32] [matmul] torch.backends.cuda.matmul.allow_tf32: True
+[lrk=0, rk=0]
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 120)=> self.dynamic_resolution_across_gpus: 1
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 121)=> self.enable_dynamic_length_prompt: 1
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 122)=> self.buffer_size: 30000
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 149)=> ../RepControlNet/data/canny_laion/infinity_10k/splits/1.000_000010000.jsonl has sufficient examples (10000), proportion: 100.0%, > global workers (2)! Preserve h_div_w_template: 1.000
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 160)=> [data preprocess] split_meta_files
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 185)=> [data preprocess] split_meta_files done
+[03-21 04:21:49] (/dataset_t2i_iterable.py, line 131)=> num_replicas: 1, rank: 0, dataloader_workers: 2, seed:710, samples_div_gpus_workers_batchsize_2batches: 156
+[03-21 04:21:49] (gannh9/Infinity/train.py, line 345)=> args.batch_size=32, vbs=48
+[03-21 04:21:49] (gannh9/Infinity/train.py, line 349)=> len(dataloader): 312, len(dataset): 312, total_samples: 9984
+[03-21 04:21:49] (gannh9/Infinity/train.py, line 350)=> [dataloader] gbs=32, lbs=32, iters_train=312, type(train_set)=T2IIterableDataset
+[03-21 04:21:49] (gannh9/Infinity/train.py, line  82)=> train_h_div_w_list=['1.000']
+[03-21 04:21:49] (gannh9/Infinity/train.py, line  86)=> Load vae form weights/infinity_vae_d32_reg.pth
+[03-21 04:21:50] (gannh9/Infinity/train.py, line 156)=>  >>>>>>>>>>>>>>>> using default trainer

@@ -20,11 +20,11 @@ text_channels=2048
 apply_spatial_patchify=0
 
 # run inference
-python3 -m tools.run_infinity \
+CUDA_VISIBLE_DEVICES=1 DESIGN_VERSION=1 python3 -m tools.gen \
 --cfg ${cfg} \
 --tau ${tau} \
 --pn ${pn} \
---model_path ${infinity_model_path} \
+--base_model ${infinity_model_path} \
 --vae_type ${vae_type} \
 --vae_path ${vae_path} \
 --add_lvl_embeding_only_first_block ${add_lvl_embeding_only_first_block} \
@@ -40,6 +40,7 @@ python3 -m tools.run_infinity \
 --text_channels ${text_channels} \
 --apply_spatial_patchify ${apply_spatial_patchify} \
 --seed 1 \
---save_folder output/test_cond \
---use_image_adapter 0 \
+--save_folder ../RepControlNet/data/Infinity10k/train \
+--start_idx 10000 \
+--end_idx 15000 \
 # --condition_folder data/infinity_toy_data/condition_canny \

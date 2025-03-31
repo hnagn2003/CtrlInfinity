@@ -245,6 +245,7 @@ class SelfAttention(nn.Module):
     
     # NOTE: attn_bias_or_two_vector is None during inference
     def forward(self, x, attn_bias_or_two_vector: Union[torch.Tensor, Tuple[torch.IntTensor, torch.IntTensor]], attn_fn=None, scale_schedule=None, rope2d_freqs_grid=None, scale_ind=0, adapter=None, adapter_gate=None):
+        
         """
         :param (fp32) x: shaped (B or batch_size, L or seq_length, C or hidden_dim); if seq-parallel is used, the `L` dim would be shared
         :param (fp32) attn_bias_or_two_vector:
@@ -356,6 +357,12 @@ class CrossAttention(nn.Module):
             self.mat_q = nn.Parameter(q)
         else:
             self.mat_q = nn.Linear(embed_dim, embed_dim, bias=True)
+        if for_attn_pool:
+            q_adapter = torch.empty(1, self.num_heads, self.head_dim)
+            nn.init.trunc_normal_(q_adapter, mean=0, std=math.sqrt(1 / embed_dim / 3))
+            self.mat_q_adapter = nn.Parameter(q_adapter)
+        else:
+            self.mat_q_adapter = nn.Linear(embed_dim, embed_dim, bias=True)
         self.mat_kv = nn.Linear(kv_dim, embed_dim*2, bias=False)
         self.v_bias = nn.Parameter(torch.zeros(embed_dim))
         self.register_buffer('zero_k_bias', torch.zeros(embed_dim))
@@ -374,19 +381,22 @@ class CrossAttention(nn.Module):
         
         :return: shaped as (batch, seq_len, Q_dim)
         """
-        kv_compact, cu_seqlens_k, max_seqlen_k = ca_kv
-        N = kv_compact.shape[0]
+        kv_text, cu_seqlens_k, max_seqlen_k = ca_kv
+        N = kv_text.shape[0]
         
-        kv_compact = F.linear(kv_compact, weight=self.mat_kv.weight, bias=torch.cat((self.zero_k_bias, self.v_bias))).view(N, 2, self.num_heads, self.head_dim) # NC => N2Hc
+        kv_compact = F.linear(kv_text, weight=self.mat_kv.weight, bias=torch.cat((self.zero_k_bias, self.v_bias))).view(N, 2, self.num_heads, self.head_dim) # NC => N2Hc
         # attn_bias = xformers.ops.fmha.BlockDiagonalMask.from_seqlens
-        
         if not self.for_attn_pool:
             B, Lq = q.shape[:2]
             q_compact = self.mat_q(q).view(-1, self.num_heads, self.head_dim)
+            if adapter is not None:
+                q_compact += self.mat_q_adapter(adapter).view(-1, self.num_heads, self.head_dim)
         else:
             B = cu_seqlens_k.shape[0] - 1
             Lq = 1
             q_compact = self.mat_q.repeat(B, 1, 1).to(dtype=kv_compact.dtype)
+            if adapter is not None:
+                q_compact += self.mat_q_adapter(adapter).view(-1, self.num_heads, self.head_dim)
         
         if self.cos_attn:   # always False
             scale_mul = self.scale_mul_1H1.clamp_max(self.max_scale_mul).exp()
@@ -415,7 +425,7 @@ class SelfAttnBlock(nn.Module):
     def __init__(
         self, embed_dim, kv_dim, cross_attn_layer_scale, cond_dim, act: bool, shared_aln: bool, norm_layer: partial,
         num_heads, mlp_ratio=4., drop=0., drop_path=0., tau=1, cos_attn=False,
-        swiglu=False, customized_flash_attn=False, fused_mlp=False, fused_norm_func=None, checkpointing_sa_only=False, use_image_adapter=False
+        swiglu=False, customized_flash_attn=False, fused_mlp=False, fused_norm_func=None, checkpointing_sa_only=False
     ):
         super(SelfAttnBlock, self).__init__()
         self.C, self.D = embed_dim, cond_dim
@@ -464,7 +474,7 @@ class CrossAttnBlock(nn.Module):
         embed_dim, kv_dim, cross_attn_layer_scale, cond_dim, act: bool, shared_aln: bool, norm_layer: partial,
         num_heads, mlp_ratio=4., drop=0., drop_path=0., tau=1, cos_attn=False,
         swiglu=False, customized_flash_attn=False, fused_mlp=False, fused_norm_func=None, checkpointing_sa_only=False,
-        use_flex_attn=False, batch_size=2, pad_to_multiplier=1, apply_rope2d=False, rope2d_normalized_by_hw=False,
+        use_flex_attn=False, batch_size=2, pad_to_multiplier=1, apply_rope2d=False, rope2d_normalized_by_hw=False, ca_adapter=False
     ):
         super(CrossAttnBlock, self).__init__()
         self.C, self.D = embed_dim, cond_dim
@@ -504,24 +514,25 @@ class CrossAttnBlock(nn.Module):
             else:
                 gamma1, gamma2, scale1, scale2, shift1, shift2 = self.ada_lin(cond_BD).view(-1, 1, 6, self.C).unbind(2)
         if self.fused_norm_func is None:
+    
             x_sa = self.ln_wo_grad(x.float()).mul(scale1.add(1)).add_(shift1)
             if self.checkpointing_sa_only and self.training:
-                x_sa = checkpoint(self.sa, x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, use_reentrant=False, adapter=adapter, adapter_gate=adapter_gate)
+                x_sa = checkpoint(self.sa, x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, use_reentrant=False)
             else:
-                x_sa = self.sa(x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, adapter=adapter, adapter_gate=adapter_gate)
+                x_sa = self.sa(x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid)
             x = x + self.drop_path(x_sa.mul_(gamma1))
-            x = x + self.ca(self.ca_norm(x), ca_kv).float().mul_(self.ca_gamma)
+            x = x + self.ca(self.ca_norm(x), ca_kv, adapter=adapter, adapter_gate=adapter_gate).float().mul_(self.ca_gamma)
             x = x + self.drop_path(self.ffn( self.ln_wo_grad(x.float()).mul(scale2.add(1)).add_(shift2) ).mul(gamma2)) # this mul(gamma2) cannot be in-placed cuz we possibly use FusedMLP
         else: #go this path
             # x (2B, pn*pn, embed_dim=2048)
             # if x.shape[1] == 36:
             x_sa = self.fused_norm_func(C=self.C, eps=self.norm_eps, x=x, scale=scale1, shift=shift1)
             if self.checkpointing_sa_only and self.training:
-                x_sa = checkpoint(self.sa, x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, use_reentrant=False, adapter=adapter, adapter_gate=adapter_gate)
+                x_sa = checkpoint(self.sa, x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, use_reentrant=False)
             else:
-                x_sa = self.sa(x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, scale_ind=scale_ind, adapter=adapter, adapter_gate=adapter_gate)
+                x_sa = self.sa(x_sa, attn_bias_or_two_vector, attn_fn, scale_schedule, rope2d_freqs_grid, scale_ind=scale_ind)
             x = x + self.drop_path(x_sa.mul_(gamma1))
-            x = x + self.ca(self.ca_norm(x), ca_kv).float().mul_(self.ca_gamma)
+            x = x + self.ca(self.ca_norm(x), ca_kv, adapter, adapter_gate).float().mul_(self.ca_gamma)
             x = x + self.drop_path(self.ffn(self.fused_norm_func(C=self.C, eps=self.norm_eps, x=x, scale=scale2, shift=shift2)).mul(gamma2)) # this mul(gamma2) cannot be in-placed cuz we possibly use FusedMLP
         return x
     

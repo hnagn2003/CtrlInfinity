@@ -102,6 +102,8 @@ def build_everything_from_args(args: arg_util.Args, saver):
         from trainer2 import InfinityTrainer
     elif des_ver == "3":
         from trainer3 import InfinityTrainer
+    elif des_ver == "4":
+        from trainer4 import InfinityTrainer
     else:
         print(" >>>>>>>>>>>>>>>> using default trainer")
         from trainer import InfinityTrainer
@@ -152,6 +154,9 @@ def build_model_optimizer(args, vae_ckpt):
     elif des_ver == "3":
         from infinity.models.infinity3 import MultipleLayers
         print(" >>>>>>>>>>>>>>>> using infinity design version 3 <<<<<<<<<<<<<<<<<<")
+    elif des_ver == "4":
+        from infinity.models.infinity4 import MultipleLayers
+        print(" >>>>>>>>>>>>>>>> using infinity design version 4 <<<<<<<<<<<<<<<<<<")
     else:
         print(" >>>>>>>>>>>>>>>> using default trainer")
         from infinity.models.infinity import MultipleLayers
@@ -385,6 +390,8 @@ def main_train(args: arg_util.Args):
         from trainer2 import InfinityTrainer
     elif des_ver == "3":
         from trainer3 import InfinityTrainer
+    elif des_ver == "4":
+        from trainer4 import InfinityTrainer
     else:
         print(" >>>>>>>>>>>>>>>> using default trainer")
         from trainer import InfinityTrainer
@@ -552,6 +559,8 @@ def train_one_ep(
         from trainer2 import InfinityTrainer
     elif des_ver == "3":
         from trainer3 import InfinityTrainer
+    elif des_ver == "4":
+        from trainer4 import InfinityTrainer
     else:
         print(" >>>>>>>>>>>>>>>> using default trainer")
         from trainer import InfinityTrainer
@@ -563,7 +572,6 @@ def train_one_ep(
     with misc.Low_GPU_usage(files=[args.log_txt_path], sleep_secs=20, verbose=True) as telling_dont_kill:
         last_touch = time.time()
         g_it, max_it = ep * iters_train, args.ep * iters_train
-        
         doing_profiling = args.prof and ep == 0 and (args.profall or dist.is_master())
         maybe_record_function = record_function if doing_profiling else nullcontext
         trainer.gpt_wo_ddp.maybe_record_function = maybe_record_function
@@ -595,9 +603,10 @@ def train_one_ep(
                 if enable_timeline_sdk:
                     ndtimeline.flush()
             
-            if (g_it+1) % args.save_model_iters_freq == 0:
-                with misc.Low_GPU_usage(files=[args.log_txt_path], sleep_secs=3, verbose=True):
-                    saver.sav(args=args, g_it=(g_it+1), next_ep=ep, next_it=it+1, trainer=trainer, acc_str=f'[todo]', eval_milestone=None, also_save_to=None, best_save_to=None)
+            with torch.no_grad():
+                if (g_it+1) % args.save_model_iters_freq == 0:
+                    with misc.Low_GPU_usage(files=[args.log_txt_path], sleep_secs=3, verbose=True):
+                        saver.sav(args=args, g_it=(g_it+1), next_ep=ep, next_it=it+1, trainer=trainer, acc_str=f'[todo]', eval_milestone=None, also_save_to=None, best_save_to=None)
             
             with maybe_record_function('before_train'):
                 # [get data]

@@ -89,13 +89,13 @@ def build_vae_gpt(args: arg_util.Args, vae_st: dict, skip_gpt: bool, force_flash
     else:
         gpt_wo_ddp_ema = None
     gpt_wo_ddp = gpt_wo_ddp.to(device)
-    if args.use_image_adapter:
-        for name, param in gpt_wo_ddp.named_parameters():
-            if 'adapter' not in name:
-                param.requires_grad = False
-            else:
-                param.requires_grad = True
-            print(f'{name}: {param.requires_grad}')
+    # if args.use_image_adapter:
+    for name, param in gpt_wo_ddp.named_parameters():
+        if 'adapter' in name or 'lora' in name or '.ca.mat' in name:
+            param.requires_grad = True
+        else:
+            param.requires_grad = False
+        print(f'{name}: {param.requires_grad}')
     assert all(not p.requires_grad for p in vae_local.parameters())
     # assert all(p.requires_grad for n, p in gpt_wo_ddp.named_parameters())
     

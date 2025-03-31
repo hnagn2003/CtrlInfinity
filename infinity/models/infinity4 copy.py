@@ -19,7 +19,18 @@ import numpy as np
 
 import infinity.utils.dist as dist
 from infinity.utils.dist import for_visualize
-from infinity.models.basic1 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+import os
+des_ver = os.environ.get('DESIGN_VERSION', '0')
+if des_ver == '1':
+    from infinity.models.basic1 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+elif des_ver == '2':        
+    from infinity.models.basic2 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+elif des_ver == '3':
+    from infinity.models.basic3 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+elif des_ver == '4':
+    from infinity.models.basic4 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+else:
+    from infinity.models.basic import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
 from infinity.utils import misc
 from infinity.models.flex_attn import FlexAttn
 from infinity.utils.dynamic_resolution import dynamic_resolution_h_w, h_div_w_templates
@@ -75,10 +86,12 @@ class ImageInstructionAdapter(nn.Module):
     def __init__(self, C, num_heads, depth):
         super().__init__()
         self.C, self.num_heads, self.depth = C, num_heads, depth
-        self.adapter_gate = torch.nn.Parameter(torch.ones(1, self.num_heads, 1, 1))
+        self.adapter_gate = torch.nn.Parameter(torch.ones(1, 1, C))
         self.adapter_query = torch.nn.ModuleList([nn.Linear(C, C) for _ in range(depth)])
         self.image_norm = torch.nn.LayerNorm(C)
         self.image_proj = nn.Linear(C, C)
+        # small init for self.adapter_gate
+        nn.init.normal_(self.adapter_gate, mean=0.0, std=0.002)
         
 
 from infinity.dataset.dataset_t2i_iterable import transform
@@ -271,7 +284,7 @@ class Infinity(nn.Module):
                 num_heads=num_heads, mlp_ratio=mlp_ratio, drop=drop_rate, drop_path=dpr[block_idx], tau=tau, cos_attn=cos_attn,
                 swiglu=swiglu, customized_flash_attn=self.customized_flash_attn, fused_mlp=fused_mlp, fused_norm_func=fused_norm_func,
                 checkpointing_sa_only=self.checkpointing == 'self-attn',
-                use_flex_attn=use_flex_attn, batch_size=batch_size, pad_to_multiplier=pad_to_multiplier, rope2d_normalized_by_hw=rope2d_normalized_by_hw,
+                use_flex_attn=use_flex_attn, batch_size=batch_size, pad_to_multiplier=pad_to_multiplier, rope2d_normalized_by_hw=rope2d_normalized_by_hw, ca_adapter=True
             )
             self.unregistered_blocks.append(block)
         
@@ -300,6 +313,7 @@ class Infinity(nn.Module):
             f'    [drop ratios] drop_rate={drop_rate}, drop_path_rate={drop_path_rate:g} ({torch.linspace(0, drop_path_rate, depth)})',
             end='\n\n', flush=True
         )
+    
         if use_image_adapter:
             self.image_adapter = ImageInstructionAdapter(self.C, self.num_heads, self.depth)
             
@@ -410,7 +424,7 @@ class Infinity(nn.Module):
             
             sos = sos.unsqueeze(1).expand(B, 1, -1) + self.pos_start.expand(B, 1, -1) # [B,1,dim]
             x_BLC = torch.cat((sos, self.word_embed(self.norm0_ve(x_BLC_wo_prefix))), dim=1) # [B,L,dim=2048]
-            if cond_BLC_wo_prefix is not None:
+            if cond_BLC_wo_prefix is not None and hasattr(self, 'image_adapter'):
                 instruct_BLC = torch.cat((sos, self.word_embed(self.norm0_ve(cond_BLC_wo_prefix))), dim=1) # B, L, dim
             else:
                 instruct_BLC = None
@@ -449,7 +463,7 @@ class Infinity(nn.Module):
             attn_fn = self.attn_fn_compile_dict[tuple(scale_schedule)]
         else:
             attn_fn = None
-        if instruct_BLC is not None:
+        if instruct_BLC is not None and hasattr(self, 'image_adapter'):
             instruct_BLC = self.image_adapter.image_proj(instruct_BLC)
             instruct_BLC = self.image_adapter.image_norm(instruct_BLC)
         # [2. block loop]
@@ -503,7 +517,7 @@ class Infinity(nn.Module):
         condition_path=None,
     ):   # returns List[idx_Bl]
         #process condition
-        
+
         tgt_h=scale_schedule[-1][1]*16
         tgt_w=scale_schedule[-1][2]*16
         if condition_path is not None:
@@ -604,7 +618,27 @@ class Infinity(nn.Module):
             bsc_args = SimpleNamespace(**bsc_args)
 
             bitwise_self_correction = BitwiseSelfCorrection(vae, bsc_args)
+            
+            def pca(x):
+                import torch.nn.functional as F
+                from sklearn.decomposition import PCA
+                B, C, H, W = x.shape
+                x_flat = x.view(B, C, -1).transpose(1, 2)  # Shape: (B, H*W, C)
+
+                # Apply PCA to each spatial location across the batch
+                pca = PCA(n_components=1)  # Reduce to 1 component (B, H, W)
+                x_pca = []
+
+                for b in range(B):
+                    # Apply PCA across the channels for each pixel
+                    pca_result = pca.fit_transform(x_flat[b].cpu().numpy())  # (H*W, 1)
+                    x_pca.append(torch.tensor(pca_result).float().to(x.device))
+
+                # Convert list of PCA results back to a tensor of shape (B, H, W)
+                x_pca = torch.stack(x_pca, dim=0).view(B, H, W)
+            
             cond_raw_features, _, _ = vae.encode_for_raw_features(cond_B3HW.to("cuda"), scale_schedule=vae_scale_schedule)
+            
             cond_BLC_wo_prefix, _ = bitwise_self_correction.flip_requant(vae_scale_schedule, cond_B3HW, cond_raw_features, "cuda", return_cat_x=False)
             
             cond_BLC_wo_prefix = [self.word_embed(self.norm0_ve(cond_BLC_wo_prefix_.repeat(bs, 1, 1))) for cond_BLC_wo_prefix_ in cond_BLC_wo_prefix]

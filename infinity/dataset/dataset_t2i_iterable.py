@@ -292,7 +292,7 @@ class T2IIterableDataset(IterableDataset):
             if 'sub_iterator' in generator_info:
                 del generator_info['sub_iterator']
             part_filepath = generator_info['part_filepaths'][self.rank]
-            generator_info['record_iterator'] = open(part_filepath, 'r')
+            generator_info['record_iterator'] = open(part_filepath, 'r', encoding='utf-8')
             part_num_of_samples = int(osp.splitext(osp.basename(part_filepath))[0].split('_')[-1])
             # print(f'part_filepath: {part_filepath}, rank: {self.rank}, worker_id:{self.worker_id}, part_num_of_samples: {part_num_of_samples}, dataloader_workers: {self.dataloader_workers}')
             generator_info['sub_iterator'] = itertools.islice(generator_info['record_iterator'], self.worker_id, part_num_of_samples, self.dataloader_workers)

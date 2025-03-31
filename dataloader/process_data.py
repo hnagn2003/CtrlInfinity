@@ -23,4 +23,4 @@ with open(json_path, 'r') as f:
         long_prompt = long_prompts[image_name]
         data_to_save = {'image_name': image_name, 'text': short_prompt, 'long_caption': long_prompt, 'long_caption_type': 'caption-InternVL2.0', 'short_caption_type': 'laion', 'h_div_w': 1.0}
         file.write(json.dumps(data_to_save) + '\n')
-file.close()
+file.close() 

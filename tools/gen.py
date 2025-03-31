@@ -9,7 +9,8 @@ import yaml
 import argparse
 import shutil
 import re
-
+import random 
+from tqdm import tqdm
 import cv2
 import numpy as np
 import torch
@@ -56,7 +57,6 @@ def encode_prompt(text_tokenizer, text_encoder, prompt, enable_positive_prompt=F
         print(f'before positive_prompt aug: {prompt}')
         prompt = aug_with_positive_prompt(prompt)
         print(f'after positive_prompt aug: {prompt}')
-    print(f'prompt={prompt}')
     captions = [prompt]
     tokens = text_tokenizer(text=captions, max_length=512, padding='max_length', truncation=True, return_tensors='pt')  # todo: put this into dataset
     input_ids = tokens.input_ids.cuda(non_blocking=True)
@@ -126,7 +126,7 @@ def gen_one_img(
         negative_label_B_or_BLT = encode_prompt(text_tokenizer, text_encoder, negative_prompt)
     else:
         negative_label_B_or_BLT = None
-    print(f'cfg: {cfg_list}, tau: {tau_list}')
+    # print(f'cfg: {cfg_list}, tau: {tau_list}')
     with torch.cuda.amp.autocast(enabled=True, dtype=torch.bfloat16, cache_enabled=True):
         stt = time.time()
         _, _, img_list = infinity_test.autoregressive_infer_cfg(
@@ -144,7 +144,6 @@ def gen_one_img(
             eval_mode=eval_mode,
             condition_path=condition_path,
         )
-    print(f"cost: {time.time() - sstt}, infinity cost={time.time() - stt}")
     img = img_list[0]
     return img
 
@@ -306,7 +305,7 @@ def load_visual_tokenizer(args):
 
 def load_transformer(vae, args):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model_path = args.base_model    
+    model_path = args.base_model
     if args.checkpoint_type == 'torch': 
         # copy large model to local; save slim to local; and copy slim to nas; load local slim model
         if osp.exists(args.cache_dir):
@@ -356,7 +355,6 @@ def load_transformer(vae, args):
         kwargs_model = dict(depth=40, embed_dim=2688, num_heads=24, drop_path_rate=0.1, mlp_ratio=4, block_chunks=4)
     elif args.model_type == 'infinity_layer48':
         kwargs_model = dict(depth=48, embed_dim=3360, num_heads=28, drop_path_rate=0.1, mlp_ratio=4, block_chunks=4)
-        
     infinity = load_infinity(
         rope2d_each_sa_layer=args.rope2d_each_sa_layer, 
         rope2d_normalized_by_hw=args.rope2d_normalized_by_hw,
@@ -364,7 +362,7 @@ def load_transformer(vae, args):
         pn=args.pn,
         use_bit_label=args.use_bit_label, 
         add_lvl_embeding_only_first_block=args.add_lvl_embeding_only_first_block, 
-        model_path=args.model_path, 
+        model_path=slim_model_path, 
         scale_schedule=None, 
         vae=vae, 
         device=device, 
@@ -374,8 +372,7 @@ def load_transformer(vae, args):
         use_flex_attn=args.use_flex_attn,
         bf16=args.bf16,
         checkpoint_type=args.checkpoint_type,
-        use_image_adapter=args.use_image_adapter,
-        base_model=args.base_model,
+        base_model=args.base_model
     )
     return infinity
 
@@ -384,7 +381,6 @@ def add_common_arguments(parser):
     parser.add_argument('--tau', type=float, default=1)
     parser.add_argument('--pn', type=str, required=True, choices=['0.06M', '0.25M', '1M'])
     parser.add_argument('--base_model', type=str, required=True)
-    parser.add_argument('--model_path', type=str, default='')
     parser.add_argument('--cfg_insertion_layer', type=int, default=0)
     parser.add_argument('--vae_type', type=int, default=1)
     parser.add_argument('--vae_path', type=str, default='')
@@ -414,12 +410,14 @@ if __name__ == '__main__':
     add_common_arguments(parser)
     parser.add_argument('--prompt', type=str, default='a dog')
     parser.add_argument('--save_folder', type=str, default='./tmp.jpg')
-    
+    parser.add_argument('--start_idx', type=int, default=0)
+    parser.add_argument('--end_idx', type=int, default=100)
+    import json
     args = parser.parse_args()
-    #set seed
-    torch.manual_seed(args.seed)
-    torch.cuda.manual_seed(args.seed)
-
+    read_prompt = "../RepControlNet/data/canny_laion/text_embedding.json"
+    with open(read_prompt, 'r') as f:
+        prompts = json.load(f)[args.start_idx:args.end_idx]
+    
     # parse cfg
     args.cfg = list(map(float, args.cfg.split(',')))
     if len(args.cfg) == 1:
@@ -434,22 +432,25 @@ if __name__ == '__main__':
 
     scale_schedule = dynamic_resolution_h_w[args.h_div_w_template][args.pn]['scales']
     scale_schedule = [ (1, h, w) for (_, h, w) in scale_schedule]     
-    
-    prompts = [{'prompt': 'A rustic-style bar setup with a unique, antique-inspired design. The focal point is a large wooden wheel, likely from a wagon or cart, which has been repurposed as the central support for the bar. The wheel has a thick, dark wooden hub and several large spokes connecting it to the outer rim. The wooden surface of the bar is wide and flat, with a smooth finish, resting on the wheel for support.\n\nOn top of the bar, there are several items arranged neatly. There is a white bowl filled with yellow lemons, a vase containing several lit candles, and a couple of wine glasses, suggesting a cozy and inviting atmosphere. The lighting appears to be soft and warm, enhancing the rustic charm of the scene.\n\nTo the left and right of the bar are two matching stools. These stools have a simple, sturdy design with round seats and four legs. The wood on the stools appears to be of the same material and finish as the bar, contributing to the cohesive aesthetic of the setup.\n\nIn the background, there is a glimpse of a room with a cream-colored wall and a framed piece of artwork. The wall and artwork add to the overall warm and inviting ambiance of the space. The lighting in the background is soft and diffused, creating a pleasant bokeh effect that highlights the main elements of the bar setup while keeping the background details subtle.\n\nThe style of the image is photographic, with a standard lens style that captures the scene in a clear and detailed manner. The focus is sharp on the main objects, while the background is softly blurred, drawing attention to the rustic bar and its decorative elements. The warm lighting and earthy tones contribute to a cozy, inviting atmosphere, making the scene feel both functional and aesthetically pleasing.', 'image_path': '4265467520443567280.jpg'}, {'prompt': 'a rustic bar table with stools and a wagon wheel', 'image_path': '4265467520443567280.jpg'}]
-    prompts = [{'prompt': 'a rustic bar table with stools and a wagon wheel', 'image_path': '4265467520443567280.jpg'},
-               {'prompt': 'Two pieces of clothing with pineapples and oranges.', 'image_path': '5134521536907147208.jpg'},
-               {'prompt': 'The desk is made from wood and has a hutch', 'image_path': '2732145247443895234.jpg'},
-               {'prompt': "A digital art style representation of a phone case design. It features three cartoon animals stacked on top of each other against a light blue background with small paw print patterns. \n\nFrom bottom to top:\n1. The bottom animal is a white polar bear with black eyes and ears. It is lying down with its front paws stretched out in front and appears relaxed.\n2. The middle animal is a black and white panda. It is sitting on the polar bear's back, with its front paws resting on the polar bear's back and its hind legs hanging down.\n3. The top animal is a brown bear. It is standing on the panda's back, with its front paws raised and a cheerful expression on its face.\n\nThe image has a clean and simple design with a clear focus on the cartoon animals. The style is cute and whimsical, aimed at creating a friendly and playful aesthetic. The phone case has rounded corners and a standard camera cut-out on the top left corner", 'image_path': '6128985124434332020.jpg'},
-               ]
+
     # prompts = [{'prompt': '', 'image_path': '4265467520443567280.jpg'}, {'prompt': '', 'image_path': '4265467520443567280.jpg'}]
     os.makedirs(args.save_folder, exist_ok=True)
-    for i, prompt in enumerate(prompts):
+    iter = tqdm(enumerate(prompts), total=len(prompts))
+    for i, prompt in iter:
+        text = prompt['text']
+        image_path = prompt['image_path']
+        save_file = osp.join(args.save_folder, f'{image_path}')
+        if osp.exists(save_file):
+            continue
+        rand_seed = random.randint(0, 1000000)
+        torch.manual_seed(rand_seed)
+        torch.cuda.manual_seed(rand_seed)
         if args.use_image_adapter:
             condition_path = os.path.join(args.condition_folder, prompt['image_path'])
         else:
             condition_path = None
-        prompt = prompt['prompt']
-        with autocast(dtype=torch.bfloat16):
+
+        with autocast(dtype=torch.bfloat16):                    
             with torch.no_grad():
                 # print sum of all params of generated image
                 generated_image = gen_one_img(
@@ -457,7 +458,7 @@ if __name__ == '__main__':
                     vae,
                     text_tokenizer,
                     text_encoder,
-                    prompt,
+                    text,
                     gt_leak=0,
                     gt_ls_Bl=None,
                     cfg_list=args.cfg,
@@ -467,8 +468,5 @@ if __name__ == '__main__':
                     vae_type=args.vae_type, #32
                     sampling_per_bits=args.sampling_per_bits, #1,
                     enable_positive_prompt=args.enable_positive_prompt, #0
-                    condition_path=condition_path,
                 )
-            save_file = osp.join(args.save_folder, f'{i}.jpg')
-            cv2.imwrite(save_file, generated_image.cpu().numpy())
-    print(f'Save to {osp.abspath(save_file)}')
+            cv2.imwrite(save_file, cv2.resize(generated_image.cpu().numpy(), (512, 512)))

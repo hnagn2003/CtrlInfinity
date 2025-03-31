@@ -1,0 +1,99 @@
++ init_port=12345
++ true
++ nc -z 127.0.0.1 12345
++ break
++ SINGLE=0
++ ARNOLD_WORKER_NUM=1
++ ARNOLD_ID=0
++ COND_PATH=../RepControlNet/data/canny_laion/infinity_10k/condition_canny
++ IMAGE_PATH=../RepControlNet/data/canny_laion/infinity_10k/images
++ data_path=../RepControlNet/data/canny_laion/infinity_10k/splits
++ BATCH_SIZE=32
++ base_pretrained_path=weights/infinity_2b_reg.pth
++ adapter_pretrained_path=abc
++ eval_vae_path=weights/vae32reg.pth
++ eval_vae_config=weights/vae32reg.json
++ LEARNING_RATE=0.00075
++ val_log_freq=100
+++ nvidia-smi --query-gpu=index --format=csv,noheader
+++ wc -l
++ NUM_GPUS=1
++ NUM_GPUS=1
++ '[' -z '' ']'
++ DESIGN_VERSION=0
++ exp_name=version_0_ngannh9_bs32_gpu1_lr_0.00075
++ '[' '!' -z 0 ']'
++ '[' 0 '!=' 0 ']'
++ MASTER_NODE_ID=0
++ nnodes=1
++ node_rank=0
++ master_addr=METIS_WORKER_0_HOST
++ master_addr=
++ master_port=METIS_WORKER_0_PORT
++ master_port=
++ ports=(`echo $master_port | tr ',' ' '`)
+++ echo
+++ tr , ' '
++ master_port=
++ master_addr=127.0.0.1
++ master_port=12345
++ nproc_per_node=1
++ echo '[nproc_per_node: 1]'
++ echo '[nnodes: 1]'
++ echo '[node_rank: 0]'
++ echo '[master_addr: 127.0.0.1]'
++ echo '[master_port: 12345]'
++ export OMP_NUM_THREADS=8
++ OMP_NUM_THREADS=8
++ export NCCL_IB_DISABLE=0
++ NCCL_IB_DISABLE=0
++ export NCCL_IB_GID_INDEX=3
++ NCCL_IB_GID_INDEX=3
++ BED=checkpoints
++ LOCAL_OUT=local_output
++ mkdir -p checkpoints
++ mkdir -p local_output
++ export COMPILE_GAN=0
++ COMPILE_GAN=0
++ export USE_TIMELINE_SDK=1
++ USE_TIMELINE_SDK=1
++ export CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ export CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ wandb disabled
++ bed_path=checkpoints/version_0_ngannh9_bs32_gpu1_lr_0.00075/
++ video_data_path=
++ local_out_path=local_output/version_0_ngannh9_bs32_gpu1_lr_0.00075
++ DESIGN_VERSION=0
++ torchrun --nproc_per_node=1 --nnodes=1 --node_rank=0 --master_addr=127.0.0.1 --master_port=12345 train.py --ep=100 --opt=adamw --cum=3 --sche=lin0 --fp16=2 --ada=0.9_0.97 --tini=-1 --tclip=5 --flash=0 --alng=5e-06 --saln=1 --cos=1 --enable_checkpointing=full-block --local_out_path local_output/version_0_ngannh9_bs32_gpu1_lr_0.00075 --task_type=t2i --bed=checkpoints/version_0_ngannh9_bs32_gpu1_lr_0.00075/ --data_path=../RepControlNet/data/canny_laion/infinity_10k/splits --video_data_path= --exp_name=version_0_ngannh9_bs32_gpu1_lr_0.00075 --pn 0.06M --model=2bc8 --lbs 32 --workers=2 --short_cap_prob 0.5 --online_t5=1 --use_streaming_dataset 1 --iterable_data_buffersize 30000 --Ct5=2048 --t5_path=google/flan-t5-xl --vae_type 32 --vae_ckpt=weights/infinity_vae_d32_reg.pth --wp 0.00000001 --wpe=1 --dynamic_resolution_across_gpus 1 --enable_dynamic_length_prompt 1 --reweight_loss_by_scale 1 --add_lvl_embeding_only_first_block 1 --rope2d_each_sa_layer 1 --rope2d_normalized_by_hw 2 --use_fsdp_model_ema 0 --always_training_scales 100 --use_bit_label 1 --zero=2 --save_model_iters_freq 300 --log_freq=100 --checkpoint_type=torch --prefetch_factor=16 --noise_apply_strength 0.3 --noise_apply_layers 13 --apply_spatial_patchify 0 --use_flex_attn=True --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --adapter_pretrained_path abc --tblr=0.00075 --validation False --eval_vae_path weights/vae32reg.pth --eval_vae_config weights/vae32reg.json --auto_resume False --rush_resume weights/infinity_2b_reg.pth --fused_norm False --seed 710
+[W321 03:22:14.238594785 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[rank0]:[W321 03:22:15.002881050 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vae_ckpt = torch.load(args.vae_ckpt, map_location='cpu')
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory is not writable! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/Infinity/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1460.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:175: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  cpu_d = torch.load(args.rush_resume, 'cpu')
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]
+model-00002-of-00002.safetensors:  69%|######9   | 1.35G/1.95G [00:00<?, ?B/s][A
+model-00002-of-00002.safetensors:  70%|######9   | 1.36G/1.95G [00:04<04:10, 2.34MB/s][A
+model-00002-of-00002.safetensors:  70%|#######   | 1.37G/1.95G [00:08<04:06, 2.33MB/s][A
+model-00002-of-00002.safetensors:  71%|#######   | 1.38G/1.95G [00:13<04:02, 2.33MB/s][A
+model-00002-of-00002.safetensors:  72%|#######1  | 1.39G/1.95G [00:18<03:58, 2.32MB/s][A
+model-00002-of-00002.safetensors:  72%|#######2  | 1.41G/1.95G [00:22<03:53, 2.33MB/s][A
+model-00002-of-00002.safetensors:  73%|#######2  | 1.42G/1.95G [00:27<03:49, 2.33MB/s][A
+model-00002-of-00002.safetensors:  73%|#######3  | 1.43G/1.95G [00:31<03:44, 2.33MB/s][A
+model-00002-of-00002.safetensors:  74%|#######3  | 1.44G/1.95G [00:36<03:39, 2.33MB/s][A
+model-00002-of-00002.safetensors:  74%|#######4  | 1.45G/1.95G [00:40<03:36, 2.32MB/s][A
+model-00002-of-00002.safetensors:  75%|#######4  | 1.46G/1.95G [00:45<03:31, 2.32MB/s][A
+model-00002-of-00002.safetensors:  75%|#######5  | 1.47G/1.95G [00:49<03:27, 2.32MB/s][A
+model-00002-of-00002.safetensors:  76%|#######5  | 1.48G/1.95G [00:54<03:22, 2.33MB/s][A
+model-00002-of-00002.safetensors:  76%|#######6  | 1.49G/1.95G [00:58<03:17, 2.33MB/s][A
+model-00002-of-00002.safetensors:  77%|#######6  | 1.50G/1.95G [01:03<03:12, 2.33MB/s][A
+model-00002-of-00002.safetensors:  77%|#######7  | 1.51G/1.95G [01:07<03:09, 2.32MB/s][A
+model-00002-of-00002.safetensors:  78%|#######7  | 1.52G/1.95G [01:12<03:04, 2.33MB/s][A
+model-00002-of-00002.safetensors:  79%|#######8  | 1.53G/1.95G [01:16<02:59, 2.33MB/s][A
+model-00002-of-00002.safetensors:  79%|#######9  | 1.54G/1.95G [01:21<02:55, 2.33MB/s][Aslurmstepd: error: *** JOB 147083 ON sdc2-hpc-dgx-a100-011 CANCELLED AT 2025-03-21T03:23:59 ***

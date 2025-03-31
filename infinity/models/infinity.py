@@ -27,6 +27,8 @@ elif des_ver == '2':
     from infinity.models.basic2 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
 elif des_ver == '3':
     from infinity.models.basic3 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
+elif des_ver == '4':
+    from infinity.models.basic4 import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
 else:
     from infinity.models.basic import flash_attn_func, flash_fused_op_installed, AdaLNBeforeHead, CrossAttnBlock, SelfAttnBlock, CrossAttention, FastRMSNorm, precompute_rope2d_freqs_grid
 from infinity.utils import misc
@@ -282,7 +284,7 @@ class Infinity(nn.Module):
                 num_heads=num_heads, mlp_ratio=mlp_ratio, drop=drop_rate, drop_path=dpr[block_idx], tau=tau, cos_attn=cos_attn,
                 swiglu=swiglu, customized_flash_attn=self.customized_flash_attn, fused_mlp=fused_mlp, fused_norm_func=fused_norm_func,
                 checkpointing_sa_only=self.checkpointing == 'self-attn',
-                use_flex_attn=use_flex_attn, batch_size=batch_size, pad_to_multiplier=pad_to_multiplier, rope2d_normalized_by_hw=rope2d_normalized_by_hw,
+                use_flex_attn=use_flex_attn, batch_size=batch_size, pad_to_multiplier=pad_to_multiplier, rope2d_normalized_by_hw=rope2d_normalized_by_hw, use_image_adapter=use_image_adapter
             )
             self.unregistered_blocks.append(block)
         
@@ -311,7 +313,7 @@ class Infinity(nn.Module):
             f'    [drop ratios] drop_rate={drop_rate}, drop_path_rate={drop_path_rate:g} ({torch.linspace(0, drop_path_rate, depth)})',
             end='\n\n', flush=True
         )
-    
+
         if use_image_adapter:
             self.image_adapter = ImageInstructionAdapter(self.C, self.num_heads, self.depth)
             
@@ -465,7 +467,6 @@ class Infinity(nn.Module):
             instruct_BLC = self.image_adapter.image_proj(instruct_BLC)
             instruct_BLC = self.image_adapter.image_norm(instruct_BLC)
         # [2. block loop]
-        SelfAttnBlock.forward, CrossAttnBlock.forward
         checkpointing_full_block = self.checkpointing == 'full-block' and self.training
         if self.num_block_chunks == 1:
             for i, b in enumerate(self.blocks):

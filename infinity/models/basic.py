@@ -465,7 +465,7 @@ class CrossAttnBlock(nn.Module):
         embed_dim, kv_dim, cross_attn_layer_scale, cond_dim, act: bool, shared_aln: bool, norm_layer: partial,
         num_heads, mlp_ratio=4., drop=0., drop_path=0., tau=1, cos_attn=False,
         swiglu=False, customized_flash_attn=False, fused_mlp=False, fused_norm_func=None, checkpointing_sa_only=False,
-        use_flex_attn=False, batch_size=2, pad_to_multiplier=1, apply_rope2d=False, rope2d_normalized_by_hw=False,
+        use_flex_attn=False, batch_size=2, pad_to_multiplier=1, apply_rope2d=False, rope2d_normalized_by_hw=False, use_image_adapter=False
     ):
         super(CrossAttnBlock, self).__init__()
         self.C, self.D = embed_dim, cond_dim
@@ -476,7 +476,9 @@ class CrossAttnBlock(nn.Module):
             use_flex_attn=use_flex_attn, batch_size=batch_size, pad_to_multiplier=pad_to_multiplier, rope2d_normalized_by_hw=rope2d_normalized_by_hw,
         )
         self.ca = CrossAttention(embed_dim=embed_dim, kv_dim=kv_dim, num_heads=num_heads, proj_drop=drop, cos_attn=cos_attn)
-        self.ca_adapter = CrossAttention(embed_dim=embed_dim, kv_dim=kv_dim, num_heads=num_heads, proj_drop=drop, cos_attn=cos_attn)
+        if use_image_adapter:
+            self.ca_adapter = CrossAttention(embed_dim=embed_dim, kv_dim=kv_dim, num_heads=num_heads, proj_drop=drop, cos_attn=cos_attn)
+            self.ca_norm_adapter = norm_layer(embed_dim, elementwise_affine=True)
         self.using_swiglu = swiglu
         self.ffn = (FFNSwiGLU if swiglu else FFN)(in_features=embed_dim, hidden_features=round(embed_dim * mlp_ratio / 256) * 256, drop=drop, fused_mlp=fused_mlp)
         
@@ -484,7 +486,6 @@ class CrossAttnBlock(nn.Module):
         self.fused_norm_func = fused_norm_func
         self.norm_eps = norm_layer.keywords.get('eps', 1e-6)
         self.ca_norm = norm_layer(embed_dim, elementwise_affine=True)
-        self.ca_norm_adapter = norm_layer(embed_dim, elementwise_affine=True)
         
         self.shared_aln = shared_aln
         if self.shared_aln: # always True

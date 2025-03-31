@@ -1,0 +1,212 @@
++ init_port=12345
++ true
++ nc -z 127.0.0.1 12345
++ break
++ SINGLE=0
++ ARNOLD_WORKER_NUM=1
++ ARNOLD_ID=0
++ export NCCL_DEBUG=INFO
++ NCCL_DEBUG=INFO
++ export NCCL_IB_DISABLE=0
++ NCCL_IB_DISABLE=0
++ export NCCL_IB_GID_INDEX=3
++ NCCL_IB_GID_INDEX=3
++ export 'NCCL_SOCKET_IFNAME=^docker0,lo'
++ NCCL_SOCKET_IFNAME='^docker0,lo'
++ COND_PATH=../RepControlNet/data/canny_laion/infinity_10k/condition_canny
++ IMAGE_PATH=../RepControlNet/data/canny_laion/infinity_10k/images
++ data_path=../RepControlNet/data/canny_laion/infinity_10k/splits
++ BATCH_SIZE=16
++ base_pretrained_path=weights/infinity_2b_reg.pth
++ adapter_pretrained_path=abc
++ eval_vae_path=weights/vae32reg.pth
++ eval_vae_config=weights/vae32reg.json
++ LEARNING_RATE=0.0006
++ val_log_freq=100
+++ nvidia-smi --query-gpu=index --format=csv,noheader
+++ wc -l
++ NUM_GPUS=2
++ NUM_GPUS=2
++ '[' -z '' ']'
++ DESIGN_VERSION=4
++ exp_name=version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora
++ '[' '!' -z 0 ']'
++ '[' 0 '!=' 0 ']'
++ MASTER_NODE_ID=0
++ nnodes=1
++ node_rank=0
++ master_addr=METIS_WORKER_0_HOST
++ master_addr=
++ master_port=METIS_WORKER_0_PORT
++ master_port=
++ ports=(`echo $master_port | tr ',' ' '`)
+++ echo
+++ tr , ' '
++ master_port=
++ master_addr=127.0.0.1
++ master_port=12345
++ nproc_per_node=2
++ echo '[nproc_per_node: 2]'
++ echo '[nnodes: 1]'
++ echo '[node_rank: 0]'
++ echo '[master_addr: 127.0.0.1]'
++ echo '[master_port: 12345]'
++ export OMP_NUM_THREADS=8
++ OMP_NUM_THREADS=8
++ export NCCL_IB_DISABLE=0
++ NCCL_IB_DISABLE=0
++ export NCCL_IB_GID_INDEX=3
++ NCCL_IB_GID_INDEX=3
++ BED=checkpoints_lora_10k
++ LOCAL_OUT=local_output_lora_10k
++ mkdir -p checkpoints_lora_10k
++ mkdir -p local_output_lora_10k
++ export COMPILE_GAN=0
++ COMPILE_GAN=0
++ export USE_TIMELINE_SDK=1
++ USE_TIMELINE_SDK=1
++ export CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ CUDA_TIMER_STREAM_KAFKA_CLUSTER=bmq_data_va
++ export CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ CUDA_TIMER_STREAM_KAFKA_TOPIC=megatron_cuda_timer_tracing_original_v2
++ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ wandb disabled
++ bed_path=checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/
++ video_data_path=
++ local_out_path=local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora
++ DESIGN_VERSION=4
++ torchrun --nproc_per_node=2 --nnodes=1 --node_rank=0 --master_addr=127.0.0.1 --master_port=12345 train.py --ep=100 --opt=adamw --cum=3 --sche=lin0 --fp16=2 --ada=0.9_0.97 --tini=-1 --tclip=5 --flash=0 --alng=5e-06 --saln=1 --cos=1 --enable_checkpointing=full-block --local_out_path local_output_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora --task_type=t2i --bed=checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora/ --data_path=../RepControlNet/data/canny_laion/infinity_10k/splits --video_data_path= --exp_name=version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora --pn 0.06M --model=2bc8 --lbs 16 --workers=2 --short_cap_prob 0.5 --online_t5=1 --use_streaming_dataset 1 --iterable_data_buffersize 30000 --Ct5=2048 --t5_path=google/flan-t5-xl --vae_type 32 --vae_ckpt=weights/infinity_vae_d32_reg.pth --wp 0.00000001 --wpe=1 --dynamic_resolution_across_gpus 1 --enable_dynamic_length_prompt 1 --reweight_loss_by_scale 1 --add_lvl_embeding_only_first_block 1 --rope2d_each_sa_layer 1 --rope2d_normalized_by_hw 2 --use_fsdp_model_ema 0 --always_training_scales 100 --use_bit_label 1 --zero=2 --save_model_iters_freq 1000 --log_freq=100 --checkpoint_type=torch --prefetch_factor=16 --noise_apply_strength 0.3 --noise_apply_layers 13 --apply_spatial_patchify 0 --use_flex_attn=True --pad=128 --use_image_adapter=1 --condition_folder=../RepControlNet/data/canny_laion/infinity_10k/condition_canny --image_folder=../RepControlNet/data/canny_laion/infinity_10k/images --pretrained_path weights/infinity_2b_reg.pth --adapter_pretrained_path abc --tblr=0.0006 --validation False --eval_vae_path weights/vae32reg.pth --eval_vae_config weights/vae32reg.json --auto_resume False --rush_resume weights/infinity_2b_reg.pth --fused_norm False --ep 10000 --seed 710
+[W323 05:39:53.009129201 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[W323 05:39:54.430236015 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[rank1]:[W323 05:39:54.453942137 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[rank0]:[W323 05:39:54.453946525 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vae_ckpt = torch.load(args.vae_ckpt, map_location='cpu')
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vae_ckpt = torch.load(args.vae_ckpt, map_location='cpu')
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory is not writable! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1460.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/nn/init.py:51: UserWarning: Specified kernel cache directory is not writable! This disables kernel caching. Specified directory is /lustre/scratch/client/movian/research/users/ngannh9/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at ../aten/src/ATen/native/cuda/jit_utils.cpp:1460.)
+  tensor.erfinv_()
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:180: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  cpu_d = torch.load(args.rush_resume, 'cpu')
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py:180: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  cpu_d = torch.load(args.rush_resume, 'cpu')
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:30<00:30, 30.81s/it]Loading checkpoint shards:  50%|#####     | 1/2 [00:30<00:30, 30.39s/it]Loading checkpoint shards: 100%|##########| 2/2 [00:30<00:00, 12.62s/it]Loading checkpoint shards: 100%|##########| 2/2 [00:30<00:00, 15.29s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 12.81s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.51s/it]
+/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib is not a writable directory
+/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-tu12ilj6 because there was an issue with the default path (/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib created a temporary cache directory at /tmp/matplotlib-8gv77kv7 because there was an issue with the default path (/lustre/scratch/client/movian/research/users/ngannh9/.cache/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/models/basic4.py:513: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):    # disable half precision
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+cp: error writing 'checkpoints_lora_10k/version_4_hainn8_bs16_gpu2_lr_0.0006_train_ca_lora//ar-ckpt-giter007K-ep22-iter136-last.pth': Disk quota exceeded
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 850, in save
+    _save(
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 1114, in _save
+    zip_file.write_record(name, storage, num_bytes)
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=> RuntimeError: [enforce fail at inline_container.cc:778] . PytorchStreamWriter failed writing file data/100: file write failed
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=> 
+During handling of the above exception, another exception occurred:
+
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=> Traceback (most recent call last):
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 708, in <module>
+    main()
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 691, in main
+    main_train(args)
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 451, in main_train
+    stats, (sec, remain_time, finish_time) = train_one_ep(
+                                             ^^^^^^^^^^^^^
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 609, in train_one_ep
+    saver.sav(args=args, g_it=(g_it+1), next_ep=ep, next_it=it+1, trainer=trainer, acc_str=f'[todo]', eval_milestone=None, also_save_to=None, best_save_to=None)
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/utils/save_and_load.py", line 88, in sav
+    torch.save(sd, local_out_ckpt)
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 849, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=>   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 690, in __exit__
+    self.file_like.write_end_of_file()
+[03-23 11:28:06] (/python3.11/traceback.py, line1022)=> RuntimeError: [enforce fail at inline_container.cc:603] . unexpected pos 16828288 vs 16828176
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 850, in save
+[rank0]:     _save(
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 1114, in _save
+[rank0]:     zip_file.write_record(name, storage, num_bytes)
+[rank0]: RuntimeError: [enforce fail at inline_container.cc:778] . PytorchStreamWriter failed writing file data/100: file write failed
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 720, in <module>
+[rank0]:     raise _e
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 708, in <module>
+[rank0]:     main()
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 691, in main
+[rank0]:     main_train(args)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 451, in main_train
+[rank0]:     stats, (sec, remain_time, finish_time) = train_one_ep(
+[rank0]:                                              ^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/train.py", line 609, in train_one_ep
+[rank0]:     saver.sav(args=args, g_it=(g_it+1), next_ep=ep, next_it=it+1, trainer=trainer, acc_str=f'[todo]', eval_milestone=None, also_save_to=None, best_save_to=None)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/infinity/utils/save_and_load.py", line 88, in sav
+[rank0]:     torch.save(sd, local_out_ckpt)
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 849, in save
+[rank0]:     with _open_zipfile_writer(f) as opened_zipfile:
+[rank0]:   File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/serialization.py", line 690, in __exit__
+[rank0]:     self.file_like.write_end_of_file()
+[rank0]: RuntimeError: [enforce fail at inline_container.cc:603] . unexpected pos 16828288 vs 16828176
+W0323 10:28:10.619000 1632141 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1632387 closing signal SIGTERM
+E0323 10:28:11.405000 1632141 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 1632386) of binary: /lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/python
+Traceback (most recent call last):
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/scratch/client/movian/research/users/ngannh9/Infinity/env/flashattn/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-03-23_10:28:10
+  host      : sdc2-hpc-dgx-a100-010
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1632386)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

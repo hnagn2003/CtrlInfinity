@@ -43,7 +43,8 @@ class CKPTSaver(object):
         self.sp_best: subprocess.Popen = None
         self.sp_backup: subprocess.Popen = None
         self.acc_str, self.eval_milestone = '[no acc str]', eval_milestone
-    
+        
+    @torch.no_grad()
     def sav(
         self, args: arg_util.Args, g_it: int, next_ep: int, next_it: int, trainer,
         acc_str: Optional[str] = None, eval_milestone: Optional[List[Tuple[float, float]]] = None,
@@ -81,7 +82,7 @@ class CKPTSaver(object):
             #     'milestones':   self.eval_milestone,
             # }, local_out_ckpt)
             # save adapter only
-            sd =  {k: v for k, v in trainer_state['gpt_fsdp'].items() if "adapter" in k}
+            sd =  {k: v for k, v in trainer_state['gpt_fsdp'].items() if ("adapter" in k or "lora" in k or ".ca.mat" in k)}
             if len(sd) == 0:
                 sd = trainer_state['gpt_fsdp']
             torch.save(sd, local_out_ckpt)

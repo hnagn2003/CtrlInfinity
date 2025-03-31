@@ -14,26 +14,38 @@ done
 SINGLE=0
 ARNOLD_WORKER_NUM=1
 ARNOLD_ID=0
+# export NCCL_DEBUG=INFO
+# export NCCL_IB_DISABLE=0
+# export NCCL_IB_GID_INDEX=3
+# export NCCL_SOCKET_IFNAME=^docker0,lo
 
+# #MYTOY
 # COND_PATH=../RepControlNet/data/canny_laion/infinity_10k/condition_canny
 # IMAGE_PATH=../RepControlNet/data/canny_laion/infinity_10k/images
-COND_PATH=data/infinity_toy_data/condition_canny
-data_path='data/infinity_toy_data/splits'
-BATCH_SIZE=4
+# data_path=../RepControlNet/data/canny_laion/infinity_10k/splits2
+
+#INF10K
+COND_PATH=../RepControlNet/data/Infinity10k/condition_canny
+IMAGE_PATH=../RepControlNet/data/Infinity10k/train
+data_path=../RepControlNet/data/Infinity10k/splits
+
+#TOY
+# COND_PATH=data/infinity_toy_data/condition_canny
+# data_path='data/infinity_toy_data/splits2_mycap'
+BATCH_SIZE=32
 base_pretrained_path=weights/infinity_2b_reg.pth
 adapter_pretrained_path='abc'
 eval_vae_path=weights/vae32reg.pth
 eval_vae_config=weights/vae32reg.json
-LEARNING_RATE=0.006
+LEARNING_RATE=0.0005
 val_log_freq=100
 NUM_GPUS=$(nvidia-smi --query-gpu=index --format=csv,noheader | wc -l)
-NUM_GPUS=1
 if [ -z "$DESIGN_VERSION" ]; then
-  DESIGN_VERSION=0
+  DESIGN_VERSION=4
 else
   DESIGN_VERSION=${DESIGN_VERSION}
 fi
-exp_name=version_${DESIGN_VERSION}_${USER}_bs${BATCH_SIZE}_gpu${NUM_GPUS}_lr_${LEARNING_RATE}
+exp_name=version_${DESIGN_VERSION}_${USER}_bs${BATCH_SIZE}_gpu${NUM_GPUS}_lr_${LEARNING_RATE}_train_ca_mydataset
 
 if [ ! -z "$SINGLE" ] && [ "$SINGLE" != "0" ]; then
   echo "[single node alone] SINGLE=$SINGLE"
@@ -68,8 +80,8 @@ export NCCL_IB_DISABLE=0
 export NCCL_IB_GID_INDEX=3
 
 
-BED=checkpoints_2_reproduce
-LOCAL_OUT=local_output_2_reproduce
+BED=checkpoints
+LOCAL_OUT=local_output
 mkdir -p $BED
 mkdir -p $LOCAL_OUT
 
@@ -134,7 +146,7 @@ train.py \
 --always_training_scales 100 \
 --use_bit_label 1 \
 --zero=2 \
---save_model_iters_freq 300 \
+--save_model_iters_freq 1000 \
 --log_freq=${val_log_freq} \
 --checkpoint_type='torch' \
 --prefetch_factor=16 \
@@ -155,4 +167,5 @@ train.py \
 --auto_resume False \
 --rush_resume ${base_pretrained_path} \
 --fused_norm False \
+--ep 10000 \
 --seed 710

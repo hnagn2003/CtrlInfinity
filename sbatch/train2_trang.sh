@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-#SBATCH --job-name=icml # create a short name for your job
+#SBATCH --job-name=ctrlar # create a short name for your job
 #SBATCH --output=logs/%A.out # create a output file
 #SBATCH --error=logs/%A.err # create a error file
 #SBATCH --partition=movianr # choose partition
